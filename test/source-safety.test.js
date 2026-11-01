@@ -41,3 +41,11 @@ test("index.html は トップ・自己紹介・リンク集・ポートフォ�
   }
   assert.ok(!html.includes('id="contact"'), "連絡先セクションが残っている");
 });
+
+test("index.html の「リンク集」は「活動」に改名されている", () => {
+  const html = read("index.html");
+  assert.ok(!html.includes("リンク集"), "リンク集 が残っている");
+  const nav = html.match(/<nav[\s\S]*?<\/nav>/)[0];
+  assert.ok(nav.includes(">活動<"), "ナビに「活動」がない");
+  assert.ok(html.includes('id="activities-title" class="section-title">活動<'), "見出しが「活動」でない");
+});

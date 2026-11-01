@@ -81,8 +81,15 @@
 
     var rail = document.getElementById("sns-rail");
     profile.links.forEach(function (link) {
-      var railLink = externalLink(link.url, "sns-link", link.icon);
+      var railLink = externalLink(link.url, "sns-link", link.image ? undefined : link.icon);
       railLink.setAttribute("aria-label", link.label);
+      if (link.image) {
+        railLink.classList.add("has-image");
+        var iconImage = el("img");
+        iconImage.src = link.image;
+        iconImage.alt = "";
+        railLink.appendChild(iconImage);
+      }
       rail.appendChild(railLink);
     });
   }

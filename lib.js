@@ -21,6 +21,10 @@
     return typeof value === "string" && value.indexOf("https://") === 0;
   }
 
+  function isRelativePath(value) {
+    return nonEmpty(value) && !/^(\/|[a-z][a-z0-9+.-]*:)/i.test(value) && value.indexOf("\\") === -1;
+  }
+
   function isRealDate(value) {
     if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
     var parsed = new Date(value + "T00:00:00Z");
@@ -71,8 +75,8 @@
     } else {
       if (!nonEmpty(profile.name)) errors.push("profile.name: required");
       if (!nonEmpty(profile.tagline)) errors.push("profile.tagline: required");
-      if (!(profile.avatar === null || nonEmpty(profile.avatar))) {
-        errors.push("profile.avatar: must be null or a path");
+      if (!(profile.avatar === null || isRelativePath(profile.avatar))) {
+        errors.push("profile.avatar: must be null or a relative path");
       }
       if (!Array.isArray(profile.intro) || profile.intro.length === 0 || !profile.intro.every(nonEmpty)) {
         errors.push("profile.intro: need a non-empty array of strings");
@@ -85,6 +89,9 @@
           if (!link || !nonEmpty(link.label)) errors.push(at + ".label: required");
           if (!link || !isHttps(link.url)) errors.push(at + ".url: must start with https://");
           if (!link || !nonEmpty(link.icon)) errors.push(at + ".icon: required");
+          if (link && link.image !== undefined && !(link.image === null || isRelativePath(link.image))) {
+            errors.push(at + ".image: must be null or a relative path");
+          }
         });
       }
       if (!Array.isArray(profile.activities)) {
@@ -121,7 +128,7 @@
         if (!(item.url === null || isHttps(item.url))) {
           errors.push(at + ".url: must be null or start with https://");
         }
-        if (!(item.thumb === null || (nonEmpty(item.thumb) && !/^(\/|[a-z][a-z0-9+.-]*:)/i.test(item.thumb)))) {
+        if (!(item.thumb === null || isRelativePath(item.thumb))) {
           errors.push(at + ".thumb: must be null or a relative path");
         }
       });

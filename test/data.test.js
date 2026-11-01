@@ -48,3 +48,23 @@ test("data.js のプロフィールに Note と Instagram のリンクがある"
   assert.ok(links.some((l) => l.url === "https://note.com/gmk_in_uk"));
   assert.ok(links.some((l) => l.url === "https://www.instagram.com/gmy_k_in_uk/"));
 });
+
+test("data.js が参照する画像（avatar・リンクのimage・thumb）はすべて実在する", () => {
+  const d = loadData();
+  const files = [d.profile.avatar, ...d.profile.links.map((l) => l.image), ...d.items.map((i) => i.thumb)].filter(Boolean);
+  for (const f of files) assert.ok(fs.existsSync(path.resolve(__dirname, "..", f)), `${f} が存在しない`);
+});
+
+test("アイコン・SNSアイコン・Note記事の画像が設定されている", () => {
+  const d = loadData();
+  assert.ok(d.profile.avatar, "avatar が未設定");
+  for (const link of d.profile.links) assert.ok(link.image, `${link.label} の image が未設定`);
+  for (const item of d.items.filter((i) => i.kind === "Note")) assert.ok(item.thumb, `${item.title} の thumb が未設定`);
+});
+
+test("京都ガイドのカードは、地名・年・団体名を出さずにぼかした表現にする", () => {
+  const guide = loadData().items.find((i) => i.kind === "Guide");
+  assert.ok(guide, "Guide の項目がない");
+  const text = guide.title + guide.summary;
+  for (const word of ["京都", "2026", "Meicom", "試験公開"]) assert.ok(!text.includes(word), `「${word}」が含まれている`);
+});

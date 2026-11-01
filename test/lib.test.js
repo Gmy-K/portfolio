@@ -149,3 +149,25 @@ test("collectUrls: 活動リストのURLも集める（重複なし・null は�
   });
   assert.deepEqual(lib.collectUrls(d), ["https://note.com/x", "https://example.com/act"]);
 });
+
+test("validateData: リンクの image は null・未指定・相対パスのみ", () => {
+  const withLink = (link) =>
+    data({ profile: { ...data().profile, links: [{ label: "Note", url: "https://note.com/x", icon: "N", ...link }] } });
+  assert.deepEqual(lib.validateData(withLink({ image: "assets/icons/note.png" })), []);
+  assert.deepEqual(lib.validateData(withLink({ image: null })), []);
+  assert.deepEqual(lib.validateData(withLink({})), []);
+  for (const bad of ["/assets/x.png", "https://example.com/x.png", "\\\\host/x.png", ""]) {
+    const errors = lib.validateData(withLink({ image: bad }));
+    assert.ok(errors.some((e) => e.startsWith("profile.links[0].image")), `${JSON.stringify(bad)} を弾けていない`);
+  }
+});
+
+test("validateData: avatar と thumb は相対パスのみ（外部URL・絶対パス・バックスラッシュを弾く）", () => {
+  assert.deepEqual(lib.validateData(data({ profile: { ...data().profile, avatar: "assets/avatar.jpg" } })), []);
+  for (const bad of ["/a.jpg", "https://example.com/a.jpg", "\\\\host/a.jpg", "javascript:alert(1)"]) {
+    const e1 = lib.validateData(data({ profile: { ...data().profile, avatar: bad } }));
+    assert.ok(e1.some((e) => e.startsWith("profile.avatar")), `avatar ${JSON.stringify(bad)} を弾けていない`);
+    const e2 = lib.validateData(data({ items: [item({ thumb: bad })] }));
+    assert.ok(e2.some((e) => e.startsWith("items[0].thumb")), `thumb ${JSON.stringify(bad)} を弾けていない`);
+  }
+});
