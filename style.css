@@ -91,14 +91,16 @@ a {
 }
 
 .hero {
+  position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   min-height: 100vh;
   min-height: 100svh;
   color: #ffffff;
   background-color: #8fb7ee;
   background-image:
-    linear-gradient(to top, rgba(8, 18, 40, 0.78), rgba(8, 18, 40, 0) 60%),
+    linear-gradient(to right, rgba(8, 18, 40, 0.72), rgba(8, 18, 40, 0.3) 85%),
+    linear-gradient(to top, rgba(8, 18, 40, 0.4), rgba(8, 18, 40, 0) 38%),
     url("assets/hero.jpg");
   background-position: center;
   background-size: cover;
@@ -106,13 +108,8 @@ a {
 }
 
 .hero-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 20px;
   width: 100%;
-  padding: 24px 20px 28px;
+  padding: 72px 24px;
 }
 
 .page {
@@ -130,38 +127,45 @@ a {
 
 .profile {
   display: flex;
-  flex: 1 1 100%;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
   min-width: 0;
 }
 
-.hero .sns-rail {
-  margin-left: auto;
+.profile .avatar {
+  order: 0;
 }
 
-@media (min-width: 720px) {
-  .hero-inner {
-    flex-wrap: nowrap;
-  }
+.profile h1 {
+  order: 1;
+}
 
-  .profile {
-    flex: 1 1 0;
-  }
+.profile .tagline {
+  order: 2;
+}
+
+.profile .button {
+  order: 3;
+}
+
+.hero .sns-rail {
+  position: absolute;
+  right: 20px;
+  bottom: 24px;
 }
 
 .avatar {
   display: grid;
   place-items: center;
-  width: 72px;
-  height: 72px;
+  width: clamp(88px, 12vw, 128px);
+  height: clamp(88px, 12vw, 128px);
   border: 3px solid #ffffff;
   border-radius: 50%;
   background: var(--card);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
   color: var(--eyebrow);
-  font-size: 28px;
+  font-size: clamp(32px, 5vw, 48px);
   font-weight: 900;
   overflow: hidden;
 }
@@ -174,22 +178,23 @@ a {
 
 h1 {
   margin: 0;
-  font-size: clamp(32px, 6vw, 52px);
+  font-size: clamp(48px, 10vw, 96px);
   font-weight: 900;
   line-height: 1.2;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 
 .tagline {
-  flex-basis: 100%;
-  margin: 4px 0 0;
+  margin: 0;
+  max-width: 28em;
+  font-size: clamp(16px, 2.2vw, 22px);
   color: rgba(255, 255, 255, 0.94);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .button {
   display: inline-block;
-  padding: 8px 18px;
+  padding: 10px 24px;
   border-radius: 10px;
   background: var(--accent);
   color: var(--accent-text);
@@ -533,15 +538,9 @@ a.card-inner:hover h3 {
     backdrop-filter: blur(10px);
   }
 
-  .hero {
-    position: relative;
-  }
-
   .hero .sns-rail {
-    position: absolute;
     right: 32px;
     bottom: 32px;
-    margin: 0;
   }
 
   .hero-inner {
