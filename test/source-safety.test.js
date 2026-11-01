@@ -25,3 +25,19 @@ test("index.html は外部リソースを Google Fonts 以外から読み込ま�
   const allowed = new Set(["https://fonts.googleapis.com", "https://fonts.gstatic.com"]);
   for (const host of hosts) assert.ok(allowed.has(host), `許可されていない外部ホスト: ${host}`);
 });
+
+test("index.html のナビのリンク先は、すべてページ内に存在するIDを指す", () => {
+  const html = read("index.html");
+  const nav = html.match(/<nav[\s\S]*?<\/nav>/)[0];
+  const targets = [...nav.matchAll(/href="#([^"]+)"/g)].map((m) => m[1]);
+  assert.ok(targets.length >= 4, "ナビのリンクが少なすぎる");
+  for (const id of targets) assert.ok(html.includes(`id="${id}"`), `#${id} がページにない`);
+});
+
+test("index.html は トップ・自己紹介・リンク集・ポートフォリオ の4つで、連絡先セクションはない", () => {
+  const html = read("index.html");
+  for (const id of ["top", "about", "activities", "works"]) {
+    assert.ok(html.includes(`id="${id}"`), `id="${id}" がない`);
+  }
+  assert.ok(!html.includes('id="contact"'), "連絡先セクションが残っている");
+});

@@ -4,6 +4,9 @@
   var data = window.PORTFOLIO;
   var lib = window.PortfolioLib;
   var grid = document.getElementById("grid");
+  var cover = document.getElementById("cover");
+  var latestLabel = document.getElementById("latest-label");
+  var moreLabel = document.getElementById("more-label");
   var empty = document.getElementById("empty");
 
   var errors = lib.validateData(data);
@@ -29,6 +32,27 @@
     return anchor;
   }
 
+  function renderActivity(activity) {
+    var li = el("li", "activity");
+    var inner = lib.isLinkable(activity)
+      ? externalLink(activity.url, "activity-inner")
+      : el("div", "activity-inner");
+
+    var text = el("div", "activity-text");
+    text.appendChild(el("strong", "", activity.name));
+    text.appendChild(el("span", "", activity.summary));
+    inner.appendChild(text);
+
+    if (lib.isLinkable(activity)) {
+      var mark = el("span", "activity-mark", "↗");
+      mark.setAttribute("aria-hidden", "true");
+      inner.appendChild(mark);
+    }
+
+    li.appendChild(inner);
+    return li;
+  }
+
   function renderProfile() {
     var profile = data.profile;
     document.title = profile.name + " | ポートフォリオ";
@@ -50,21 +74,21 @@
       intro.appendChild(el("p", "", text));
     });
 
+    var activityList = document.getElementById("activity-list");
+    profile.activities.forEach(function (activity) {
+      activityList.appendChild(renderActivity(activity));
+    });
+
     var rail = document.getElementById("sns-rail");
-    var contact = document.getElementById("contact-links");
     profile.links.forEach(function (link) {
       var railLink = externalLink(link.url, "sns-link", link.icon);
       railLink.setAttribute("aria-label", link.label);
       rail.appendChild(railLink);
-
-      var item = el("li");
-      item.appendChild(externalLink(link.url, "pill", link.label + " ›"));
-      contact.appendChild(item);
     });
   }
 
-  function renderCard(item) {
-    var card = el("li", "card");
+  function renderCard(item, isCover) {
+    var card = el(isCover ? "div" : "li", isCover ? "card cover" : "card");
     var inner = lib.isLinkable(item) ? externalLink(item.url, "card-inner") : el("div", "card-inner");
 
     var thumb = el("div", "thumb");
@@ -94,10 +118,14 @@
       button.setAttribute("aria-pressed", String(button.getAttribute("data-tab") === tab));
     });
     var items = lib.filterItems(lib.sortItems(data.items), tab);
+    cover.textContent = "";
     grid.textContent = "";
-    items.forEach(function (item) {
-      grid.appendChild(renderCard(item));
+    if (items.length > 0) cover.appendChild(renderCard(items[0], true));
+    items.slice(1).forEach(function (item) {
+      grid.appendChild(renderCard(item, false));
     });
+    latestLabel.hidden = items.length === 0;
+    moreLabel.hidden = items.length < 2;
     empty.hidden = items.length > 0;
   }
 
@@ -138,8 +166,6 @@
 
   Array.prototype.forEach.call(nav.querySelectorAll("a"), function (anchor) {
     anchor.addEventListener("click", function () {
-      var tab = anchor.getAttribute("data-tab");
-      if (tab) setTab(tab);
       setMenu(false);
     });
   });

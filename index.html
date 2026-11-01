@@ -22,44 +22,48 @@
   <nav id="site-nav" class="site-nav" aria-label="サイト内ナビゲーション">
     <ul>
       <li><a href="#top">トップ</a></li>
-      <li><a href="#works" data-tab="post">発信</a></li>
-      <li><a href="#works" data-tab="dev">開発</a></li>
       <li><a href="#about">自己紹介</a></li>
-      <li><a href="#contact">連絡先</a></li>
+      <li><a href="#activities">リンク集</a></li>
+      <li><a href="#works">ポートフォリオ</a></li>
     </ul>
   </nav>
 
   <aside id="sns-rail" class="sns-rail" aria-label="SNS"></aside>
 
   <main id="main">
-    <div class="sheet">
+    <div class="page">
       <header id="top" class="profile">
         <div id="avatar" class="avatar" aria-hidden="true"></div>
         <h1 id="name"></h1>
-        <a class="pill" href="#contact">連絡先 <span aria-hidden="true">›</span></a>
+        <a class="button" href="#activities">リンク集へ</a>
         <p id="tagline" class="tagline"></p>
       </header>
 
+      <section id="about" aria-labelledby="about-title">
+        <p class="eyebrow" aria-hidden="true">ABOUT</p>
+        <h2 id="about-title" class="section-title">自己紹介</h2>
+        <div id="intro"></div>
+      </section>
+
+      <section id="activities" aria-labelledby="activities-title">
+        <p class="eyebrow" aria-hidden="true">ACTIVITIES</p>
+        <h2 id="activities-title" class="section-title">リンク集</h2>
+        <ul id="activity-list" class="activity-list"></ul>
+      </section>
+
       <section id="works" aria-labelledby="works-title">
-        <h2 id="works-title" class="label">発信と作ったもの</h2>
+        <p class="eyebrow" aria-hidden="true">WORKS</p>
+        <h2 id="works-title" class="section-title">ポートフォリオ</h2>
         <div class="tabs" role="group" aria-label="カテゴリで絞り込み">
           <button type="button" class="tab" data-tab="all" aria-pressed="true">すべて</button>
           <button type="button" class="tab" data-tab="post" aria-pressed="false">発信</button>
           <button type="button" class="tab" data-tab="dev" aria-pressed="false">開発</button>
         </div>
+        <p id="latest-label" class="eyebrow" aria-hidden="true" hidden>LATEST</p>
+        <div id="cover"></div>
+        <p id="more-label" class="eyebrow" aria-hidden="true" hidden>MORE</p>
         <ul id="grid" class="grid"></ul>
         <p id="empty" class="empty" hidden>まだ項目がありません。</p>
-      </section>
-
-      <section id="about" aria-labelledby="about-title">
-        <h2 id="about-title" class="label">自己紹介</h2>
-        <div id="intro"></div>
-      </section>
-
-      <section id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title" class="label">連絡先</h2>
-        <p>連絡はSNS経由でお願いします。</p>
-        <ul id="contact-links" class="contact-links"></ul>
       </section>
 
       <footer class="footer"><small>© ぐみゅけ</small></footer>
