@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ぐみゅけ | ポートフォリオ</title>
+  <meta name="description" content="明治大学商学部からカーディフ大学に交換留学中の、ぐみゅけの発信と作ったものをまとめたページです。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ぐみゅけ | ポートフォリオ">
+  <meta property="og:description" content="明治大学商学部からカーディフ大学に交換留学中の、ぐみゅけの発信と作ったものをまとめたページです。">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">メニュー</button>
+
+  <nav id="site-nav" class="site-nav" aria-label="サイト内ナビゲーション">
+    <ul>
+      <li><a href="#top">トップ</a></li>
+      <li><a href="#works" data-tab="post">発信</a></li>
+      <li><a href="#works" data-tab="dev">開発</a></li>
+      <li><a href="#about">自己紹介</a></li>
+      <li><a href="#contact">連絡先</a></li>
+    </ul>
+  </nav>
+
+  <aside id="sns-rail" class="sns-rail" aria-label="SNS"></aside>
+
+  <main id="main">
+    <div class="sheet">
+      <header id="top" class="profile">
+        <div id="avatar" class="avatar" aria-hidden="true"></div>
+        <h1 id="name"></h1>
+        <a class="pill" href="#contact">連絡先 <span aria-hidden="true">›</span></a>
+        <p id="tagline" class="tagline"></p>
+      </header>
+
+      <section id="works" aria-labelledby="works-title">
+        <h2 id="works-title" class="label">発信と作ったもの</h2>
+        <div class="tabs" role="group" aria-label="カテゴリで絞り込み">
+          <button type="button" class="tab" data-tab="all" aria-pressed="true">すべて</button>
+          <button type="button" class="tab" data-tab="post" aria-pressed="false">発信</button>
+          <button type="button" class="tab" data-tab="dev" aria-pressed="false">開発</button>
+        </div>
+        <ul id="grid" class="grid"></ul>
+        <p id="empty" class="empty" hidden>まだ項目がありません。</p>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="label">自己紹介</h2>
+        <div id="intro"></div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="label">連絡先</h2>
+        <p>連絡はSNS経由でお願いします。</p>
+        <ul id="contact-links" class="contact-links"></ul>
+      </section>
+
+      <footer class="footer"><small>© ぐみゅけ</small></footer>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="lib.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

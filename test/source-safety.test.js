@@ -1,0 +1,27 @@
+const test = require("node:test");
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+
+const read = (name) => fs.readFileSync(path.resolve(__dirname, "..", name), "utf8");
+
+test("script.js は文字列をHTMLとして解釈するAPIを使わない", () => {
+  const source = read("script.js");
+  for (const banned of ["innerHTML", "outerHTML", "insertAdjacentHTML", "document.write", "eval("]) {
+    assert.ok(!source.includes(banned), `script.js に ${banned} が含まれている`);
+  }
+});
+
+test("index.html は data.js → lib.js → script.js の順で読み込む", () => {
+  const html = read("index.html");
+  const order = ["data.js", "lib.js", "script.js"].map((name) => html.indexOf(`<script src="${name}"></script>`));
+  assert.ok(order.every((i) => i >= 0), "3つのscriptタグが揃っていない");
+  assert.ok(order[0] < order[1] && order[1] < order[2], "読み込み順が違う");
+});
+
+test("index.html は外部リソースを Google Fonts 以外から読み込まない", () => {
+  const html = read("index.html");
+  const hosts = [...html.matchAll(/(?:src|href)="(https?:\/\/[^"/]+)/g)].map((m) => m[1]);
+  const allowed = new Set(["https://fonts.googleapis.com", "https://fonts.gstatic.com"]);
+  for (const host of hosts) assert.ok(allowed.has(host), `許可されていない外部ホスト: ${host}`);
+});
