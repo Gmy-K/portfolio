@@ -79,6 +79,14 @@
       activityList.appendChild(renderActivity(activity));
     });
 
+    document.getElementById("footer-name").textContent = profile.name + " | ポートフォリオ";
+    var footerLinks = document.getElementById("footer-links");
+    profile.links.forEach(function (link) {
+      var footerItem = el("li");
+      footerItem.appendChild(externalLink(link.url, "", link.label));
+      footerLinks.appendChild(footerItem);
+    });
+
     var rail = document.getElementById("sns-rail");
     profile.links.forEach(function (link) {
       var railLink = externalLink(link.url, "sns-link", link.image ? undefined : link.icon);
@@ -146,12 +154,14 @@
   var toggle = document.querySelector(".menu-toggle");
   var mainArea = document.getElementById("main");
   var heroArea = document.getElementById("top");
+  var footerArea = document.querySelector(".footer");
 
   function setMenu(open) {
     nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", String(open));
     mainArea.inert = open;
     heroArea.inert = open;
+    footerArea.inert = open;
   }
 
   toggle.addEventListener("click", function () {

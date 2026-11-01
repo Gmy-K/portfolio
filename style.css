@@ -415,10 +415,57 @@ a.card-inner:hover h3 {
 }
 
 .footer {
-  margin-top: 48px;
-  padding-bottom: 8px;
+  margin-top: 64px;
+  padding: 40px 20px 28px;
+  border-top: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+}
+
+.footer-inner {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.footer-name {
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.footer-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 64px;
+}
+
+.footer-title {
+  margin: 0 0 8px;
+  color: var(--eyebrow);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.footer-col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-col a {
+  display: inline-block;
+  padding: 3px 0;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: var(--eyebrow);
+  text-decoration: underline;
+}
+
+.copyright {
+  margin: 28px 0 0;
   color: var(--muted);
-  text-align: center;
 }
 
 .sns-rail {

@@ -70,3 +70,22 @@ test("メニュー表示中は、ヒーローも inert にして背面へフォ�
   const source = read("script.js");
   assert.ok(/heroArea\.inert\s*=\s*open/.test(source), "heroArea.inert = open がない");
 });
+
+test("フッターに、ページ名・ページマップ・リンク・著作権表示がある", () => {
+  const html = read("index.html");
+  const footer = html.match(/<footer class="footer"[\s\S]*?<\/footer>/);
+  assert.ok(footer, "フッターがない");
+  const f = footer[0];
+  assert.ok(f.includes("ぐみゅけ | ポートフォリオ"), "ページ名がない");
+  const sitemap = f.match(/<nav[^>]*aria-label="ページマップ"[\s\S]*?<\/nav>/);
+  assert.ok(sitemap, "ページマップ（nav）がない");
+  for (const id of ["top", "about", "activities", "works"]) {
+    assert.ok(sitemap[0].includes(`href="#${id}"`), `ページマップに #${id} がない`);
+  }
+  assert.ok(f.includes('id="footer-links"'), "リンク一覧（#footer-links）がない");
+  assert.ok(f.includes("© 2026 Gmy_K"), "著作権表示「© 2026 Gmy_K」がない");
+});
+
+test("メニュー表示中は、フッターも inert にする", () => {
+  assert.ok(/footerArea\.inert\s*=\s*open/.test(read("script.js")), "footerArea.inert = open がない");
+});

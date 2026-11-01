@@ -31,10 +31,17 @@ test("活動リストに Note・Vlog・開発・Meicom があり、Meicom はリ
   assert.equal(meicom.url, null);
 });
 
-test("data.js は GitHub の他リポジトリ（実名が辿れるアカウント）へリンクしない", () => {
+test("data.js が GitHub へ張るリンクは、プロフィールとこのリポジトリだけ（古い公開リポジトリへ直接リンクしない）", () => {
   const urls = lib.collectUrls(loadData());
   const github = urls.filter((u) => new URL(u).hostname === "github.com");
-  assert.deepEqual(github.filter((u) => !u.startsWith("https://github.com/Gmy-K/portfolio")), []);
+  const allowed = (u) => u === "https://github.com/Gmy-K" || u.startsWith("https://github.com/Gmy-K/portfolio");
+  assert.deepEqual(github.filter((u) => !allowed(u)), []);
+});
+
+test("プロフィールのリンクに GitHub（アイコン画像つき）がある", () => {
+  const github = loadData().profile.links.find((l) => l.url === "https://github.com/Gmy-K");
+  assert.ok(github, "GitHub のリンクがない");
+  assert.ok(github.image, "GitHub の image が未設定");
 });
 
 test("data.js に Note #1 と #2 の記事が載っている", () => {

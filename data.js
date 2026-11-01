@@ -10,7 +10,8 @@ window.PORTFOLIO = {
     ],
     links: [
       { label: "Note", url: "https://note.com/gmk_in_uk", icon: "N", image: "assets/icons/note.png" },
-      { label: "Instagram", url: "https://www.instagram.com/gmy_k_in_uk/", icon: "IG", image: "assets/icons/instagram.webp" }
+      { label: "Instagram", url: "https://www.instagram.com/gmy_k_in_uk/", icon: "IG", image: "assets/icons/instagram.webp" },
+      { label: "GitHub", url: "https://github.com/Gmy-K", icon: "GH", image: "assets/icons/github.svg" }
     ],
     activities: [
       {
