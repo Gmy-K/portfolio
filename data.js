@@ -30,7 +30,7 @@ window.PORTFOLIO = {
       },
       {
         name: "明治大学教養英語会 Meicom",
-        summary: "所属しているサークルです。",
+        summary: "英語を使った活動（ガイドなど）に取り組んでいるサークルに所属しています。",
         url: null
       }
     ]
@@ -61,7 +61,7 @@ window.PORTFOLIO = {
       summary: "セリフ・キャラ・トーンから、話速・音高・抑揚などの調声パラメータを提案するClaude Codeスキル。",
       date: "2026-08-09",
       url: null,
-      thumb: null
+      thumb: "assets/thumbs/skill.svg"
     },
     {
       category: "dev",
@@ -70,7 +70,7 @@ window.PORTFOLIO = {
       summary: "団体のガイド活動で使う資料を、まとめて見られるようにしたサイトです。",
       date: "2026-09-01",
       url: null,
-      thumb: null
+      thumb: "assets/thumbs/guide.svg"
     }
   ]
 };

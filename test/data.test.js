@@ -68,3 +68,13 @@ test("京都ガイドのカードは、地名・年・団体名を出さずに�
   const text = guide.title + guide.summary;
   for (const word of ["京都", "2026", "Meicom", "試験公開"]) assert.ok(!text.includes(word), `「${word}」が含まれている`);
 });
+
+test("すべての項目にサムネイルがある（記事は見出し画像、開発物は簡易アイコン）", () => {
+  for (const item of loadData().items) assert.ok(item.thumb, `${item.title} の thumb が未設定`);
+});
+
+test("Meicom の説明は、何をしているサークルかをおおまかに書く", () => {
+  const meicom = loadData().profile.activities.find((a) => a.name.includes("Meicom"));
+  assert.ok(meicom.summary.includes("英語"), "英語を使った活動であることが書かれていない");
+  assert.ok(meicom.summary.length >= 15, "説明が短すぎる");
+});

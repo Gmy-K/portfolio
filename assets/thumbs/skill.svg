@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 670" role="img" aria-label="音声の波形">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bfe0f5"/>
+      <stop offset="1" stop-color="#8fb7ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="670" fill="url(#bg)"/>
+  <g transform="translate(640 335) scale(0.76) translate(-640 -335)">
+  <circle cx="640" cy="335" r="210" fill="#ffffff" fill-opacity="0.85"/>
+  <g fill="#2b5fd9">
+    <rect x="450" y="300" width="36" height="70" rx="18"/>
+    <rect x="516" y="250" width="36" height="170" rx="18"/>
+    <rect x="582" y="200" width="36" height="270" rx="18"/>
+    <rect x="648" y="240" width="36" height="190" rx="18"/>
+    <rect x="714" y="170" width="36" height="330" rx="18"/>
+    <rect x="780" y="260" width="36" height="150" rx="18"/>
+  </g>
+  </g>
+</svg>

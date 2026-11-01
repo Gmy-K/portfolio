@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 670" role="img" aria-label="地図とピン">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c9ebf0"/>
+      <stop offset="1" stop-color="#8fcfe3"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="670" fill="url(#bg)"/>
+  <g transform="translate(640 335) scale(0.76) translate(-640 -335)">
+  <circle cx="640" cy="335" r="210" fill="#ffffff" fill-opacity="0.85"/>
+  <path d="M470 430 L560 390 L660 430 L760 390 L810 410 L810 270 L760 250 L660 290 L560 250 L470 290 Z" fill="#cfe6f5" stroke="#2b5fd9" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M560 250 L560 390 M660 290 L660 430 M760 250 L760 390" stroke="#2b5fd9" stroke-width="8" fill="none"/>
+  <path d="M640 160 C592 160 556 196 556 242 C556 300 640 372 640 372 C640 372 724 300 724 242 C724 196 688 160 640 160 Z" fill="#2b5fd9"/>
+  <circle cx="640" cy="240" r="30" fill="#ffffff"/>
+  </g>
+</svg>
