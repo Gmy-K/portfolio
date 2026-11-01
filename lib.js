@@ -53,6 +53,9 @@
     data.profile.links.forEach(function (link) {
       add(link.url);
     });
+    data.profile.activities.forEach(function (activity) {
+      add(activity.url);
+    });
     data.items.forEach(function (item) {
       add(item.url);
     });
@@ -82,6 +85,18 @@
           if (!link || !nonEmpty(link.label)) errors.push(at + ".label: required");
           if (!link || !isHttps(link.url)) errors.push(at + ".url: must start with https://");
           if (!link || !nonEmpty(link.icon)) errors.push(at + ".icon: required");
+        });
+      }
+      if (!Array.isArray(profile.activities)) {
+        errors.push("profile.activities: must be an array");
+      } else {
+        profile.activities.forEach(function (activity, i) {
+          var at = "profile.activities[" + i + "]";
+          if (!activity || !nonEmpty(activity.name)) errors.push(at + ".name: required");
+          if (!activity || !nonEmpty(activity.summary)) errors.push(at + ".summary: required");
+          if (!activity || !(activity.url === null || isHttps(activity.url))) {
+            errors.push(at + ".url: must be null or start with https://");
+          }
         });
       }
     }

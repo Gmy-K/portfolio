@@ -20,9 +20,15 @@ test("data.js のプロフィール名は「ぐみゅけ」", () => {
   assert.equal(loadData().profile.name, "ぐみゅけ");
 });
 
-test("data.js にサークル名（Meicom）を含めない", () => {
-  const source = fs.readFileSync(path.resolve(__dirname, "../data.js"), "utf8");
-  assert.ok(!/meicom/i.test(source));
+test("活動リストに Note・Vlog・開発・Meicom があり、Meicom はリンクなし", () => {
+  const activities = loadData().profile.activities;
+  const names = activities.map((a) => a.name);
+  assert.ok(names.some((n) => n.includes("Note")));
+  assert.ok(names.some((n) => n.includes("Vlog")));
+  assert.ok(names.some((n) => n.includes("開発")));
+  const meicom = activities.find((a) => a.name.includes("Meicom"));
+  assert.ok(meicom, "Meicom の項目がない");
+  assert.equal(meicom.url, null);
 });
 
 test("data.js は GitHub の他リポジトリ（実名が辿れるアカウント）へリンクしない", () => {

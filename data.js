@@ -11,6 +11,28 @@ window.PORTFOLIO = {
     links: [
       { label: "Note", url: "https://note.com/gmk_in_uk", icon: "N" },
       { label: "Instagram", url: "https://www.instagram.com/gmy_k_in_uk/", icon: "IG" }
+    ],
+    activities: [
+      {
+        name: "Note",
+        summary: "留学の手続きや現地の様子を、等身大のまま書いています。",
+        url: "https://note.com/gmk_in_uk"
+      },
+      {
+        name: "Vlog（Instagram）",
+        summary: "留学の様子を、Instagramで動画にまとめています。",
+        url: "https://www.instagram.com/gmy_k_in_uk/"
+      },
+      {
+        name: "開発（身の回りツール）",
+        summary: "日々の困りごとを減らす、身の回りの小さなツールを作っています。",
+        url: null
+      },
+      {
+        name: "明治大学教養英語会 Meicom",
+        summary: "所属しているサークルです。",
+        url: null
+      }
     ]
   },
   items: [

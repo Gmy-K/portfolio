@@ -20,6 +20,7 @@ const data = (over = {}) => ({
     avatar: null,
     intro: ["自己紹介"],
     links: [{ label: "Note", url: "https://note.com/x", icon: "N" }],
+    activities: [{ name: "Note", summary: "記録", url: "https://note.com/x" }],
   },
   items: [item()],
   ...over,
@@ -113,4 +114,38 @@ test("validateData: プロフィールの欠落と items が配列でない場�
     data({ profile: { ...data().profile, intro: [] } })
   );
   assert.ok(e3.some((e) => e.startsWith("profile.intro")));
+});
+
+test("validateData: 活動リスト（profile.activities）が配列でなければエラー", () => {
+  const profile = { ...data().profile };
+  delete profile.activities;
+  const errors = lib.validateData(data({ profile }));
+  assert.ok(errors.some((e) => e.startsWith("profile.activities")));
+});
+
+test("validateData: 活動の名前・一言が空、URLが https でなければエラー（url は null 可）", () => {
+  const withActivities = (activities) => data({ profile: { ...data().profile, activities } });
+  assert.deepEqual(lib.validateData(withActivities([{ name: "Meicom", summary: "所属", url: null }])), []);
+  assert.deepEqual(lib.validateData(withActivities([])), []);
+  const e1 = lib.validateData(withActivities([{ name: "", summary: "s", url: null }]));
+  assert.ok(e1.some((e) => e.startsWith("profile.activities[0].name")));
+  const e2 = lib.validateData(withActivities([{ name: "n", summary: "", url: null }]));
+  assert.ok(e2.some((e) => e.startsWith("profile.activities[0].summary")));
+  const e3 = lib.validateData(withActivities([{ name: "n", summary: "s", url: "javascript:alert(1)" }]));
+  assert.ok(e3.some((e) => e.startsWith("profile.activities[0].url")));
+});
+
+test("collectUrls: 活動リストのURLも集める（重複なし・null は除く）", () => {
+  const d = data({
+    profile: {
+      ...data().profile,
+      activities: [
+        { name: "a", summary: "s", url: "https://example.com/act" },
+        { name: "b", summary: "s", url: "https://note.com/x" },
+        { name: "c", summary: "s", url: null },
+      ],
+    },
+    items: [],
+  });
+  assert.deepEqual(lib.collectUrls(d), ["https://note.com/x", "https://example.com/act"]);
 });
