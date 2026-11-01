@@ -1,0 +1,9 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check:privacy": "bash scripts/check-privacy.sh",
+    "check:links": "node scripts/check-links.mjs"
+  }
+}
