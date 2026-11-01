@@ -9,7 +9,8 @@ window.PORTFOLIO = {
       "ほかに、日々の困りごとを減らすための小さなツール作りもしています。"
     ],
     links: [
-      { label: "Note", url: "https://note.com/gmk_in_uk", icon: "N" }
+      { label: "Note", url: "https://note.com/gmk_in_uk", icon: "N" },
+      { label: "Instagram", url: "https://www.instagram.com/gmy_k_in_uk/", icon: "IG" }
     ]
   },
   items: [

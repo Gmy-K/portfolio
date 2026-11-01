@@ -36,3 +36,9 @@ test("data.js に Note #1 と #2 の記事が載っている", () => {
   assert.ok(urls.includes("https://note.com/gmk_in_uk/n/n78f4d130b313"));
   assert.ok(urls.includes("https://note.com/gmk_in_uk/n/nc9eab7a3b4ba"));
 });
+
+test("data.js のプロフィールに Note と Instagram のリンクがある", () => {
+  const links = loadData().profile.links;
+  assert.ok(links.some((l) => l.url === "https://note.com/gmk_in_uk"));
+  assert.ok(links.some((l) => l.url === "https://www.instagram.com/gmy_k_in_uk/"));
+});
