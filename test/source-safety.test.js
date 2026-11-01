@@ -49,3 +49,24 @@ test("index.html の「リンク集」は「活動」に改名されている", 
   assert.ok(nav.includes(">活動<"), "ナビに「活動」がない");
   assert.ok(html.includes('id="activities-title" class="section-title">活動<'), "見出しが「活動」でない");
 });
+
+test("ヒーロー（#top）は全画面の高さで、SNSアイコンの入れ物（#sns-rail）を内部にもつ", () => {
+  const html = read("index.html");
+  const hero = html.match(/<header id="top" class="hero"[\s\S]*?<\/header>/);
+  assert.ok(hero, '<header id="top" class="hero"> がない');
+  assert.ok(hero[0].includes('id="sns-rail"'), "ヒーロー内に #sns-rail がない");
+  assert.equal(html.split('id="sns-rail"').length - 1, 1, "#sns-rail が複数ある");
+  assert.ok(read("style.css").includes("100svh"), "ヒーローの高さ（100svh）の指定がない");
+});
+
+test("style.css が参照する画像ファイルはすべて実在する", () => {
+  const css = read("style.css");
+  const refs = [...css.matchAll(/url\(["']?([^)"']+)["']?\)/g)].map((m) => m[1]).filter((u) => !u.startsWith("data:"));
+  assert.ok(refs.some((u) => u.endsWith("assets/hero.jpg")), "ヒーロー背景（assets/hero.jpg）を参照していない");
+  for (const u of refs) assert.ok(fs.existsSync(path.resolve(__dirname, "..", u)), `${u} が存在しない`);
+});
+
+test("メニュー表示中は、ヒーローも inert にして背面へフォーカスを逃がさない", () => {
+  const source = read("script.js");
+  assert.ok(/heroArea\.inert\s*=\s*open/.test(source), "heroArea.inert = open がない");
+});

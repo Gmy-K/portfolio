@@ -145,13 +145,13 @@
   var nav = document.getElementById("site-nav");
   var toggle = document.querySelector(".menu-toggle");
   var mainArea = document.getElementById("main");
-  var snsRail = document.getElementById("sns-rail");
+  var heroArea = document.getElementById("top");
 
   function setMenu(open) {
     nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", String(open));
     mainArea.inert = open;
-    snsRail.inert = open;
+    heroArea.inert = open;
   }
 
   toggle.addEventListener("click", function () {
