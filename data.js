@@ -34,10 +34,10 @@ window.PORTFOLIO = {
     {
       category: "dev",
       kind: "Guide",
-      title: "Meicom 京都ガイド2026 ガイドマテリアル",
+      title: "京都ガイドマテリアル2026",
       summary: "サークルのガイド活動用に作った、京都ガイドの資料サイト（試験公開）。",
       date: "2026-09-01",
-      url: "https://github.com/Gmy-K/kyoto-guide-2026",
+      url: null,
       thumb: null
     }
   ]
