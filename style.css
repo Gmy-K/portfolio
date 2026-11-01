@@ -359,7 +359,7 @@ a.card-inner:hover h3 {
   color: var(--accent);
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1320px) {
   body {
     display: grid;
     grid-template-columns: 1fr minmax(0, 900px) 1fr;

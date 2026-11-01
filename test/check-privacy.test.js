@@ -82,3 +82,72 @@ test("有効な検索語が1つもなければ終了コード2", () => {
   const repo = makeRepo({ "index.html": "ok" }, "# only a comment\n\n");
   assert.equal(run(repo).status, 2);
 });
+
+const hasExiftool = spawnSync("exiftool", ["-ver"]).status === 0;
+const isRoot = typeof process.getuid === "function" && process.getuid() === 0;
+
+test("バイナリファイルに埋め込まれた検索語も検出する", () => {
+  const repo = makeRepo({ "index.html": "ok" }, "yamada\n");
+  fs.mkdirSync(path.join(repo.dir, "assets"));
+  fs.writeFileSync(
+    path.join(repo.dir, "assets", "a.bin"),
+    Buffer.concat([Buffer.from([0xff, 0xd8, 0x00, 0x00]), Buffer.from("Artist\0Yamada Taro\0")])
+  );
+  const result = run(repo);
+  assert.equal(result.status, 1);
+  assert.match(result.stdout, /a\.bin/);
+});
+
+test("過去のコミットにだけ存在した検索語も検出する（公開リポジトリでは履歴も公開される）", () => {
+  const repo = makeRepo({ "index.html": "ok", "old.txt": "yamada" }, "yamada\n");
+  const env = { ...process.env, GIT_AUTHOR_NAME: "Gmy-K", GIT_AUTHOR_EMAIL: noreply.email, GIT_COMMITTER_NAME: "Gmy-K", GIT_COMMITTER_EMAIL: noreply.email };
+  execFileSync("git", ["rm", "-q", "old.txt"], { cwd: repo.dir, env });
+  execFileSync("git", ["commit", "-q", "-m", "remove"], { cwd: repo.dir, env });
+  const result = run(repo);
+  assert.equal(result.status, 1);
+  assert.match(result.stdout, /history/);
+});
+
+test("ファイル名・パスに検索語があれば終了コード1", () => {
+  const repo = makeRepo({ "index.html": "ok" }, "yamada\n");
+  fs.writeFileSync(path.join(repo.dir, "yamada-face.png"), "x");
+  const result = run(repo);
+  assert.equal(result.status, 1);
+  assert.match(result.stdout, /yamada-face\.png/);
+});
+
+test("読めないファイルがあれば、一致なしとせず終了コード2", { skip: isRoot }, () => {
+  const repo = makeRepo({ "index.html": "ok" }, "yamada\n");
+  const locked = path.join(repo.dir, "locked.txt");
+  fs.writeFileSync(locked, "ok");
+  fs.chmodSync(locked, 0o000);
+  const result = run(repo);
+  fs.chmodSync(locked, 0o644);
+  assert.equal(result.status, 2);
+});
+
+test("assets の画像にGPS・作者などのEXIFが残っていれば終了コード1", { skip: !hasExiftool }, () => {
+  const repo = makeRepo({ "index.html": "ok" }, "yamada\n");
+  fs.mkdirSync(path.join(repo.dir, "assets"));
+  const png = Buffer.from(
+    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==",
+    "base64"
+  );
+  const image = path.join(repo.dir, "assets", "icon.png");
+  fs.writeFileSync(image, png);
+  execFileSync("exiftool", ["-q", "-overwrite_original", "-XMP-dc:Creator=someone", image]);
+  const result = run(repo);
+  assert.equal(result.status, 1);
+  assert.match(result.stdout, /icon\.png/);
+});
+
+test("EXIFのない画像は通る", { skip: !hasExiftool }, () => {
+  const repo = makeRepo({ "index.html": "ok" }, "yamada\n");
+  fs.mkdirSync(path.join(repo.dir, "assets"));
+  const png = Buffer.from(
+    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==",
+    "base64"
+  );
+  fs.writeFileSync(path.join(repo.dir, "assets", "icon.png"), png);
+  assert.equal(run(repo).status, 0);
+});

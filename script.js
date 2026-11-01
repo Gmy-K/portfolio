@@ -109,18 +109,31 @@
 
   var nav = document.getElementById("site-nav");
   var toggle = document.querySelector(".menu-toggle");
+  var mainArea = document.getElementById("main");
+  var snsRail = document.getElementById("sns-rail");
 
   function setMenu(open) {
     nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", String(open));
+    mainArea.inert = open;
+    snsRail.inert = open;
   }
 
   toggle.addEventListener("click", function () {
-    setMenu(!nav.classList.contains("is-open"));
+    var open = !nav.classList.contains("is-open");
+    setMenu(open);
+    if (open) nav.querySelector("a").focus();
   });
 
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") setMenu(false);
+    if (event.key === "Escape" && nav.classList.contains("is-open")) {
+      setMenu(false);
+      toggle.focus();
+    }
+  });
+
+  window.matchMedia("(min-width: 1320px)").addEventListener("change", function (event) {
+    if (event.matches) setMenu(false);
   });
 
   Array.prototype.forEach.call(nav.querySelectorAll("a"), function (anchor) {
