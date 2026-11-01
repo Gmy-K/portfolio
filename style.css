@@ -1,15 +1,15 @@
 :root {
   color-scheme: light dark;
   --font: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
-  --bg-from: #cfdcf7;
-  --bg-to: #eaf0fb;
+  --bg-from: #cdeafa;
+  --bg-to: #eef8ff;
   --sheet: #ffffff;
   --text: #14213d;
   --muted: #4a5a7a;
   --line: #14213d;
   --accent: #2b5fd9;
   --accent-text: #ffffff;
-  --tile: #dfe8fb;
+  --tile: #d8ebf8;
   --radius: 14px;
 }
 

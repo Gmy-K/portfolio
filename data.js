@@ -18,8 +18,17 @@ window.PORTFOLIO = {
       kind: "Note",
       title: "#1 おい！留学を悩んでる(明治)大学生！見ろ！🫵",
       summary: "留学を迷っている後輩向けの自己紹介と、明治大学の留学制度をかみ砕いて解説。",
-      date: "2026-08-03",
+      date: "2026-08-04",
       url: "https://note.com/gmk_in_uk/n/n78f4d130b313",
+      thumb: null
+    },
+    {
+      category: "post",
+      kind: "Note",
+      title: "#2 イギリス渡航記—一日目からこれですかぁ？！",
+      summary: "成田からドバイ経由でカーディフに着くまで。台風、SIMカード、ガス漏れと、初日から事件だらけだった渡航記。",
+      date: "2026-10-01",
+      url: "https://note.com/gmk_in_uk/n/nc9eab7a3b4ba",
       thumb: null
     },
     {

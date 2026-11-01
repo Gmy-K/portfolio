@@ -30,3 +30,9 @@ test("data.js は GitHub の他リポジトリ（実名が辿れるアカウン�
   const github = urls.filter((u) => new URL(u).hostname === "github.com");
   assert.deepEqual(github.filter((u) => !u.startsWith("https://github.com/Gmy-K/portfolio")), []);
 });
+
+test("data.js に Note #1 と #2 の記事が載っている", () => {
+  const urls = lib.collectUrls(loadData());
+  assert.ok(urls.includes("https://note.com/gmk_in_uk/n/n78f4d130b313"));
+  assert.ok(urls.includes("https://note.com/gmk_in_uk/n/nc9eab7a3b4ba"));
+});
