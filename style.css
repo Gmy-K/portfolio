@@ -340,6 +340,27 @@ a.card-inner:hover h3 {
   text-decoration: underline;
 }
 
+.card-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 0 14px 14px;
+}
+
+.card-extra-link {
+  color: var(--eyebrow);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.card-extra-link:hover {
+  text-decoration: underline;
+}
+
+.card-inner:has(+ .card-extra) {
+  padding-bottom: 8px;
+}
+
 .card:has(a.card-inner:hover) {
   box-shadow: var(--shadow-hover);
 }

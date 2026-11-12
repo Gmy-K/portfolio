@@ -62,6 +62,9 @@ window.PORTFOLIO = {
       summary: "到着初日のガス漏れと運休を軸にした、留学の自己紹介動画。ナレーションはVOICEVOXです。",
       date: "2026-11-12",
       url: "https://www.instagram.com/reel/DfoDLhKPAEC/",
+      extraLinks: [
+        { label: "ニコニコ動画でも見る", url: "https://www.nicovideo.jp/shorts/ss47036068" }
+      ],
       thumb: "assets/thumbs/reel-01.jpg"
     },
     {

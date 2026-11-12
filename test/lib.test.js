@@ -171,3 +171,34 @@ test("validateData: avatar と thumb は相対パスのみ（外部URL・絶対�
     assert.ok(e2.some((e) => e.startsWith("items[0].thumb")), `thumb ${JSON.stringify(bad)} を弾けていない`);
   }
 });
+
+test("collectUrls: 項目の extraLinks のURLも集める", () => {
+  const d = data({
+    items: [
+      item({
+        url: "https://example.com/a",
+        extraLinks: [
+          { label: "ニコニコ", url: "https://example.com/b" },
+          { label: "重複", url: "https://example.com/a" },
+        ],
+      }),
+    ],
+  });
+  assert.deepEqual(lib.collectUrls(d), ["https://note.com/x", "https://example.com/a", "https://example.com/b"]);
+});
+
+test("validateData: extraLinks は省略できる", () => {
+  assert.deepEqual(lib.validateData(data({ items: [item({ extraLinks: undefined })] })), []);
+});
+
+test("validateData: extraLinks が正しければエラーなし", () => {
+  const d = data({ items: [item({ extraLinks: [{ label: "ニコニコ", url: "https://example.com/b" }] })] });
+  assert.deepEqual(lib.validateData(d), []);
+});
+
+test("validateData: extraLinks が配列でない・labelが空・URLがhttpsでない場合はエラー", () => {
+  assert.ok(lib.validateData(data({ items: [item({ extraLinks: "x" })] })).length > 0);
+  assert.ok(lib.validateData(data({ items: [item({ extraLinks: [{ label: "", url: "https://example.com/b" }] })] })).length > 0);
+  assert.ok(lib.validateData(data({ items: [item({ extraLinks: [{ label: "x", url: "http://example.com/b" }] })] })).length > 0);
+  assert.ok(lib.validateData(data({ items: [item({ extraLinks: [null] })] })).length > 0);
+});

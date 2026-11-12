@@ -123,6 +123,14 @@
     inner.appendChild(el("p", "", item.summary));
     inner.appendChild(el("p", "meta", item.date));
     card.appendChild(inner);
+
+    if (Array.isArray(item.extraLinks) && item.extraLinks.length > 0) {
+      var extra = el("div", "card-extra");
+      item.extraLinks.forEach(function (link) {
+        extra.appendChild(externalLink(link.url, "card-extra-link", link.label));
+      });
+      card.appendChild(extra);
+    }
     return card;
   }
 

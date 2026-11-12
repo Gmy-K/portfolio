@@ -62,6 +62,11 @@
     });
     data.items.forEach(function (item) {
       add(item.url);
+      if (Array.isArray(item.extraLinks)) {
+        item.extraLinks.forEach(function (link) {
+          if (link) add(link.url);
+        });
+      }
     });
     return urls;
   }
@@ -130,6 +135,21 @@
         }
         if (!(item.thumb === null || isRelativePath(item.thumb))) {
           errors.push(at + ".thumb: must be null or a relative path");
+        }
+        if (item.extraLinks !== undefined) {
+          if (!Array.isArray(item.extraLinks)) {
+            errors.push(at + ".extraLinks: must be an array");
+          } else {
+            item.extraLinks.forEach(function (link, j) {
+              var linkAt = at + ".extraLinks[" + j + "]";
+              if (!link || typeof link !== "object") {
+                errors.push(linkAt + ": must be an object");
+                return;
+              }
+              if (!nonEmpty(link.label)) errors.push(linkAt + ".label: required");
+              if (!isHttps(link.url)) errors.push(linkAt + ".url: must start with https://");
+            });
+          }
         }
       });
     }
