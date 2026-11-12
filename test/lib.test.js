@@ -202,3 +202,27 @@ test("validateData: extraLinks が配列でない・labelが空・URLがhttpsで
   assert.ok(lib.validateData(data({ items: [item({ extraLinks: [{ label: "x", url: "http://example.com/b" }] })] })).length > 0);
   assert.ok(lib.validateData(data({ items: [item({ extraLinks: [null] })] })).length > 0);
 });
+
+test("visitCountLabel: しきい値以上なら、6桁ゼロ埋めの数字を返す", () => {
+  assert.equal(lib.visitCountLabel({ count: "123" }, 50), "000123");
+  assert.equal(lib.visitCountLabel({ count: "50" }, 50), "000050");
+});
+
+test("visitCountLabel: 3桁区切りの空白・カンマ入りの数字も読む", () => {
+  assert.equal(lib.visitCountLabel({ count: "1 234" }, 50), "001234");
+  assert.equal(lib.visitCountLabel({ count: "1,234" }, 50), "001234");
+  assert.equal(lib.visitCountLabel({ count: "1 234" }, 50), "001234");
+});
+
+test("visitCountLabel: しきい値未満・不正な値は null（表示しない）", () => {
+  assert.equal(lib.visitCountLabel({ count: "49" }, 50), null);
+  assert.equal(lib.visitCountLabel({ count: "0" }, 50), null);
+  assert.equal(lib.visitCountLabel({ count: "abc" }, 50), null);
+  assert.equal(lib.visitCountLabel({}, 50), null);
+  assert.equal(lib.visitCountLabel(null, 50), null);
+  assert.equal(lib.visitCountLabel("123", 50), null);
+});
+
+test("visitCountLabel: 7桁以上はそのまま桁を増やす", () => {
+  assert.equal(lib.visitCountLabel({ count: "1234567" }, 50), "1234567");
+});

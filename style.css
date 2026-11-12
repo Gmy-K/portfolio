@@ -484,6 +484,48 @@ a.card-inner:hover h3 {
   text-decoration: underline;
 }
 
+.visit-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 0;
+}
+
+.visit-counter[hidden] {
+  display: none;
+}
+
+.visit-counter-label {
+  color: var(--eyebrow);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.visit-count {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.visit-digit {
+  display: inline-block;
+  min-width: 1.1em;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: #0b0b0b;
+  color: #ff5a3c;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.analytics-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
 .copyright {
   margin: 28px 0 0;
   color: var(--muted);

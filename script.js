@@ -195,6 +195,30 @@
     });
   });
 
+  var COUNTER_THRESHOLD = 50;
+
+  function showVisitCounter() {
+    var box = document.getElementById("visit-counter");
+    var out = document.getElementById("visit-count");
+    if (!box || !out || typeof fetch !== "function") return;
+    var url = "https://gmyk.goatcounter.com/counter/" + encodeURIComponent(location.pathname) + ".json";
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        var label = lib.visitCountLabel(json, COUNTER_THRESHOLD);
+        if (label === null) return;
+        out.textContent = "";
+        label.split("").forEach(function (digit) {
+          out.appendChild(el("span", "visit-digit", digit));
+        });
+        box.hidden = false;
+      })
+      .catch(function () {});
+  }
+
   renderProfile();
   setTab("all");
+  showVisitCounter();
 })();

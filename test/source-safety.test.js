@@ -89,3 +89,29 @@ test("フッターに、ページ名・ページマップ・リンク・著作�
 test("メニュー表示中は、フッターも inert にする", () => {
   assert.ok(/footerArea\.inert\s*=\s*open/.test(read("script.js")), "footerArea.inert = open がない");
 });
+
+test("解析スクリプトは自サイトから配信し、送信先は GoatCounter の自分のサイトだけ", () => {
+  const html = read("index.html");
+  const tag = html.match(/<script[^>]*data-goatcounter=[^>]*>/);
+  assert.ok(tag, "GoatCounter のscriptタグがない");
+  assert.ok(/src="assets\/count\.js"/.test(tag[0]), "count.js は assets/ から読み込む（外部配信にしない）");
+  assert.ok(/data-goatcounter="https:\/\/gmyk\.goatcounter\.com\/count"/.test(tag[0]), "送信先が違う");
+  assert.ok(!html.includes("gc.zgo.at"), "外部の count.js を読み込んでいる");
+});
+
+test("assets/count.js は GoatCounter 以外のホストと危険なAPIを含まない", () => {
+  const source = read("assets/count.js");
+  const hosts = [...source.matchAll(/https?:\/\/([a-zA-Z0-9.-]+)/g)].map((m) => m[1]);
+  const allowed = new Set(["www.goatcounter.com", "opensource.org"]);
+  for (const host of hosts) assert.ok(allowed.has(host), `想定外のホスト: ${host}`);
+  for (const banned of ["eval(", "document.write", "outerHTML", "insertAdjacentHTML"]) {
+    assert.ok(!source.includes(banned), `count.js に ${banned} が含まれている`);
+  }
+  // innerHTML は、クリック計測のタイトルを「読む」箇所にだけある。書き込み（代入）は禁止する。
+  assert.ok(!/innerHTML\s*=[^=]/.test(source), "count.js が innerHTML に代入している");
+});
+
+test("フッターに、解析の使用を知らせる一文がある", () => {
+  const html = read("index.html");
+  assert.ok(html.includes("アクセス解析"), "アクセス解析の告知がない");
+});

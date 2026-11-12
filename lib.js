@@ -157,6 +157,17 @@
     return errors;
   }
 
+  function visitCountLabel(json, threshold) {
+    if (!json || typeof json !== "object" || typeof json.count !== "string") return null;
+    var digits = json.count.replace(/[\s,\u00a0\u202f]/g, "");
+    if (!/^[0-9]+$/.test(digits)) return null;
+    var n = parseInt(digits, 10);
+    if (n < threshold) return null;
+    var text = String(n);
+    while (text.length < 6) text = "0" + text;
+    return text;
+  }
+
   return {
     CATEGORIES: CATEGORIES,
     sortItems: sortItems,
@@ -164,5 +175,6 @@
     isLinkable: isLinkable,
     collectUrls: collectUrls,
     validateData: validateData,
+    visitCountLabel: visitCountLabel,
   };
 });
