@@ -56,6 +56,15 @@ window.PORTFOLIO = {
       thumb: "assets/thumbs/note-02.jpeg"
     },
     {
+      category: "post",
+      kind: "Reel",
+      title: "Reel① 限界大学生、イギリスに流れ着く。",
+      summary: "到着初日のガス漏れと運休を軸にした、留学の自己紹介動画。ナレーションはVOICEVOXです。",
+      date: "2026-11-12",
+      url: "https://www.instagram.com/reel/DfoDLhKPAEC/",
+      thumb: "assets/thumbs/reel-01.jpg"
+    },
+    {
       category: "dev",
       kind: "Skill",
       title: "VOICEVOX調声スキル",
