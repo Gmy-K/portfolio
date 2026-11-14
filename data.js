@@ -23,6 +23,7 @@ window.PORTFOLIO = {
       },
       {
         group: "やってみたい",
+        wish: true,
         items: [
           { name: "JavaScript", note: "自分の手で書けるようになりたい" },
           { name: "C#", note: "自分の手で書けるようになりたい" },

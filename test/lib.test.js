@@ -264,3 +264,23 @@ test("validateData: 項目の name / note の不備を、パス付きで弾く",
   const e3 = lib.validateData(withSkills([{ group: "G", items: [null] }]));
   assert.ok(e3.some((e) => e.includes("profile.skills[0].items[0]")));
 });
+
+test("validateData: skills グループの wish は省略可で、真偽値のみ", () => {
+  const ok = lib.validateData(withSkills([{ group: "G", wish: true, items: [{ name: "A" }] }]));
+  assert.deepEqual(ok, []);
+  const ok2 = lib.validateData(withSkills([{ group: "G", wish: false, items: [{ name: "A" }] }]));
+  assert.deepEqual(ok2, []);
+  const bad = lib.validateData(withSkills([{ group: "G", wish: "yes", items: [{ name: "A" }] }]));
+  assert.ok(bad.some((e) => e.includes("profile.skills[0].wish")));
+});
+
+test("validateData: ui は省略可で、siteTitle / categories / dataError の型を検証する", () => {
+  const ui = { siteTitle: "Portfolio", categories: { post: "Posts", dev: "Dev" }, dataError: "Bad data." };
+  assert.deepEqual(lib.validateData(data({ ui })), []);
+  assert.deepEqual(lib.validateData(data({ ui: {} })), []);
+  assert.ok(lib.validateData(data({ ui: "x" })).some((e) => e.startsWith("ui")));
+  assert.ok(lib.validateData(data({ ui: { siteTitle: "" } })).some((e) => e.includes("ui.siteTitle")));
+  assert.ok(lib.validateData(data({ ui: { dataError: 1 } })).some((e) => e.includes("ui.dataError")));
+  assert.ok(lib.validateData(data({ ui: { categories: { post: "P" } } })).some((e) => e.includes("ui.categories.dev")));
+  assert.ok(lib.validateData(data({ ui: { categories: "x" } })).some((e) => e.includes("ui.categories")));
+});

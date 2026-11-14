@@ -9,10 +9,14 @@
   var moreLabel = document.getElementById("more-label");
   var empty = document.getElementById("empty");
 
+  var ui = (data && data.ui) || {};
+  var siteTitle = ui.siteTitle || "ポートフォリオ";
+  var categories = ui.categories || lib.CATEGORIES;
+
   var errors = lib.validateData(data);
   if (errors.length > 0) {
     console.error("data.js の形式エラー:\n" + errors.join("\n"));
-    empty.textContent = "データの形式に誤りがあります。ブラウザのコンソールを確認してください。";
+    empty.textContent = ui.dataError || "データの形式に誤りがあります。ブラウザのコンソールを確認してください。";
     empty.hidden = false;
     return;
   }
@@ -55,7 +59,7 @@
 
   function renderProfile() {
     var profile = data.profile;
-    document.title = profile.name + " | ポートフォリオ";
+    document.title = profile.name + " | " + siteTitle;
     document.getElementById("name").textContent = profile.name;
     document.getElementById("tagline").textContent = profile.tagline;
 
@@ -79,7 +83,7 @@
       var skillGroups = document.getElementById("skill-groups");
       profile.skills.forEach(function (group) {
         var wrap = el("div", "skill-group");
-        if (group.group === "やってみたい") wrap.classList.add("is-wish");
+        if (group.wish === true) wrap.classList.add("is-wish");
         wrap.appendChild(el("h3", "skill-group-title", group.group));
         var list = el("ul", "skill-list");
         group.items.forEach(function (skill) {
@@ -100,7 +104,7 @@
       activityList.appendChild(renderActivity(activity));
     });
 
-    document.getElementById("footer-name").textContent = profile.name + " | ポートフォリオ";
+    document.getElementById("footer-name").textContent = profile.name + " | " + siteTitle;
     var footerLinks = document.getElementById("footer-links");
     profile.links.forEach(function (link) {
       var footerItem = el("li");
@@ -139,7 +143,7 @@
     }
 
     inner.appendChild(thumb);
-    inner.appendChild(el("span", "badge", lib.CATEGORIES[item.category] + " / " + item.kind));
+    inner.appendChild(el("span", "badge", categories[item.category] + " / " + item.kind));
     inner.appendChild(el("h3", "", item.title));
     inner.appendChild(el("p", "", item.summary));
     inner.appendChild(el("p", "meta", item.date));

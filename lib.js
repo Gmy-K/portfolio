@@ -125,6 +125,9 @@
             return;
           }
           if (!nonEmpty(group.group)) errors.push(at + ".group: required");
+          if (group.wish !== undefined && typeof group.wish !== "boolean") {
+            errors.push(at + ".wish: must be a boolean when present");
+          }
           if (!Array.isArray(group.items) || group.items.length === 0) {
             errors.push(at + ".items: need a non-empty array");
             return;
@@ -141,6 +144,25 @@
             }
           });
         });
+      }
+    }
+
+    if (data && typeof data === "object" && data.ui !== undefined) {
+      var ui = data.ui;
+      if (!ui || typeof ui !== "object" || Array.isArray(ui)) {
+        errors.push("ui: must be an object when present");
+      } else {
+        if (ui.siteTitle !== undefined && !nonEmpty(ui.siteTitle)) errors.push("ui.siteTitle: must be a non-empty string when present");
+        if (ui.dataError !== undefined && !nonEmpty(ui.dataError)) errors.push("ui.dataError: must be a non-empty string when present");
+        if (ui.categories !== undefined) {
+          if (!ui.categories || typeof ui.categories !== "object") {
+            errors.push("ui.categories: must be an object when present");
+          } else {
+            Object.keys(CATEGORIES).forEach(function (key) {
+              if (!nonEmpty(ui.categories[key])) errors.push("ui.categories." + key + ": required when ui.categories is present");
+            });
+          }
+        }
       }
     }
 

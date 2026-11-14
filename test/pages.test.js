@@ -146,3 +146,16 @@ test("script.js は skills を描画し、skills が無ければセクション�
   assert.ok(src.includes("profile.skills"));
   assert.ok(/getElementById\("skills"\)/.test(src));
 });
+
+test("data.js の「やってみたい」グループは wish: true で示し、script.js は文言ではなく wish フラグで判定する", () => {
+  const group = loadData().profile.skills.find((g) => g.group === "やってみたい");
+  assert.ok(group && group.wish === true);
+  const src = read("script.js");
+  assert.ok(!src.includes('"やってみたい"'));
+  assert.ok(src.includes("group.wish"));
+});
+
+test("script.js は PORTFOLIO.ui（siteTitle / categories / dataError）を日本語の既定値つきで使う", () => {
+  const src = read("script.js");
+  for (const key of ["ui.siteTitle", "ui.categories", "ui.dataError"]) assert.ok(src.includes(key), `${key} がない`);
+});
