@@ -121,7 +121,7 @@ test("profile.skills は指定の4グループを、指定の順・内容で持�
   const skills = JSON.parse(JSON.stringify(loadData().profile.skills));
   assert.deepEqual(skills, [
     { group: "プログラミング（勉強中）", items: [{ name: "Python", note: "主に統計。GCIで学んだ範囲" }, { name: "R" }] },
-    { group: "やってみたい", items: [{ name: "JavaScript", note: "自分の手で書けるようになりたい" }, { name: "C#", note: "自分の手で書けるようになりたい" }, { name: "ほか（いろいろ）" }] },
+    { group: "やってみたい", wish: true, items: [{ name: "JavaScript", note: "自分の手で書けるようになりたい" }, { name: "C#", note: "自分の手で書けるようになりたい" }, { name: "ほか（いろいろ）" }] },
     { group: "話せる・使える言語", items: [{ name: "日本語" }, { name: "英語" }, { name: "フランス語（少し）" }] },
     { group: "勉強中の言語", items: [{ name: "フランス語" }, { name: "韓国語" }] }
   ]);
