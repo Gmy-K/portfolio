@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le fonctionnement de mes réalisations (skills, voix, budget) | ぐみゅけ</title>
+  <meta name="description" content="Trois outils que ぐみゅけ a conçus pour son propre usage — des skills Claude Code, un skill de réglage vocal pour VOICEVOX et un carnet de comptes pour le séjour à l’étranger —, expliqués simplement, schémas à l’appui.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Le fonctionnement de mes réalisations (skills, voix, budget) | ぐみゅけ">
+  <meta property="og:description" content="Des skills Claude Code, le réglage vocal de VOICEVOX et un carnet de comptes pour mon séjour à l’étranger&nbsp;: trois outils conçus pour mon propre usage, expliqués schémas à l’appui.">
+  <meta name="twitter:card" content="summary">
+  <link rel="alternate" hreflang="ja" href="https://gmy-k.github.io/portfolio/tech.html">
+  <link rel="alternate" hreflang="en" href="https://gmy-k.github.io/portfolio/tech.en.html">
+  <link rel="alternate" hreflang="fr" href="https://gmy-k.github.io/portfolio/tech.fr.html">
+  <link rel="alternate" hreflang="ko" href="https://gmy-k.github.io/portfolio/tech.ko.html">
+  <link rel="alternate" hreflang="x-default" href="https://gmy-k.github.io/portfolio/tech.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="doc-body">
+  <a class="skip" href="#main">Aller au contenu principal</a>
+
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a class="doc-back" href="index.fr.html#works">← Retour au portfolio</a>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="tech.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="tech.en.html" hreflang="en" lang="en">English</a>
+        <a href="tech.fr.html" hreflang="fr" lang="fr" aria-current="page">Français</a>
+        <a href="tech.ko.html" hreflang="ko" lang="ko">한국어</a>
+      </nav>
+      <p class="doc-site">ぐみゅけ</p>
+      <h1 class="doc-title">Le fonctionnement de mes réalisations</h1>
+      <p class="doc-lead">Des skills Claude Code, le réglage vocal de VOICEVOX et un carnet de comptes pour mon séjour à l’étranger&nbsp;: voici, schémas à l’appui, trois outils que j’ai conçus pour mon propre usage.</p>
+      <nav class="doc-nav" aria-label="Sur cette page">
+        <ul>
+          <li><a href="#skills">① La collection de skills Claude Code</a></li>
+          <li><a href="#voicevox">② Le skill de réglage vocal pour VOICEVOX</a></li>
+          <li><a href="#kakeibo">③ Le carnet de comptes du séjour</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc-main">
+    <section id="skills" class="doc-section" aria-labelledby="skills-title">
+      <p class="eyebrow" aria-hidden="true">WORK 1</p>
+      <h2 id="skills-title" class="section-title">① La collection de skills Claude Code (automatiser études et publications)</h2>
+
+      <p class="doc-summary"><strong>En bref&nbsp;:</strong> je constitue, au fil de mes besoins, des modes d’emploi (les «&nbsp;skills&nbsp;») qui indiquent à l’IA (Claude Code) «&nbsp;cette tâche se fait selon cette procédure&nbsp;», un par usage. Quand je lui demande quelque chose, elle suit à chaque fois la même procédure.</p>
+
+      <h3 class="doc-h3">Pourquoi je les ai créés</h3>
+      <ul class="doc-list">
+        <li>Réexpliquer chaque fois la même chose à l’IA était fastidieux.</li>
+        <li>Les résultats variaient selon la façon de formuler la demande.</li>
+        <li>J’oubliais à chaque fois de rappeler les règles à respecter (ne pas réécrire, ne pas regarder la réponse avant, etc.).</li>
+      </ul>
+
+      <h3 class="doc-h3">Le fonctionnement</h3>
+      <div class="doc-flow doc-flow-4" role="group" aria-label="Le déroulement, de la demande au résultat">
+        <div class="doc-box">
+          <p class="doc-box-label">1. Demander</p>
+          <p class="doc-box-text">Exemple&nbsp;: «&nbsp;Écris mon commentaire de cours&nbsp;»</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">2. Choisir le skill</p>
+          <p class="doc-box-text">L’IA choisit et lit le skill qui correspond à la demande.</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">3. Exécuter</p>
+          <p class="doc-box-text">Elle suit les «&nbsp;règles à respecter&nbsp;» et la «&nbsp;procédure&nbsp;».</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">4. Résultat</p>
+          <p class="doc-box-text">Des notes, des textes, des propositions, etc.</p>
+        </div>
+      </div>
+
+      <h3 class="doc-h3">Le contenu d’un skill</h3>
+      <p>Un skill correspond à un dossier, qui contient un mode d’emploi (un fichier Markdown, SKILL.md). En tête, on indique «&nbsp;pour quel type de demande l’utiliser&nbsp;», et dans le corps, les «&nbsp;règles à respecter&nbsp;» et la «&nbsp;procédure&nbsp;».</p>
+
+      <h3 class="doc-h3">Ce qu’ils permettent de faire</h3>
+      <div class="doc-table-wrap">
+        <table class="doc-table doc-table-plain">
+          <caption class="doc-sr">Liste de ce que les skills permettent de faire</caption>
+          <thead>
+            <tr><th scope="col">Domaine</th><th scope="col">Ce qu’ils permettent</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Cours et examens</th><td>Transcrire dans une note les diapositives d’un cours (PDF) / rédiger un commentaire de cours à partir des notes de cours / préparer les réponses à des questions d’examen en s’appuyant sur les notes de cours</td></tr>
+            <tr><th scope="row">Vocabulaire anglais</th><td>Numériser des fiches de vocabulaire anglais manuscrites et en faire des notes où l’on peut faire des recherches</td></tr>
+            <tr><th scope="row">Tâches et révisions</th><td>Enregistrer, découper et terminer des tâches / transformer les routines hebdomadaires en tâches / créer des questions de révision et faire la révision quotidienne</td></tr>
+            <tr><th scope="row">Suivi quotidien</th><td>Le briefing du jour / la mise à jour du tableau de bord web</td></tr>
+            <tr><th scope="row">Publications et vidéos</th><td>Rédiger des articles Note sur le séjour à l’étranger / proposer des réglages vocaux pour VOICEVOX</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="doc-after">J’ai créé 14&nbsp;skills pour accompagner mes études universitaires, et un autre pour planifier les événements de mon cercle.</p>
+
+      <h3 class="doc-h3">Ce que j’ai soigné</h3>
+      <ul class="doc-list">
+        <li><strong>Écrire d’abord les «&nbsp;règles à respecter&nbsp;».</strong> Par exemple&nbsp;: en révision, ne pas montrer la bonne réponse en premier. Ne pas réécrire les justifications de l’utilisateur. Pour terminer des tâches, ne cocher que celles qui ont été nommées.</li>
+        <li><strong>Restreindre le périmètre.</strong> Par exemple, pour les fiches de vocabulaire, «&nbsp;transcrire en texte&nbsp;» et «&nbsp;transformer en notes&nbsp;» sont deux skills distincts.</li>
+        <li><strong>Garder une trace des raisons.</strong> À chaque création, je consigne pourquoi j’ai fait ces choix dans un registre des décisions (ADR).</li>
+        <li><strong>Faciles à modifier.</strong> Pour changer une procédure, il suffit de corriger le mode d’emploi&nbsp;: la modification s’applique partout dès la fois suivante.</li>
+      </ul>
+
+      <h3 class="doc-h3">Comment je les construis</h3>
+      <ol class="doc-steps doc-steps-inline">
+        <li><strong>Concevoir</strong></li>
+        <li><strong>Rédiger le mode d’emploi</strong></li>
+        <li><strong>Le tester avec de vraies demandes</strong></li>
+        <li><strong>Y ajouter les cas d’échec</strong></li>
+      </ol>
+      <p class="doc-after">Le tout est versionné dans le dépôt qui regroupe mes fichiers de configuration. Cinq décisions du registre (ADR) concernent les skills.</p>
+
+      <h3 class="doc-h3">Notes techniques</h3>
+      <ul class="doc-tags" aria-label="Technologies utilisées">
+        <li>Skills Claude Code</li>
+        <li>Markdown</li>
+        <li>Git</li>
+        <li>Registre des décisions (ADR)</li>
+      </ul>
+    </section>
+
+    <section id="voicevox" class="doc-section" aria-labelledby="voicevox-title">
+      <p class="eyebrow" aria-hidden="true">WORK 2</p>
+      <h2 id="voicevox-title" class="section-title">② Le skill de réglage vocal pour VOICEVOX (proposer des paramètres à partir d’une réplique)</h2>
+
+      <p class="doc-summary"><strong>En bref&nbsp;:</strong> il suffit d’indiquer une réplique, le nom d’un personnage et un ton (par exemple «&nbsp;pince-sans-rire et absurde&nbsp;») pour que ce skill propose des valeurs recommandées pour les paramètres de VOICEVOX (vitesse, hauteur, intonation, volume, pauses, silences). Je m’en sers pour la narration de mon vlog de séjour à l’étranger.</p>
+
+      <h3 class="doc-h3">Ce que je voulais résoudre</h3>
+      <ul class="doc-list">
+        <li>La narration d’un Reel demande de régler de nombreuses répliques, chacune sur un ton légèrement différent.</li>
+        <li>Trouver les valeurs à tâtons à chaque fois était laborieux.</li>
+      </ul>
+
+      <h3 class="doc-h3">Le fonctionnement</h3>
+      <div class="doc-flow doc-flow-4" role="group" aria-label="Le déroulement, des entrées aux sorties">
+        <div class="doc-box">
+          <p class="doc-box-label">Entrées</p>
+          <ul>
+            <li>Le texte de la réplique</li>
+            <li>Le nom du personnage</li>
+            <li>La description du ton (en texte libre)</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">Choisir un préréglage</p>
+          <p class="doc-box-text">Parmi cinq, celui qui se rapproche le plus du ton.</p>
+          <ul>
+            <li>Impassible, absurde</li>
+            <li>Survolté, débit rapide</li>
+            <li>Expressif, chaleureux</li>
+            <li>Narration posée</li>
+            <li>Autre</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">Affiner</p>
+          <p class="doc-box-text">Le texte de la réplique est analysé, et les valeurs corrigées.</p>
+          <ul>
+            <li>À partir de 40&nbsp;caractères, accélérer un peu le débit</li>
+            <li>En présence d’un point d’exclamation, renforcer l’intonation</li>
+            <li>Si les virgules sont nombreuses, allonger les pauses</li>
+            <li>Pour une réplique choc de moins de 10&nbsp;caractères, ajouter du silence avant et après</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">Sorties</p>
+          <p class="doc-box-text">Un tableau, dans le même ordre que les paramètres de l’interface de VOICEVOX&nbsp;: on peut reporter les valeurs directement sur les curseurs, en les ayant sous les yeux.</p>
+        </div>
+      </div>
+
+      <h3 class="doc-h3">Ce que j’ai soigné</h3>
+      <ul class="doc-list">
+        <li><strong>Les valeurs sont un «&nbsp;point de départ&nbsp;».</strong> Le skill précise à chaque fois qu’il ne s’agit pas de mesures.</li>
+        <li><strong>Certaines choses ne sont pas chiffrées.</strong> Pour l’intonation des questions ou l’accent des noms propres, il indique «&nbsp;à vérifier manuellement&nbsp;».</li>
+        <li><strong>Aucune valeur inventée.</strong> Quand une indication n’existe qu’en mots (par exemple «&nbsp;normal à un peu long&nbsp;»), aucun chiffre n’y est associé.</li>
+        <li><strong>Pas de génération audio.</strong> Le skill ne produit pas le son lui-même&nbsp;: j’applique les valeurs à la main dans l’interface de VOICEVOX.</li>
+      </ul>
+
+      <h3 class="doc-h3">Les choix de conception</h3>
+      <p>J’ai comparé trois approches.</p>
+      <ul class="doc-list">
+        <li>(A) Un tableau fixe, sans plus</li>
+        <li>(B) Des valeurs construites par des règles, réplique par réplique</li>
+        <li><strong>(C) Un tableau comme base, affiné par des règles</strong></li>
+      </ul>
+      <p>J’ai retenu (C), qui concilie la stabilité et la personnalité propre à chaque cas (registre des décisions, ADR&nbsp;008).</p>
+
+      <h3 class="doc-h3">Comment je l’ai construit</h3>
+      <p>J’ai d’abord fait la conception, puis rédigé le mode d’emploi. Les préréglages et les règles d’ajustement y sont écrits de façon statique.</p>
+
+      <h3 class="doc-h3">Notes techniques</h3>
+      <ul class="doc-tags" aria-label="Technologies utilisées">
+        <li>Skills Claude Code</li>
+        <li>VOICEVOX</li>
+        <li>Markdown</li>
+        <li>Registre des décisions (ADR)</li>
+      </ul>
+    </section>
+
+    <section id="kakeibo" class="doc-section" aria-labelledby="kakeibo-title">
+      <p class="eyebrow" aria-hidden="true">WORK 3</p>
+      <h2 id="kakeibo-title" class="section-title">③ Le carnet de comptes du séjour (saisie des dépenses et suivi du rythme budgétaire)</h2>
+
+      <p class="doc-summary"><strong>En bref&nbsp;:</strong> une application web à mon usage, qui me permet de noter mes dépenses de séjour en quelques secondes depuis mon téléphone et de voir où j’en suis par rapport au budget du mois.</p>
+
+      <h3 class="doc-h3">Ce que je voulais résoudre</h3>
+      <ul class="doc-list">
+        <li>Le paiement sans contact (par carte) domine, et les petits achats se multiplient au cours d’une même journée.</li>
+        <li>Si la saisie est pénible, on ne s’y tient pas.</li>
+      </ul>
+
+      <h3 class="doc-h3">Le fonctionnement (trois composants)</h3>
+      <div class="doc-flow doc-flow-3" role="group" aria-label="Les trois composants&nbsp;: interface, calcul et données">
+        <div class="doc-box">
+          <p class="doc-box-label">Interface</p>
+          <p class="doc-box-text">Réalisée en HTML et en JavaScript. Les graphiques utilisent Chart.js.</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">Calcul</p>
+          <p class="doc-box-text">Un fichier qui ne contient que des fonctions pures. Séparé de l’interface et des données, il peut être testé avec Node.js.</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">Données</p>
+          <p class="doc-box-text">Une petite base de données dans le cloud. Les mêmes données sont accessibles depuis le téléphone comme depuis l’ordinateur. C’est un outil personnel, donc sans identification.</p>
+        </div>
+      </div>
+      <p class="doc-after">Je l’ai réalisée sous forme d’Artifact Claude (un espace qui héberge de petites applications web). Il suffit de mettre une URL en favori pour s’en servir.</p>
+
+      <h3 class="doc-h3">Ce que permet l’interface</h3>
+      <ul class="doc-list">
+        <li>Noter rapidement une dépense.</li>
+        <li>Comparer les dépenses du mois au budget (avec un repère de rythme calculé au prorata des jours).</li>
+        <li>Un graphique des dépenses par jour.</li>
+        <li>Une projection du solde.</li>
+        <li>Les flux d’argent, séparés en dépenses fixes et variables.</li>
+        <li>Pour un logement avec repas, l’ajustement automatique du budget alimentation selon le nombre de repas.</li>
+        <li>La gestion des plans de transfert d’argent.</li>
+      </ul>
+
+      <h3 class="doc-h3">Ce que j’ai soigné</h3>
+      <ul class="doc-list">
+        <li><strong>Réduire au maximum l’effort de saisie.</strong> C’est la contrainte la plus importante de la conception.</li>
+        <li><strong>Séparer le calcul de l’interface, et écrire des tests.</strong></li>
+        <li><strong>Concevoir d’abord.</strong> Pour chaque fonction, j’ai rédigé un document de conception et un plan d’implémentation avant de la réaliser.</li>
+        <li><strong>Consigner les décisions dans un registre (ADR).</strong> Il y en a quatre&nbsp;:
+          <ul>
+            <li>Les données de vacances et de nombre de repas sont des constantes du fichier de calcul.</li>
+            <li>Le budget alimentation des mois de vacances augmente automatiquement selon le rapport du nombre de repas, et ce changement n’affecte que l’affichage.</li>
+            <li>Les réglages des transferts sont stockés dans un document de données distinct.</li>
+            <li>La variation mensuelle du patrimoine est calculée à partir des enregistrements.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 class="doc-h3">Comment je l’ai construite</h3>
+      <p>Pour chaque fonction, j’ai répété le cycle «&nbsp;document de conception → plan d’implémentation → implémentation en écrivant les tests d’abord&nbsp;».</p>
+
+      <h3 class="doc-h3">Notes techniques</h3>
+      <ul class="doc-tags" aria-label="Technologies utilisées">
+        <li>HTML</li>
+        <li>JavaScript</li>
+        <li>Chart.js</li>
+        <li>Claude Artifact (fonction base de données)</li>
+        <li>Node.js (tests)</li>
+        <li>Registre des décisions (4&nbsp;ADR)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-name">ぐみゅけ</p>
+      <nav class="footer-col" aria-label="Liens du pied de page">
+        <ul>
+          <li><a href="index.fr.html#works">← Retour au portfolio</a></li>
+          <li><a href="#skills">① La collection de skills Claude Code</a></li>
+          <li><a href="#voicevox">② Le skill de réglage vocal pour VOICEVOX</a></li>
+          <li><a href="#kakeibo">③ Le carnet de comptes du séjour</a></li>
+        </ul>
+      </nav>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="tech.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="tech.en.html" hreflang="en" lang="en">English</a>
+        <a href="tech.fr.html" hreflang="fr" lang="fr" aria-current="page">Français</a>
+        <a href="tech.ko.html" hreflang="ko" lang="ko">한국어</a>
+      </nav>
+      <p class="analytics-note"><small>Cette page utilise un outil de mesure d’audience (GoatCounter). Il ne dépose aucun cookie et ne permet pas d’identifier les personnes.</small></p>
+      <p class="copyright"><small>© 2026 Gmy_K</small></p>
+      <p class="translation-note"><small>Cette page a été traduite en français avec l’aide de l’IA.</small></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://gmyk.goatcounter.com/count" async src="assets/count.js"></script>
+</body>
+</html>

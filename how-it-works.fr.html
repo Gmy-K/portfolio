@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le fonctionnement de mon PKM (gestion des connaissances personnelles) | ぐみゅけ</title>
+  <meta name="description" content="Les systèmes de PKM (gestion des connaissances personnelles) conçus par ぐみゅけ&nbsp;: un secrétaire automatique pour les tâches d’études et la conception d’ensemble d’un Vault Obsidian, expliqués simplement, schémas à l’appui.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Le fonctionnement de mon PKM (gestion des connaissances personnelles) | ぐみゅけ">
+  <meta property="og:description" content="Le fonctionnement de mon PKM (gestion des connaissances personnelles)&nbsp;: un secrétaire automatique pour les tâches d’études et la conception d’ensemble d’un Vault Obsidian, expliqués simplement, schémas à l’appui.">
+  <meta name="twitter:card" content="summary">
+  <link rel="alternate" hreflang="ja" href="https://gmy-k.github.io/portfolio/how-it-works.html">
+  <link rel="alternate" hreflang="en" href="https://gmy-k.github.io/portfolio/how-it-works.en.html">
+  <link rel="alternate" hreflang="fr" href="https://gmy-k.github.io/portfolio/how-it-works.fr.html">
+  <link rel="alternate" hreflang="ko" href="https://gmy-k.github.io/portfolio/how-it-works.ko.html">
+  <link rel="alternate" hreflang="x-default" href="https://gmy-k.github.io/portfolio/how-it-works.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="doc-body">
+  <a class="skip" href="#main">Aller au contenu principal</a>
+
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a class="doc-back" href="index.fr.html#works">← Retour au portfolio</a>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="how-it-works.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="how-it-works.en.html" hreflang="en" lang="en">English</a>
+        <a href="how-it-works.fr.html" hreflang="fr" lang="fr" aria-current="page">Français</a>
+        <a href="how-it-works.ko.html" hreflang="ko" lang="ko">한국어</a>
+      </nav>
+      <p class="doc-site">ぐみゅけ</p>
+      <h1 class="doc-title">Le fonctionnement de mon PKM (gestion des connaissances personnelles)</h1>
+      <p class="doc-lead">Voici, schémas à l’appui, deux systèmes que j’ai conçus pour mon propre usage dans le cadre de mon PKM (Personal Knowledge Management, c’est-à-dire la gestion des connaissances personnelles).</p>
+      <nav class="doc-nav" aria-label="Sur cette page">
+        <ul>
+          <li><a href="#secretary">PKM 1&nbsp;: le secrétaire des tâches d’études</a></li>
+          <li><a href="#vault">PKM 2&nbsp;: la conception d’ensemble du Vault</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc-main">
+    <section id="secretary" class="doc-section" aria-labelledby="secretary-title">
+      <p class="eyebrow" aria-hidden="true">SYSTEM 1</p>
+      <h2 id="secretary-title" class="section-title">PKM 1&nbsp;: un secrétaire automatique pour les tâches d’études (notification du matin et planificateur à rebours)</h2>
+
+      <p class="doc-summary"><strong>En bref&nbsp;:</strong> chaque matin, ce système trie automatiquement les devoirs et l’emploi du temps accumulés dans mes notes (Obsidian), puis me les envoie sur mon téléphone. En partant des échéances, il m’indique, raison à l’appui, «&nbsp;ce qu’il serait bon de faire aujourd’hui&nbsp;».</p>
+
+      <h3 class="doc-h3">Ce que je voulais résoudre</h3>
+      <ul class="doc-list">
+        <li>Au fil de la semaine, je perds de vue les cours de la semaine suivante et je finis par les préparer à la dernière minute.</li>
+        <li>Les tâches s’accumulent, et je ne sais plus par où commencer.</li>
+        <li>J’oublie d’ouvrir mes notes le matin.</li>
+        <li>Les informations s’entassent dans mes notes sans que j’aie l’impression de me les approprier.</li>
+      </ul>
+
+      <h3 class="doc-h3">Le fonctionnement</h3>
+      <div class="doc-flow" role="group" aria-label="Le déroulement, des entrées au calcul à rebours, puis aux sorties">
+        <div class="doc-box">
+          <p class="doc-box-label">Entrées</p>
+          <ul>
+            <li>Les routines hebdomadaires (un fichier qui recense les préparations, les interrogations, etc., avec le jour et la durée nécessaire)</li>
+            <li>Les cours et l’emploi du temps (Google Agenda)</li>
+            <li>Les tâches enregistrées (notes)</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">Calcul à rebours</p>
+          <ul>
+            <li>Les tâches sont réparties par ordre d’échéance sur le temps libre (hors rendez-vous, repas et courses).</li>
+            <li>Ce qui ne rentre pas est signalé comme tel.</li>
+            <li>Pas d’IA&nbsp;: le calcul suit des règles fixes (le résultat est toujours le même, et on peut donc le tester).</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">Sorties</p>
+          <ul>
+            <li>La notification du matin (envoyée automatiquement depuis le cloud, chaque matin)</li>
+            <li>Le tableau de bord web (pour téléphone, mis à jour automatiquement chaque matin)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="doc-after"><strong>Une fois la tâche terminée&nbsp;:</strong> je la coche dans mes notes, ou je dis à l’IA «&nbsp;J’ai fini telle chose&nbsp;».</p>
+
+      <h3 class="doc-h3">Les cinq composants</h3>
+      <ol class="doc-steps">
+        <li><strong>Les notes (Obsidian, versionnées avec Git)</strong> Une tâche tient sur une ligne, avec des champs comme l’échéance, la date à laquelle elle a été donnée et la durée nécessaire. On peut aussi la découper en tâches parentes et enfants.</li>
+        <li><strong>Le fichier des routines</strong> Il suffit d’y inscrire les préparations hebdomadaires, les interrogations, etc., pour que les tâches des deux semaines à venir soient créées automatiquement.</li>
+        <li><strong>Le calcul à rebours</strong> Voir le schéma ci-dessus.</li>
+        <li><strong>La notification du matin</strong> Une exécution planifiée dans le cloud l’envoie chaque matin, en un seul message. Elle fonctionne même quand mon ordinateur est fermé.</li>
+        <li><strong>Le tableau de bord web</strong> L’emploi du temps du jour, les prochaines choses à faire (quatre cases urgent × important), un calendrier sur douze semaines et la charge de chaque semaine, le tout sur une seule page. Il n’est pas public.</li>
+      </ol>
+
+      <h3 class="doc-h3">Ce que j’ai soigné</h3>
+      <ul class="doc-list">
+        <li><strong>Le suivi des tâches terminées repose sur un geste existant.</strong> Les routines étant créées comme de vraies tâches, il suffit de les cocher. Pas besoin d’écran ni de registre dédiés.</li>
+        <li><strong>La robustesse.</strong> Même si la partie planification échoue, la notification du matin part quand même. Un emploi du temps qui n’a pas pu être récupéré n’est pas remplacé par une journée vide. Une même tâche n’est jamais créée deux fois.</li>
+        <li><strong>De petites fonctions pour tenir sur la durée.</strong> Si j’oublie de créer une tâche, la notification du matin me le signale. L’importance d’une tâche s’active ou se désactive d’un seul bouton.</li>
+        <li><strong>Parer aux retards d’exécution.</strong> Il s’est avéré que les exécutions planifiées dans le cloud peuvent être retardées, voire sautées, aux heures d’affluence. J’ai donc décalé l’horaire, puis ajouté une seconde exécution de secours et une vérification qui empêche les envois en double.</li>
+      </ul>
+
+      <h3 class="doc-h3">Comment je l’ai construit (méthode de développement)</h3>
+      <p>Avec une IA (Claude Code), j’ai d’abord rédigé un document de conception, un registre des décisions (ADR) et un plan d’implémentation, puis j’ai implémenté en écrivant les tests en premier. Pour chaque tâche, le rôle d’implémentation et celui de relecture sont séparés, et l’ensemble passe une relecture finale. Le tout est écrit en Node.js, sans aucune bibliothèque externe, avec 24&nbsp;fichiers de test.</p>
+
+      <h3 class="doc-h3">Notes techniques</h3>
+      <ul class="doc-tags" aria-label="Technologies utilisées">
+        <li>Node.js (sans dépendance)</li>
+        <li>Obsidian + Dataview</li>
+        <li>Git</li>
+        <li>GitHub Actions (exécution planifiée)</li>
+        <li>Notifications sur Discord</li>
+        <li>Google Agenda</li>
+        <li>Exécution planifiée d’une IA dans le cloud</li>
+        <li>HTML + JavaScript sans framework</li>
+        <li>Développement piloté par les tests</li>
+        <li>Registre des décisions (7&nbsp;ADR)</li>
+      </ul>
+    </section>
+
+    <section id="vault" class="doc-section" aria-labelledby="vault-title">
+      <p class="eyebrow" aria-hidden="true">SYSTEM 2</p>
+      <h2 id="vault-title" class="section-title">PKM 2&nbsp;: la conception d’ensemble du Vault Obsidian</h2>
+
+      <p class="doc-summary">Dans le Vault (le coffre où sont rangées les notes), des dossiers numérotés traduisent le «&nbsp;flux de l’information&nbsp;».</p>
+
+      <h3 class="doc-h3">La carte des dossiers</h3>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <caption class="doc-sr">Correspondance entre les noms de dossiers et leur rôle</caption>
+          <thead>
+            <tr><th scope="col">Dossier</th><th scope="col">Rôle</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">00_Inbox</th><td>Réceptacle pour ce qui n’est pas encore trié</td></tr>
+            <tr><th scope="row">10_Fleeting</th><td>L’éphémère (notes du jour et de la semaine, point d’entrée des nouvelles tâches)</td></tr>
+            <tr><th scope="row">20_Literature</th><td>Notes de cours, notes de lecture, vocabulaire anglais</td></tr>
+            <tr><th scope="row">30_Zettel</th><td>Fiches de concepts (des connaissances écrites avec mes propres mots)</td></tr>
+            <tr><th scope="row">40_MOC</th><td>Sommaires et tableaux de bord</td></tr>
+            <tr><th scope="row">50_Projects</th><td>Projets à mener</td></tr>
+            <tr><th scope="row">60_Review</th><td>Questions de révision (choix + justification). Les réponses servent de germes aux fiches de concepts</td></tr>
+            <tr><th scope="row">80_System</th><td>Le système lui-même (modèles, scripts, routines)</td></tr>
+            <tr><th scope="row">90_Archive</th><td>Terminé, archivé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="doc-h3">Les cinq couches</h3>
+      <ol class="doc-layers" aria-label="Les cinq couches (de haut en bas)">
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">①</span>La couche d’acquisition</p>
+          <p>Cours et lectures. Les notes de cours suivent un modèle (résumé, notes prises en cours, vocabulaire inconnu, prochaines actions, concepts clés). Pour chaque matière, une note résume l’évaluation et le calendrier, et une autre recense les devoirs en cours.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">②</span>La couche des tâches</p>
+          <p>Un format unifié, sur une ligne (échéance, date à laquelle la tâche a été donnée, durée nécessaire, état). Les nouvelles tâches arrivent toutes dans un même réceptacle. Les routines hebdomadaires deviennent automatiquement des tâches. L’importance se règle d’un seul bouton.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">③</span>La couche temporelle (visualiser)</p>
+          <p>Des extensions de type calendrier, les listes de Dataview, un diagramme de Gantt et le tableau de bord web pour téléphone.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">④</span>La couche d’automatisation</p>
+          <p>Des scripts Node.js (sans dépendance, 24&nbsp;tests), la notification de chaque matin via GitHub Actions, l’exécution planifiée d’une IA dans le cloud (mise à jour du tableau de bord) et des macros QuickAdd.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">⑤</span>La couche des connaissances durables</p>
+          <p>Quand je réponds à une question de révision en justifiant ma réponse avec mes propres mots, celle-ci devient le germe d’une fiche de concept. Je demande à l’IA de repérer les liens entre les notes.</p>
+        </li>
+      </ol>
+
+      <h3 class="doc-h3">Le flux de l’information</h3>
+      <div class="doc-chain" role="group" aria-label="Le flux de l’information">
+        <ol class="doc-chain-row">
+          <li>Cours et lectures</li>
+          <li>Notes de cours</li>
+          <li>Prochaines actions</li>
+          <li class="doc-chain-hit">Tâches</li>
+        </ol>
+        <ol class="doc-chain-row">
+          <li>Routines</li>
+          <li class="doc-chain-hit">Tâches</li>
+        </ol>
+        <ol class="doc-chain-row">
+          <li>Calendrier</li>
+          <li>Calcul à rebours</li>
+          <li>Notification du matin, tableau de bord web, listes dans Obsidian</li>
+        </ol>
+        <p class="doc-chain-end">Une fois la tâche terminée, je la coche dans mes notes.</p>
+      </div>
+
+      <h3 class="doc-h3">La répartition des rôles avec l’IA</h3>
+      <p>Les règles sont écrites dans un fichier d’instructions rangé parmi les notes, que l’IA relit à chaque fois. Ses «&nbsp;skills&nbsp;» m’aident à transcrire les cours, à rédiger des commentaires de cours (reaction papers), à préparer les examens, à enregistrer des tâches, à réviser, à mettre à jour le tableau de bord, etc. Les calculs ne sont pas confiés à l’IA&nbsp;: ils sont effectués par des scripts aux règles fixes. L’IA, elle, se charge d’écrire, de résumer et d’exécuter des procédures.</p>
+
+      <h3 class="doc-h3">Stockage et synchronisation des données</h3>
+      <p>L’ensemble du Vault est un dépôt Git privé, avec commit et push automatiques. La notification du matin et le tableau de bord lisent la copie hébergée sur GitHub. Les secrets (destinataire des notifications, URL du calendrier) ne sont pas placés dans le dépôt, mais dans le coffre à secrets du cloud.</p>
+
+      <h3 class="doc-h3">Où j’en suis (en toute franchise)</h3>
+      <ul class="doc-list">
+        <li><strong>Très utilisés&nbsp;:</strong> les notes de cours, les tâches, la notification du matin, le tableau de bord et le calendrier.</li>
+        <li><strong>Encore embryonnaires&nbsp;:</strong> les fiches de concepts et les questions de révision (j’en ajouterai au fil du temps).</li>
+        <li><strong>Vestiges encore présents&nbsp;:</strong> les routines des semestres précédents (déjà transférées dans le nouveau fichier de routines).</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-name">ぐみゅけ</p>
+      <nav class="footer-col" aria-label="Liens du pied de page">
+        <ul>
+          <li><a href="index.fr.html#works">← Retour au portfolio</a></li>
+          <li><a href="#secretary">PKM 1&nbsp;: le secrétaire des tâches d’études</a></li>
+          <li><a href="#vault">PKM 2&nbsp;: la conception d’ensemble du Vault</a></li>
+        </ul>
+      </nav>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="how-it-works.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="how-it-works.en.html" hreflang="en" lang="en">English</a>
+        <a href="how-it-works.fr.html" hreflang="fr" lang="fr" aria-current="page">Français</a>
+        <a href="how-it-works.ko.html" hreflang="ko" lang="ko">한국어</a>
+      </nav>
+      <p class="analytics-note"><small>Cette page utilise un outil de mesure d’audience (GoatCounter). Il ne dépose aucun cookie et ne permet pas d’identifier les personnes.</small></p>
+      <p class="copyright"><small>© 2026 Gmy_K</small></p>
+      <p class="translation-note"><small>Cette page a été traduite en français avec l’aide de l’IA.</small></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://gmyk.goatcounter.com/count" async src="assets/count.js"></script>
+</body>
+</html>
