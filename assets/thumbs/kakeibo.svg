@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 670" role="img" aria-label="財布と棒グラフ">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cfe8f7"/>
+      <stop offset="1" stop-color="#9fbff0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="670" fill="url(#bg)"/>
+  <circle cx="640" cy="335" r="210" fill="#ffffff" fill-opacity="0.85"/>
+  <rect x="505" y="250" width="270" height="190" rx="28" fill="#ffffff" stroke="#2b5fd9" stroke-width="12"/>
+  <rect x="690" y="318" width="110" height="64" rx="20" fill="#2b5fd9"/>
+  <circle cx="724" cy="350" r="11" fill="#ffffff"/>
+  <g fill="#bcd3f5">
+    <rect x="540" y="350" width="34" height="60" rx="6"/>
+    <rect x="590" y="320" width="34" height="90" rx="6"/>
+    <rect x="640" y="290" width="34" height="120" rx="6"/>
+  </g>
+  <path d="M530 290 L600 262 L660 274 L745 215" fill="none" stroke="#1f9d55" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

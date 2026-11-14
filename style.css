@@ -1013,3 +1013,36 @@ a.card-inner:hover h3 {
   margin: 0;
   color: var(--muted);
 }
+
+/* tech.html: 4箱・3箱の流れ図、箱の本文、横並びの手順 */
+.doc-box-text {
+  margin: 0 0 6px;
+}
+
+.doc-flow-4 {
+  grid-template-columns: 1fr 28px 1.2fr 28px 1.2fr 28px 1fr;
+}
+
+.doc-flow-3 {
+  grid-template-columns: 1fr 28px 1.2fr 28px 1fr;
+}
+
+@media (max-width: 700px) {
+  .doc-flow-4,
+  .doc-flow-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.doc-table-plain tbody th {
+  font-family: inherit;
+  font-size: inherit;
+  white-space: normal;
+  min-width: 6em;
+}
+
+.doc-steps-inline li {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  min-height: 28px;
+}

@@ -73,7 +73,7 @@ window.PORTFOLIO = {
       title: "VOICEVOX調声スキル",
       summary: "セリフ・キャラ・トーンから、話速・音高・抑揚などの調声パラメータを提案するClaude Codeスキル。",
       date: "2026-08-09",
-      url: null,
+      url: "https://gmy-k.github.io/portfolio/tech.html#voicevox",
       thumb: "assets/thumbs/skill.svg"
     },
     {
@@ -102,6 +102,24 @@ window.PORTFOLIO = {
       date: "2026-11-14",
       url: "https://gmy-k.github.io/portfolio/how-it-works.html#vault",
       thumb: "assets/thumbs/vault.svg"
+    },
+    {
+      category: "dev",
+      kind: "Skill",
+      title: "Claude Code スキル集（学習・発信の自動化）",
+      summary: "AI に作業の手順を教える「スキル」を、用途ごとに作りためている仕組み。頼むと、毎回同じ手順で動く。",
+      date: "2026-11-14",
+      url: "https://gmy-k.github.io/portfolio/tech.html#skills",
+      thumb: "assets/thumbs/skills.svg"
+    },
+    {
+      category: "dev",
+      kind: "App",
+      title: "留学の家計簿（支出の記録と予算のペース表示）",
+      summary: "留学中の支出を、スマホから数秒で記録し、今月の予算に対するペースを見られるWebアプリ。",
+      date: "2026-11-14",
+      url: "https://gmy-k.github.io/portfolio/tech.html#kakeibo",
+      thumb: "assets/thumbs/kakeibo.svg"
     }
   ]
 };

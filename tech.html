@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>開発物の仕組み（スキル・音声・家計簿）｜ぐみゅけ</title>
+  <meta name="description" content="ぐみゅけが自分用に作った、Claude Code のスキル、VOICEVOX 調声スキル、留学の家計簿の3つを、図つきでやさしく説明するページです。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="開発物の仕組み（スキル・音声・家計簿）｜ぐみゅけ">
+  <meta property="og:description" content="Claude Code のスキル、VOICEVOX 調声、留学の家計簿。自分用に作った3つを、図つきで説明します。">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="doc-body">
+  <a class="skip" href="#main">本文へ移動</a>
+
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a class="doc-back" href="index.html#works">← ポートフォリオに戻る</a>
+      <p class="doc-site">ぐみゅけ</p>
+      <h1 class="doc-title">開発物の仕組み</h1>
+      <p class="doc-lead">Claude Code のスキル、VOICEVOX 調声、留学の家計簿。自分用に作った3つを、図つきで説明します。</p>
+      <nav class="doc-nav" aria-label="ページ内ナビゲーション">
+        <ul>
+          <li><a href="#skills">① Claude Code スキル集</a></li>
+          <li><a href="#voicevox">② VOICEVOX 調声スキル</a></li>
+          <li><a href="#kakeibo">③ 留学の家計簿</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc-main">
+    <section id="skills" class="doc-section" aria-labelledby="skills-title">
+      <p class="eyebrow" aria-hidden="true">WORK 1</p>
+      <h2 id="skills-title" class="section-title">① Claude Code スキル集（学習・発信の自動化）</h2>
+
+      <p class="doc-summary"><strong>ひとことで：</strong>AI（Claude Code）に「この作業は、この手順でやる」と教えておく手順書（スキル）を、用途ごとに作りためています。頼むと、毎回同じ手順で動いてくれます。</p>
+
+      <h3 class="doc-h3">作った理由</h3>
+      <ul class="doc-list">
+        <li>毎回、同じ説明を AI にするのが面倒。</li>
+        <li>頼み方によって、結果がぶれる。</li>
+        <li>守ってほしいルール（書き換えない、先に答えを見ないなど）を、毎回伝え忘れる。</li>
+      </ul>
+
+      <h3 class="doc-h3">仕組み</h3>
+      <div class="doc-flow doc-flow-4" role="group" aria-label="頼むから結果までの流れ">
+        <div class="doc-box">
+          <p class="doc-box-label">1. 頼む</p>
+          <p class="doc-box-text">例：「リアクションペーパーを書いて」</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">2. スキルを選ぶ</p>
+          <p class="doc-box-text">AI が、頼み方に合うスキルを選んで読む。</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">3. 実行する</p>
+          <p class="doc-box-text">「守ること」と「手順」のとおりに動く。</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">4. 結果</p>
+          <p class="doc-box-text">ノート、文章、提案など。</p>
+        </div>
+      </div>
+
+      <h3 class="doc-h3">スキルの中身</h3>
+      <p>1つのスキルは、1つのフォルダです。中に、手順書（Markdown の SKILL.md）が1枚あります。先頭に「どんな頼まれ方のときに使うか」、本文に「守ること」と「手順」を書きます。</p>
+
+      <h3 class="doc-h3">できること</h3>
+      <div class="doc-table-wrap">
+        <table class="doc-table doc-table-plain">
+          <caption class="doc-sr">スキルでできることの一覧</caption>
+          <thead>
+            <tr><th scope="col">分野</th><th scope="col">できること</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">講義・試験</th><td>講義スライド（PDF）をノートに転記する／講義ノートからリアクションペーパーを書く／講義ノートを根拠にして試験問題の解答を作る</td></tr>
+            <tr><th scope="row">英単語</th><td>手書きの英単語カードをデジタル化し、検索できるノートにする</td></tr>
+            <tr><th scope="row">タスク・復習</th><td>タスクの登録・細分化・完了／毎週の決まり事のタスク化／復習問題づくりと、毎日の復習</td></tr>
+            <tr><th scope="row">毎日の確認</th><td>今日のブリーフィング／Web ダッシュボードの更新</td></tr>
+            <tr><th scope="row">発信・動画</th><td>留学Noteの記事づくり／VOICEVOX の調声の提案</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="doc-after">大学の学習支援として作ったスキルは14個です。ほかに、サークル活動のイベント計画用のスキルが1つあります。</p>
+
+      <h3 class="doc-h3">工夫した点</h3>
+      <ul class="doc-list">
+        <li><strong>「守ること」を先に書く。</strong>例：復習では、正解を先に見せない。ユーザーの理由を書き換えない。タスクの完了は、名前を挙げたものだけにチェックを付ける。</li>
+        <li><strong>範囲を絞る。</strong>例：単語カードは、「文字にする」と「ノートにする」を別のスキルに分けました。</li>
+        <li><strong>理由を残す。</strong>作るたびに、なぜそうしたかを、設計の記録（ADR）に残します。</li>
+        <li><strong>直しやすい。</strong>手順を変えたくなったら、手順書を直すだけで、次から全部に反映されます。</li>
+      </ul>
+
+      <h3 class="doc-h3">作り方</h3>
+      <ol class="doc-steps doc-steps-inline">
+        <li><strong>設計</strong></li>
+        <li><strong>手順書を書く</strong></li>
+        <li><strong>実際に頼んで試す</strong></li>
+        <li><strong>失敗した例を手順書に足す</strong></li>
+      </ol>
+      <p class="doc-after">設定ファイルをまとめたリポジトリで、バージョン管理しています。スキルまわりの設計の記録は5本です。</p>
+
+      <h3 class="doc-h3">技術メモ</h3>
+      <ul class="doc-tags" aria-label="使っている技術">
+        <li>Claude Code スキル</li>
+        <li>Markdown</li>
+        <li>Git</li>
+        <li>設計の記録（ADR）</li>
+      </ul>
+    </section>
+
+    <section id="voicevox" class="doc-section" aria-labelledby="voicevox-title">
+      <p class="eyebrow" aria-hidden="true">WORK 2</p>
+      <h2 id="voicevox-title" class="section-title">② VOICEVOX 調声スキル（セリフから調声パラメータを提案）</h2>
+
+      <p class="doc-summary"><strong>ひとことで：</strong>セリフ・キャラクター名・トーン（例：淡々とシュール）を伝えると、VOICEVOX の調声パラメータ（話速・音高・抑揚・音量・間・無音）の推奨値を提案するスキルです。留学 Vlog のナレーションを作るときに使っています。</p>
+
+      <h3 class="doc-h3">解決したかった悩み</h3>
+      <ul class="doc-list">
+        <li>Reel のナレーションは、何本ものセリフを、少しずつ違うトーンで調声する。</li>
+        <li>毎回、手探りで数値を決めるのが大変だった。</li>
+      </ul>
+
+      <h3 class="doc-h3">仕組み</h3>
+      <div class="doc-flow doc-flow-4" role="group" aria-label="入力から出力までの流れ">
+        <div class="doc-box">
+          <p class="doc-box-label">入力</p>
+          <ul>
+            <li>セリフ本文</li>
+            <li>キャラ名</li>
+            <li>トーンの説明（自由な文で）</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">プリセットを選ぶ</p>
+          <p class="doc-box-text">5つの中から、トーンに最も近いものを選ぶ。</p>
+          <ul>
+            <li>淡々・シュール系</li>
+            <li>ハイテンション・早口系</li>
+            <li>感情豊か・親近感系</li>
+            <li>落ち着いたナレーション系</li>
+            <li>その他</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">微調整する</p>
+          <p class="doc-box-text">セリフ本文を走査して、数値を直す。</p>
+          <ul>
+            <li>40字以上は、話速を少し上げる</li>
+            <li>「！」があれば、抑揚を上げる</li>
+            <li>読点が多ければ、間を長くする</li>
+            <li>10字未満の決め台詞は、前後の無音を足す</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">出力</p>
+          <p class="doc-box-text">表で返す。VOICEVOX の画面のパラメータの並びと同じなので、見ながらそのままスライダーに転記できる。</p>
+        </div>
+      </div>
+
+      <h3 class="doc-h3">工夫した点</h3>
+      <ul class="doc-list">
+        <li><strong>数値は「出発点」。</strong>実測ではないと、毎回、注記します。</li>
+        <li><strong>数値にしないものがある。</strong>疑問形のイントネーションや、固有名詞のアクセントは、「手動で確認」と注記します。</li>
+        <li><strong>数値を創作しない。</strong>言葉だけで書かれたもの（例：「普通〜やや長め」）には、数値を付けません。</li>
+        <li><strong>音声は作らない。</strong>音声そのものは生成しません。VOICEVOX の画面で、手動で反映します。</li>
+      </ul>
+
+      <h3 class="doc-h3">設計の選択</h3>
+      <p>3つの方法を比べました。</p>
+      <ul class="doc-list">
+        <li>（A）固定の表だけ</li>
+        <li>（B）セリフごとにルールで組み立てる</li>
+        <li><strong>（C）表を土台にして、ルールで微調整する</strong></li>
+      </ul>
+      <p>安定感と、その回だけの個性を両立できる（C）を選びました（設計の記録 ADR 008）。</p>
+
+      <h3 class="doc-h3">作り方</h3>
+      <p>設計をしてから、手順書を書きました。プリセットと微調整のルールは、手順書に静的に書いています。</p>
+
+      <h3 class="doc-h3">技術メモ</h3>
+      <ul class="doc-tags" aria-label="使っている技術">
+        <li>Claude Code スキル</li>
+        <li>VOICEVOX</li>
+        <li>Markdown</li>
+        <li>設計の記録（ADR）</li>
+      </ul>
+    </section>
+
+    <section id="kakeibo" class="doc-section" aria-labelledby="kakeibo-title">
+      <p class="eyebrow" aria-hidden="true">WORK 3</p>
+      <h2 id="kakeibo-title" class="section-title">③ 留学の家計簿（支出の記録と予算のペース表示）</h2>
+
+      <p class="doc-summary"><strong>ひとことで：</strong>留学中の支出を、スマホから数秒で記録して、今月の予算に対するペースを見られる、自分用の Web アプリです。</p>
+
+      <h3 class="doc-h3">解決したかった悩み</h3>
+      <ul class="doc-list">
+        <li>キャッシュレス（カードのタップ）が主流で、少額の支払いが1日に何度もある。</li>
+        <li>入力が面倒だと、続かない。</li>
+      </ul>
+
+      <h3 class="doc-h3">仕組み（3つの部品）</h3>
+      <div class="doc-flow doc-flow-3" role="group" aria-label="画面・計算・データの3つの部品">
+        <div class="doc-box">
+          <p class="doc-box-label">画面</p>
+          <p class="doc-box-text">HTML と JavaScript で作る。グラフは Chart.js。</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">計算</p>
+          <p class="doc-box-text">純粋な関数だけを集めたファイル。画面とデータから切り離してあり、Node.js でテストできる。</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">データ</p>
+          <p class="doc-box-text">クラウド上の小さなデータベース。スマホでもパソコンでも、同じデータを使える。個人用なので、ログインはない。</p>
+        </div>
+      </div>
+      <p class="doc-after">Claude の Artifact（小さな Web アプリの置き場）として作りました。1つの URL をブックマークすれば使えます。</p>
+
+      <h3 class="doc-h3">画面でできること</h3>
+      <ul class="doc-list">
+        <li>支出を、すばやく記録する。</li>
+        <li>今月の使った額を、予算と比べて見る（日割りのペースの目印つき）。</li>
+        <li>日ごとの支出のグラフ。</li>
+        <li>残高の見通し。</li>
+        <li>固定費と変動費に分けた、お金の流れ。</li>
+        <li>食事つきの住居の、食事の回数に応じた食費の予算の自動調整。</li>
+        <li>送金プランの管理。</li>
+      </ul>
+
+      <h3 class="doc-h3">工夫した点</h3>
+      <ul class="doc-list">
+        <li><strong>入力の手間を、できるだけ小さくする。</strong>設計上、最も重要な制約です。</li>
+        <li><strong>計算を画面から切り離して、テストを書いた。</strong></li>
+        <li><strong>先に設計。</strong>機能ごとに、設計書と実装計画を書いてから作りました。</li>
+        <li><strong>決めたことを、設計の記録（ADR）に残した。</strong>4本あります。
+          <ul>
+            <li>休暇・食事回数のデータは、計算ファイルの定数にする。</li>
+            <li>休暇月の食費予算は、食事の回数の比で自動で増やし、表示にだけ反映する。</li>
+            <li>送金の設定は、別のデータ文書に持つ。</li>
+            <li>月の資産の増減は、記録から計算する。</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 class="doc-h3">作り方</h3>
+      <p>機能ごとに「設計書 → 実装計画 → テスト先行で実装」を繰り返しました。</p>
+
+      <h3 class="doc-h3">技術メモ</h3>
+      <ul class="doc-tags" aria-label="使っている技術">
+        <li>HTML</li>
+        <li>JavaScript</li>
+        <li>Chart.js</li>
+        <li>Claude Artifact（データベース機能）</li>
+        <li>Node.js（テスト）</li>
+        <li>設計の記録（ADR 4本）</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-name">ぐみゅけ</p>
+      <nav class="footer-col" aria-label="フッターのリンク">
+        <ul>
+          <li><a href="index.html#works">← ポートフォリオに戻る</a></li>
+          <li><a href="#skills">① Claude Code スキル集</a></li>
+          <li><a href="#voicevox">② VOICEVOX 調声スキル</a></li>
+          <li><a href="#kakeibo">③ 留学の家計簿</a></li>
+        </ul>
+      </nav>
+      <p class="analytics-note"><small>このページはアクセス解析（GoatCounter）を使っています。Cookieは使わず、個人は特定しません。</small></p>
+      <p class="copyright"><small>© 2026 Gmy_K</small></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://gmyk.goatcounter.com/count" async src="assets/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 670" role="img" aria-label="手順書と歯車">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cfe8f7"/>
+      <stop offset="1" stop-color="#9fbff0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="670" fill="url(#bg)"/>
+  <circle cx="640" cy="335" r="210" fill="#ffffff" fill-opacity="0.85"/>
+  <rect x="520" y="215" width="200" height="250" rx="22" fill="#ffffff" stroke="#2b5fd9" stroke-width="12"/>
+  <g fill="#bcd3f5">
+    <rect x="550" y="255" width="140" height="18" rx="9"/>
+    <rect x="550" y="300" width="110" height="18" rx="9"/>
+    <rect x="550" y="345" width="140" height="18" rx="9"/>
+    <rect x="550" y="390" width="90" height="18" rx="9"/>
+  </g>
+  <g transform="translate(715 420)">
+    <circle r="62" fill="#2b5fd9"/>
+    <g fill="#2b5fd9">
+      <rect x="-14" y="-88" width="28" height="30" rx="6"/>
+      <rect x="-14" y="58" width="28" height="30" rx="6"/>
+      <rect x="-88" y="-14" width="30" height="28" rx="6"/>
+      <rect x="58" y="-14" width="30" height="28" rx="6"/>
+      <rect x="-14" y="-88" width="28" height="30" rx="6" transform="rotate(45)"/>
+      <rect x="-14" y="58" width="28" height="30" rx="6" transform="rotate(45)"/>
+      <rect x="-88" y="-14" width="30" height="28" rx="6" transform="rotate(45)"/>
+      <rect x="58" y="-14" width="30" height="28" rx="6" transform="rotate(45)"/>
+    </g>
+    <circle r="26" fill="#ffffff"/>
+  </g>
+</svg>
