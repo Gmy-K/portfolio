@@ -24,8 +24,8 @@ window.PORTFOLIO = {
       {
         group: "やってみたい",
         items: [
-          { name: "JavaScript" },
-          { name: "C#" },
+          { name: "JavaScript", note: "自分の手で書けるようになりたい" },
+          { name: "C#", note: "自分の手で書けるようになりたい" },
           { name: "ほか（いろいろ）" }
         ]
       },
