@@ -27,7 +27,7 @@ const dataName = (lang) => (lang === "ja" ? "data.js" : `data.${lang}.js`);
 function loadData(lang) {
   const sandbox = { window: {} };
   vm.runInNewContext(read(dataName(lang)), sandbox);
-  return sandbox.window.PORTFOLIO;
+  return JSON.parse(JSON.stringify(sandbox.window.PORTFOLIO));
 }
 
 const existingPages = () => {

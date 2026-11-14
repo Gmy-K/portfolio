@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How My Projects Work (Skills, Voice, Budget Book) | ぐみゅけ</title>
+  <meta name="description" content="A page that gently explains, with diagrams, three things ぐみゅけ built for personal use: Claude Code skills, a VOICEVOX voice-tuning skill and a study-abroad budget book.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="How My Projects Work (Skills, Voice, Budget Book) | ぐみゅけ">
+  <meta property="og:description" content="Claude Code skills, VOICEVOX voice tuning and a study-abroad budget book: three things I built for myself, explained with diagrams.">
+  <meta name="twitter:card" content="summary">
+  <link rel="alternate" hreflang="ja" href="https://gmy-k.github.io/portfolio/tech.html">
+  <link rel="alternate" hreflang="en" href="https://gmy-k.github.io/portfolio/tech.en.html">
+  <link rel="alternate" hreflang="fr" href="https://gmy-k.github.io/portfolio/tech.fr.html">
+  <link rel="alternate" hreflang="ko" href="https://gmy-k.github.io/portfolio/tech.ko.html">
+  <link rel="alternate" hreflang="x-default" href="https://gmy-k.github.io/portfolio/tech.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="doc-body">
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a class="doc-back" href="index.en.html#works">← Back to the portfolio</a>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="tech.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="tech.en.html" hreflang="en" lang="en" aria-current="page">English</a>
+        <a href="tech.fr.html" hreflang="fr" lang="fr">Français</a>
+        <a href="tech.ko.html" hreflang="ko" lang="ko">한국어</a>
+      </nav>
+      <p class="doc-site">ぐみゅけ</p>
+      <h1 class="doc-title">How My Projects Work</h1>
+      <p class="doc-lead">Claude Code skills, VOICEVOX voice tuning and a study-abroad budget book: three things I built for myself, explained with diagrams.</p>
+      <nav class="doc-nav" aria-label="On this page">
+        <ul>
+          <li><a href="#skills">1: Claude Code Skills</a></li>
+          <li><a href="#voicevox">2: VOICEVOX Voice-Tuning Skill</a></li>
+          <li><a href="#kakeibo">3: Study-Abroad Budget Book</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc-main">
+    <section id="skills" class="doc-section" aria-labelledby="skills-title">
+      <p class="eyebrow" aria-hidden="true">WORK 1</p>
+      <h2 id="skills-title" class="section-title">1: Claude Code Skills (automating study and posting)</h2>
+
+      <p class="doc-summary"><strong>In a nutshell:</strong> I keep building up instruction sheets (skills) that teach AI (Claude Code) "do this task with these steps", one for each purpose. When I ask, it works through the same steps every time.</p>
+
+      <h3 class="doc-h3">Why I built it</h3>
+      <ul class="doc-list">
+        <li>Explaining the same thing to the AI every time is a hassle.</li>
+        <li>The result varies depending on how I phrase the request.</li>
+        <li>I forget to state the rules I want followed (don't rewrite things, don't look at the answer first, and so on) each time.</li>
+      </ul>
+
+      <h3 class="doc-h3">How it works</h3>
+      <div class="doc-flow doc-flow-4" role="group" aria-label="Flow from the request to the result">
+        <div class="doc-box">
+          <p class="doc-box-label">1. Ask</p>
+          <p class="doc-box-text">Example: "Write my reaction paper"</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">2. Pick a skill</p>
+          <p class="doc-box-text">The AI picks the skill that fits the request and reads it.</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">3. Carry it out</p>
+          <p class="doc-box-text">It works according to the "rules to follow" and the "steps".</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">4. Result</p>
+          <p class="doc-box-text">Notes, text, suggestions and so on.</p>
+        </div>
+      </div>
+
+      <h3 class="doc-h3">What is inside a skill</h3>
+      <p>One skill is one folder. Inside is a single instruction sheet (a Markdown file, SKILL.md). At the top it says "when to use this, depending on how I'm asked", and the body holds the "rules to follow" and the "steps".</p>
+
+      <h3 class="doc-h3">What they can do</h3>
+      <div class="doc-table-wrap">
+        <table class="doc-table doc-table-plain">
+          <caption class="doc-sr">List of what the skills can do</caption>
+          <thead>
+            <tr><th scope="col">Area</th><th scope="col">What it can do</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Lectures and exams</th><td>Transcribe lecture slides (PDF) into notes / write a reaction paper from lecture notes / draft answers to exam questions using the lecture notes as the source</td></tr>
+            <tr><th scope="row">English vocabulary</th><td>Digitise handwritten English vocabulary cards and turn them into searchable notes</td></tr>
+            <tr><th scope="row">Tasks and review</th><td>Register, break down and complete tasks / turn weekly routines into tasks / create review questions and do daily review</td></tr>
+            <tr><th scope="row">Daily check</th><td>Today's briefing / updating the web dashboard</td></tr>
+            <tr><th scope="row">Posting and video</th><td>Drafting study-abroad Note articles / suggesting VOICEVOX voice tuning</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="doc-after">I made 14 skills to support university study. There is also one more skill, for planning events for my club.</p>
+
+      <h3 class="doc-h3">Things I put thought into</h3>
+      <ul class="doc-list">
+        <li><strong>Write the "rules to follow" first.</strong>For example: in review, don't show the correct answer first. Don't rewrite the user's reasons. When completing tasks, tick only the ones that were named.</li>
+        <li><strong>Keep the scope narrow.</strong>For example, for vocabulary cards I split "turning it into text" and "turning it into notes" into separate skills.</li>
+        <li><strong>Keep the reasons.</strong>Each time I build one, I record why I did it that way in a design record (ADR).</li>
+        <li><strong>Easy to fix.</strong>If I want to change the steps, I just edit the instruction sheet and the change applies everywhere from next time.</li>
+      </ul>
+
+      <h3 class="doc-h3">How I built it</h3>
+      <ol class="doc-steps doc-steps-inline">
+        <li><strong>Design</strong></li>
+        <li><strong>Write the instruction sheet</strong></li>
+        <li><strong>Try it by actually asking</strong></li>
+        <li><strong>Add failure cases to the sheet</strong></li>
+      </ol>
+      <p class="doc-after">They are version-controlled in a repository that gathers my configuration files. There are 5 design records for the skills.</p>
+
+      <h3 class="doc-h3">Tech notes</h3>
+      <ul class="doc-tags" aria-label="Technologies used">
+        <li>Claude Code skills</li>
+        <li>Markdown</li>
+        <li>Git</li>
+        <li>Design records (ADR)</li>
+      </ul>
+    </section>
+
+    <section id="voicevox" class="doc-section" aria-labelledby="voicevox-title">
+      <p class="eyebrow" aria-hidden="true">WORK 2</p>
+      <h2 id="voicevox-title" class="section-title">2: VOICEVOX Voice-Tuning Skill (suggesting tuning parameters from a line)</h2>
+
+      <p class="doc-summary"><strong>In a nutshell:</strong> Tell it a line, a character name and a tone (for example, deadpan and surreal), and it suggests recommended values for VOICEVOX's tuning parameters (speed, pitch, intonation, volume, pauses and silence). I use it when making the narration for my study-abroad vlog.</p>
+
+      <h3 class="doc-h3">Problems I wanted to solve</h3>
+      <ul class="doc-list">
+        <li>For a Reel's narration, I tune many lines, each in a slightly different tone.</li>
+        <li>Deciding the numbers by trial and error every time was hard.</li>
+      </ul>
+
+      <h3 class="doc-h3">How it works</h3>
+      <div class="doc-flow doc-flow-4" role="group" aria-label="Flow from input to output">
+        <div class="doc-box">
+          <p class="doc-box-label">Input</p>
+          <ul>
+            <li>The text of the line</li>
+            <li>Character name</li>
+            <li>A description of the tone (in free-form text)</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">Pick a preset</p>
+          <p class="doc-box-text">Choose the one of five closest to the tone.</p>
+          <ul>
+            <li>Deadpan / surreal</li>
+            <li>High-energy / fast-talking</li>
+            <li>Expressive / friendly</li>
+            <li>Calm narration</li>
+            <li>Other</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">Fine-tune</p>
+          <p class="doc-box-text">Scan the text of the line and adjust the numbers.</p>
+          <ul>
+            <li>For 40 characters or more, raise the speed a little</li>
+            <li>If there is an "!", raise the intonation</li>
+            <li>If there are many commas, lengthen the pauses</li>
+            <li>For a punchline under 10 characters, add silence before and after</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">Output</p>
+          <p class="doc-box-text">Returned as a table. The order matches the parameters on the VOICEVOX screen, so I can copy the values straight onto the sliders while looking at it.</p>
+        </div>
+      </div>
+
+      <h3 class="doc-h3">Things I put thought into</h3>
+      <ul class="doc-list">
+        <li><strong>The numbers are a "starting point".</strong>Every time, it notes that they are not measured values.</li>
+        <li><strong>Some things are not turned into numbers.</strong>For the intonation of questions and the accent of proper nouns, it notes "check manually".</li>
+        <li><strong>No invented numbers.</strong>Where something is written only in words (for example, "normal to slightly long"), no number is attached.</li>
+        <li><strong>It doesn't make audio.</strong>It does not generate the audio itself. I apply the values by hand on the VOICEVOX screen.</li>
+      </ul>
+
+      <h3 class="doc-h3">Design choice</h3>
+      <p>I compared three approaches.</p>
+      <ul class="doc-list">
+        <li>(A) A fixed table only</li>
+        <li>(B) Build values with rules for each line</li>
+        <li><strong>(C) Use a table as the base and fine-tune with rules</strong></li>
+      </ul>
+      <p>I chose (C), which balances stability with the individuality of each line (design record ADR 008).</p>
+
+      <h3 class="doc-h3">How I built it</h3>
+      <p>I did the design first and then wrote the instruction sheet. The presets and the fine-tuning rules are written statically in the sheet.</p>
+
+      <h3 class="doc-h3">Tech notes</h3>
+      <ul class="doc-tags" aria-label="Technologies used">
+        <li>Claude Code skills</li>
+        <li>VOICEVOX</li>
+        <li>Markdown</li>
+        <li>Design records (ADR)</li>
+      </ul>
+    </section>
+
+    <section id="kakeibo" class="doc-section" aria-labelledby="kakeibo-title">
+      <p class="eyebrow" aria-hidden="true">WORK 3</p>
+      <h2 id="kakeibo-title" class="section-title">3: Study-Abroad Budget Book (logging spending and showing budget pace)</h2>
+
+      <p class="doc-summary"><strong>In a nutshell:</strong> A web app for my own use that lets me record spending while studying abroad in a few seconds from my phone, and see my pace against this month's budget.</p>
+
+      <h3 class="doc-h3">Problems I wanted to solve</h3>
+      <ul class="doc-list">
+        <li>Cashless payment (tapping a card) is the norm, so there are many small payments in a day.</li>
+        <li>If entering things is a hassle, I won't keep it up.</li>
+      </ul>
+
+      <h3 class="doc-h3">How it works (three components)</h3>
+      <div class="doc-flow doc-flow-3" role="group" aria-label="Three components: screen, calculation and data">
+        <div class="doc-box">
+          <p class="doc-box-label">Screen</p>
+          <p class="doc-box-text">Built with HTML and JavaScript. Charts use Chart.js.</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">Calculation</p>
+          <p class="doc-box-text">A file that gathers only pure functions. It is separated from the screen and the data, so it can be tested with Node.js.</p>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">Data</p>
+          <p class="doc-box-text">A small database in the cloud. The same data can be used from my phone or my computer. It is for personal use, so there is no login.</p>
+        </div>
+      </div>
+      <p class="doc-after">I built it as a Claude Artifact (a place to host small web apps). Bookmarking a single URL is enough to use it.</p>
+
+      <h3 class="doc-h3">What the screen can do</h3>
+      <ul class="doc-list">
+        <li>Record spending quickly.</li>
+        <li>Compare this month's spending with the budget (with a marker for the daily pro-rated pace).</li>
+        <li>A chart of daily spending.</li>
+        <li>An outlook for the balance.</li>
+        <li>The flow of money, split into fixed and variable costs.</li>
+        <li>Automatic adjustment of the food budget according to the number of meals, for housing that includes meals.</li>
+        <li>Management of money-transfer plans.</li>
+      </ul>
+
+      <h3 class="doc-h3">Things I put thought into</h3>
+      <ul class="doc-list">
+        <li><strong>Keep the effort of entering data as small as possible.</strong>This is the most important constraint in the design.</li>
+        <li><strong>Separated the calculation from the screen and wrote tests.</strong></li>
+        <li><strong>Design first.</strong>For each feature, I wrote a design document and an implementation plan before building it.</li>
+        <li><strong>Recorded decisions in design records (ADR).</strong>There are four.
+          <ul>
+            <li>Holiday and meal-count data are constants in the calculation file.</li>
+            <li>The food budget for holiday months is increased automatically by the ratio of meal counts, and reflected only in the display.</li>
+            <li>Transfer settings are kept in a separate data document.</li>
+            <li>The monthly change in assets is calculated from the records.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 class="doc-h3">How I built it</h3>
+      <p>For each feature I repeated "design document → implementation plan → test-first implementation".</p>
+
+      <h3 class="doc-h3">Tech notes</h3>
+      <ul class="doc-tags" aria-label="Technologies used">
+        <li>HTML</li>
+        <li>JavaScript</li>
+        <li>Chart.js</li>
+        <li>Claude Artifact (database feature)</li>
+        <li>Node.js (tests)</li>
+        <li>Design records (4 ADRs)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-name">ぐみゅけ</p>
+      <nav class="footer-col" aria-label="Footer links">
+        <ul>
+          <li><a href="index.en.html#works">← Back to the portfolio</a></li>
+          <li><a href="#skills">1: Claude Code Skills</a></li>
+          <li><a href="#voicevox">2: VOICEVOX Voice-Tuning Skill</a></li>
+          <li><a href="#kakeibo">3: Study-Abroad Budget Book</a></li>
+        </ul>
+      </nav>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="tech.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="tech.en.html" hreflang="en" lang="en" aria-current="page">English</a>
+        <a href="tech.fr.html" hreflang="fr" lang="fr">Français</a>
+        <a href="tech.ko.html" hreflang="ko" lang="ko">한국어</a>
+      </nav>
+      <p class="analytics-note"><small>This page uses analytics (GoatCounter). It uses no cookies and does not identify individuals.</small></p>
+      <p class="copyright"><small>© 2026 Gmy_K</small></p>
+      <p class="translation-note"><small>This page was translated into English with the help of AI.</small></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://gmyk.goatcounter.com/count" async src="assets/count.js"></script>
+</body>
+</html>

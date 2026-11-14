@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How My PKM (Personal Knowledge Management) Works | ぐみゅけ</title>
+  <meta name="description" content="How the PKM (personal knowledge management) systems built by ぐみゅけ work: an automated secretary for study tasks and the overall design of an Obsidian Vault, explained gently with diagrams.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="How My PKM (Personal Knowledge Management) Works | ぐみゅけ">
+  <meta property="og:description" content="How my PKM (personal knowledge management) works: an automated secretary for study tasks and the overall design of an Obsidian Vault, explained gently with diagrams.">
+  <meta name="twitter:card" content="summary">
+  <link rel="alternate" hreflang="ja" href="https://gmy-k.github.io/portfolio/how-it-works.html">
+  <link rel="alternate" hreflang="en" href="https://gmy-k.github.io/portfolio/how-it-works.en.html">
+  <link rel="alternate" hreflang="fr" href="https://gmy-k.github.io/portfolio/how-it-works.fr.html">
+  <link rel="alternate" hreflang="ko" href="https://gmy-k.github.io/portfolio/how-it-works.ko.html">
+  <link rel="alternate" hreflang="x-default" href="https://gmy-k.github.io/portfolio/how-it-works.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="doc-body">
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a class="doc-back" href="index.en.html#works">← Back to the portfolio</a>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="how-it-works.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="how-it-works.en.html" hreflang="en" lang="en" aria-current="page">English</a>
+        <a href="how-it-works.fr.html" hreflang="fr" lang="fr">Français</a>
+        <a href="how-it-works.ko.html" hreflang="ko" lang="ko">한국어</a>
+      </nav>
+      <p class="doc-site">ぐみゅけ</p>
+      <h1 class="doc-title">How My PKM (Personal Knowledge Management) Works</h1>
+      <p class="doc-lead">Here are two systems I built for myself as PKM (Personal Knowledge Management), explained with diagrams.</p>
+      <nav class="doc-nav" aria-label="On this page">
+        <ul>
+          <li><a href="#secretary">PKM 1: Study-Task Secretary</a></li>
+          <li><a href="#vault">PKM 2: Overall Design of the Vault</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc-main">
+    <section id="secretary" class="doc-section" aria-labelledby="secretary-title">
+      <p class="eyebrow" aria-hidden="true">SYSTEM 1</p>
+      <h2 id="secretary-title" class="section-title">PKM 1: Automated Secretary for Study Tasks (morning notification and backward planner)</h2>
+
+      <p class="doc-summary"><strong>In a nutshell:</strong> It sorts out the assignments and plans piling up in my notes (Obsidian) every morning, automatically, and sends them to my phone. Working backward from deadlines, it tells me "it would be good to do this today", with the reason.</p>
+
+      <h3 class="doc-h3">Problems I wanted to solve</h3>
+      <ul class="doc-list">
+        <li>Once a week gets going, next week's classes become hazy and my prep ends up last-minute.</li>
+        <li>Tasks overflow and I can't tell where to start.</li>
+        <li>I forget to open my notes in the morning.</li>
+        <li>Information just piles up in my notes, and it doesn't feel like it becomes mine.</li>
+      </ul>
+
+      <h3 class="doc-h3">How it works</h3>
+      <div class="doc-flow" role="group" aria-label="Flow from input through the backward calculation to output">
+        <div class="doc-box">
+          <p class="doc-box-label">Input</p>
+          <ul>
+            <li>Weekly routines (a file listing prep, quizzes and so on, with weekdays and time needed)</li>
+            <li>Classes and plans (Google Calendar)</li>
+            <li>Registered tasks (in my notes)</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">Backward calculation</p>
+          <ul>
+            <li>Starting from the nearest deadline, tasks are assigned to free time (excluding plans, meals and shopping).</li>
+            <li>Anything that doesn't fit is reported as "doesn't fit".</li>
+            <li>No AI is used; it calculates with fixed rules (so the result is the same every time, and it can be tested).</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">Output</p>
+          <ul>
+            <li>Morning notification (sent automatically every morning from the cloud)</li>
+            <li>Web dashboard (for my phone, updated automatically every morning)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="doc-after"><strong>When I'm done:</strong> I tick the task in my notes, or tell the AI "I finished such-and-such".</p>
+
+      <h3 class="doc-h3">The five components</h3>
+      <ol class="doc-steps">
+        <li><strong>Notes (Obsidian, managed with Git)</strong>A task is a single line with fields such as deadline, date received and time needed. Tasks can also be broken down into parent and child tasks.</li>
+        <li><strong>Routine file</strong>Write down weekly prep, quizzes and so on, and it automatically creates the tasks for the next two weeks.</li>
+        <li><strong>Backward calculation</strong>As in the diagram above.</li>
+        <li><strong>Morning notification</strong>A scheduled run in the cloud bundles everything into one message each morning. It works even when my computer is closed.</li>
+        <li><strong>Web dashboard</strong>Today's plans, what to do next (four boxes of urgent × important), a 12-week calendar and the load for each week, all on one page. It is private.</li>
+      </ol>
+
+      <h3 class="doc-h3">Things I put thought into</h3>
+      <ul class="doc-list">
+        <li><strong>Tracking completion rides on an existing action.</strong>Routines are created as real tasks, so ticking one is all it takes. No special screen or record is needed.</li>
+        <li><strong>Resilience.</strong>Even if the planning part fails, the morning notification doesn't stop. Plans that couldn't be fetched are not overwritten as "no plans". The same task is never created twice.</li>
+        <li><strong>Small features to keep me using it.</strong>If I forget to create something, the morning notification tells me. Importance can be switched on and off with one button.</li>
+        <li><strong>Preparing for timing drift.</strong>I found that scheduled cloud runs can be late or skipped at busy times. So I shifted the time, and added a second run as insurance plus a check to prevent double sending.</li>
+      </ul>
+
+      <h3 class="doc-h3">How I built it (development process)</h3>
+      <p>Together with AI (Claude Code), I wrote a design document, decision records (ADR) and an implementation plan, and then implemented it test-first. For each piece of work, the implementer and the reviewer are separate roles, and everything goes through a final overall review. It is written in Node.js with no dependency libraries, and has 24 test files.</p>
+
+      <h3 class="doc-h3">Tech notes</h3>
+      <ul class="doc-tags" aria-label="Technologies used">
+        <li>Node.js (no dependencies)</li>
+        <li>Obsidian + Dataview</li>
+        <li>Git</li>
+        <li>GitHub Actions (scheduled runs)</li>
+        <li>Notifications to Discord</li>
+        <li>Google Calendar</li>
+        <li>Scheduled AI runs in the cloud</li>
+        <li>HTML + plain JavaScript</li>
+        <li>Test-first development</li>
+        <li>Design records (7 ADRs)</li>
+      </ul>
+    </section>
+
+    <section id="vault" class="doc-section" aria-labelledby="vault-title">
+      <p class="eyebrow" aria-hidden="true">SYSTEM 2</p>
+      <h2 id="vault-title" class="section-title">PKM 2: Overall Design of the Obsidian Vault</h2>
+
+      <p class="doc-summary">The Vault (a storage space for notes) uses numbered folders to represent the "flow of information".</p>
+
+      <h3 class="doc-h3">Folder map</h3>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <caption class="doc-sr">Table of folder names and their roles</caption>
+          <thead>
+            <tr><th scope="col">Folder</th><th scope="col">Role</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">00_Inbox</th><td>A catch-all for unsorted items</td></tr>
+            <tr><th scope="row">10_Fleeting</th><td>Temporary items (daily and weekly notes, and where new tasks get written)</td></tr>
+            <tr><th scope="row">20_Literature</th><td>Lecture notes, reading notes and English vocabulary</td></tr>
+            <tr><th scope="row">30_Zettel</th><td>Concept cards (knowledge written in my own words)</td></tr>
+            <tr><th scope="row">40_MOC</th><td>Tables of contents and dashboards</td></tr>
+            <tr><th scope="row">50_Projects</th><td>Projects being carried out</td></tr>
+            <tr><th scope="row">60_Review</th><td>Review questions (choice + reason). The answers become seeds for concept cards</td></tr>
+            <tr><th scope="row">80_System</th><td>The machinery itself (templates, scripts and routines)</td></tr>
+            <tr><th scope="row">90_Archive</th><td>Completed and stored</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="doc-h3">The five layers</h3>
+      <ol class="doc-layers" aria-label="The five layers (from top to bottom)">
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">①</span>Intake layer</p>
+          <p>Lectures and reading. Lecture notes follow a template (summary, lecture memo, unfamiliar vocabulary, next actions, key concepts). For each course there is a note summarising grading and schedule, and a note on current assignments.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">②</span>Task layer</p>
+          <p>A uniform one-line format (deadline, date received, time needed, status). New tasks go into a single catch-all. Weekly routines are turned into tasks automatically. Importance is one button.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">③</span>Timeline layer (viewing)</p>
+          <p>Calendar-style plugins, Dataview lists, a Gantt chart, and the web dashboard for my phone.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">④</span>Automation layer</p>
+          <p>Node.js scripts (no dependencies, 24 test files), the morning notification via GitHub Actions, scheduled AI runs in the cloud (dashboard updates), and QuickAdd macros.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">⑤</span>Knowledge layer</p>
+          <p>When I answer a review question with a reason in my own words, it becomes a seed for a concept card. I have the AI look for connections between notes.</p>
+        </li>
+      </ol>
+
+      <h3 class="doc-h3">Flow of information</h3>
+      <div class="doc-chain" role="group" aria-label="Flow of information">
+        <ol class="doc-chain-row">
+          <li>Lectures and reading</li>
+          <li>Lecture notes</li>
+          <li>Next actions</li>
+          <li class="doc-chain-hit">Task</li>
+        </ol>
+        <ol class="doc-chain-row">
+          <li>Routines</li>
+          <li class="doc-chain-hit">Task</li>
+        </ol>
+        <ol class="doc-chain-row">
+          <li>Calendar</li>
+          <li>Backward calculation</li>
+          <li>Morning notification, web dashboard and Obsidian lists</li>
+        </ol>
+        <p class="doc-chain-end">When I'm done, I tick the task in my notes.</p>
+      </div>
+
+      <h3 class="doc-h3">Dividing the work with AI</h3>
+      <p>The rules are written in instruction sheets inside the notes, and the AI reads them every time. AI "skills" help with transcribing lectures, reaction papers, exam preparation, registering tasks, reviewing, updating the dashboard and so on. The calculation is not left to AI; it is done by scripts with fixed rules. The AI's role is to write, summarise and carry out procedures.</p>
+
+      <h3 class="doc-h3">Where the data lives and how it syncs</h3>
+      <p>The whole Vault is a private Git repository. It is committed and pushed automatically. The morning notification and the dashboard read the copy on GitHub. Secrets (the notification destination, the calendar URL) are not put in the repository; they are kept in the cloud's secret storage.</p>
+
+      <h3 class="doc-h3">Where things stand (honestly)</h3>
+      <ul class="doc-list">
+        <li><strong>Used a lot:</strong> lecture notes, tasks, the morning notification, the dashboard and the calendar.</li>
+        <li><strong>Not grown yet:</strong> concept cards and review questions (I'll add more from now on).</li>
+        <li><strong>Still left over as old:</strong> routines from a previous term (already moved to the new routine file).</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-name">ぐみゅけ</p>
+      <nav class="footer-col" aria-label="Footer links">
+        <ul>
+          <li><a href="index.en.html#works">← Back to the portfolio</a></li>
+          <li><a href="#secretary">PKM 1: Study-Task Secretary</a></li>
+          <li><a href="#vault">PKM 2: Overall Design of the Vault</a></li>
+        </ul>
+      </nav>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="how-it-works.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="how-it-works.en.html" hreflang="en" lang="en" aria-current="page">English</a>
+        <a href="how-it-works.fr.html" hreflang="fr" lang="fr">Français</a>
+        <a href="how-it-works.ko.html" hreflang="ko" lang="ko">한국어</a>
+      </nav>
+      <p class="analytics-note"><small>This page uses analytics (GoatCounter). It uses no cookies and does not identify individuals.</small></p>
+      <p class="copyright"><small>© 2026 Gmy_K</small></p>
+      <p class="translation-note"><small>This page was translated into English with the help of AI.</small></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://gmyk.goatcounter.com/count" async src="assets/count.js"></script>
+</body>
+</html>
