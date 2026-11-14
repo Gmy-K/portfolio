@@ -123,3 +123,9 @@ test("タイトルは PKM（個人の知識管理）の関連だと分かる言�
     assert.ok(h2 && h2[1].includes("PKM"), `#${id} の見出しに PKM がない`);
   }
 });
+
+test("Vault の名前として根拠のない呼び名（Intelligence Fortress）を載せない", () => {
+  const html = fs.readFileSync(path.resolve(__dirname, "../how-it-works.html"), "utf8");
+  assert.ok(!html.includes("Intelligence Fortress"), "Vault の名前（Intelligence Fortress）が載っている");
+  assert.ok(!html.includes("Fortress"));
+});
