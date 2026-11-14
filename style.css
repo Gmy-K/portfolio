@@ -1,6 +1,6 @@
 :root {
   color-scheme: light dark;
-  --font: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   --bg-from: #cdeafa;
   --bg-to: #eef8ff;
   --card: #ffffff;
