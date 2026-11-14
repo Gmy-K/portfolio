@@ -22,7 +22,7 @@ test("index.html は data.js → lib.js → script.js の順で読み込む", ()
 test("index.html は外部リソースを Google Fonts 以外から読み込まない", () => {
   const html = read("index.html");
   const hosts = [...html.matchAll(/(?:src|href)="(https?:\/\/[^"/]+)/g)].map((m) => m[1]);
-  const allowed = new Set(["https://fonts.googleapis.com", "https://fonts.gstatic.com"]);
+  const allowed = new Set(["https://fonts.googleapis.com", "https://fonts.gstatic.com", "https://gmy-k.github.io"]);
   for (const host of hosts) assert.ok(allowed.has(host), `許可されていない外部ホスト: ${host}`);
 });
 

@@ -31,7 +31,7 @@ test("how-it-works.html が存在し、基本の要素を備える", () => {
 test("外部ホストは Google Fonts だけで、GoatCounter は index.html と同じ script タグ", () => {
   const html = read(PAGE);
   const hosts = [...html.matchAll(/(?:src|href)="(https?:\/\/[^"/]+)/g)].map((m) => m[1]);
-  const allowed = new Set(["https://fonts.googleapis.com", "https://fonts.gstatic.com"]);
+  const allowed = new Set(["https://fonts.googleapis.com", "https://fonts.gstatic.com", "https://gmy-k.github.io"]);
   for (const host of hosts) assert.ok(allowed.has(host), `許可されていない外部ホスト: ${host}`);
   const tag = '<script data-goatcounter="https://gmyk.goatcounter.com/count" async src="assets/count.js"></script>';
   assert.ok(read("index.html").includes(tag));

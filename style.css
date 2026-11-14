@@ -1095,3 +1095,64 @@ a.card-inner:hover h3 {
   padding-bottom: 8px;
   min-height: 28px;
 }
+
+/* 言語スイッチャー */
+.lang-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.lang-switch a {
+  display: inline-block;
+  padding: 3px 0;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.lang-switch a:hover {
+  color: var(--eyebrow);
+  text-decoration: underline;
+}
+
+.lang-switch a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.site-nav .lang-switch {
+  margin: 12px 0 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+.site-nav .lang-switch a {
+  display: inline-block;
+  padding: 3px 0;
+  font-weight: 400;
+}
+
+.site-nav .lang-switch a[aria-current="page"] {
+  font-weight: 900;
+}
+
+.site-nav .lang-switch a::after {
+  content: none;
+}
+
+.footer .lang-switch {
+  margin: 24px 0 0;
+}
+
+.doc-header .lang-switch {
+  margin: 4px 0 0;
+}
+
+.translation-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
