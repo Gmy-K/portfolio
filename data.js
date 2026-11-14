@@ -13,6 +13,38 @@ window.PORTFOLIO = {
       { label: "Instagram", url: "https://www.instagram.com/gmy_k_in_uk/", icon: "IG", image: "assets/icons/instagram.webp" },
       { label: "GitHub", url: "https://github.com/Gmy-K", icon: "GH", image: "assets/icons/github.svg" }
     ],
+    skills: [
+      {
+        group: "プログラミング（勉強中）",
+        items: [
+          { name: "Python", note: "主に統計。GCIで学んだ範囲" },
+          { name: "R" }
+        ]
+      },
+      {
+        group: "やってみたい",
+        items: [
+          { name: "JavaScript" },
+          { name: "C#" },
+          { name: "ほか（いろいろ）" }
+        ]
+      },
+      {
+        group: "話せる・使える言語",
+        items: [
+          { name: "日本語" },
+          { name: "英語" },
+          { name: "フランス語（少し）" }
+        ]
+      },
+      {
+        group: "勉強中の言語",
+        items: [
+          { name: "フランス語" },
+          { name: "韓国語" }
+        ]
+      }
+    ],
     activities: [
       {
         name: "Note",

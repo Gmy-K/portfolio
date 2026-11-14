@@ -116,3 +116,23 @@ test("トップの一言は「何ができる人か」を伝え、プログラ�
   assert.ok(profile.intro[0].includes("自認英国人系大学生"), "自己紹介の最初に人柄の一言が移っていない");
   assert.ok(profile.intro[0].includes("カーディフ大学"), "自己紹介の最初に留学の説明がない");
 });
+
+test("profile.skills は指定の4グループを、指定の順・内容で持つ", () => {
+  const skills = JSON.parse(JSON.stringify(loadData().profile.skills));
+  assert.deepEqual(skills, [
+    { group: "プログラミング（勉強中）", items: [{ name: "Python", note: "主に統計。GCIで学んだ範囲" }, { name: "R" }] },
+    { group: "やってみたい", items: [{ name: "JavaScript" }, { name: "C#" }, { name: "ほか（いろいろ）" }] },
+    { group: "話せる・使える言語", items: [{ name: "日本語" }, { name: "英語" }, { name: "フランス語（少し）" }] },
+    { group: "勉強中の言語", items: [{ name: "フランス語" }, { name: "韓国語" }] }
+  ]);
+});
+
+test("JavaScript / C# は「やってみたい」だけにあり、勉強中・使えるグループには出ない", () => {
+  const skills = loadData().profile.skills;
+  const want = skills.find((g) => g.group === "やってみたい");
+  const names = want.items.map((i) => i.name);
+  assert.ok(names.includes("JavaScript") && names.includes("C#"));
+  for (const g of skills.filter((g) => g.group.includes("勉強中") || g.group.includes("使える"))) {
+    for (const i of g.items) assert.ok(!/JavaScript|C#/.test(i.name), `${g.group} に ${i.name}`);
+  }
+});

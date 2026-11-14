@@ -113,6 +113,37 @@
       }
     }
 
+    if (profile && typeof profile === "object" && profile.skills !== undefined) {
+      var skills = profile.skills;
+      if (!Array.isArray(skills) || skills.length === 0) {
+        errors.push("profile.skills: must be a non-empty array when present");
+      } else {
+        skills.forEach(function (group, i) {
+          var at = "profile.skills[" + i + "]";
+          if (!group || typeof group !== "object") {
+            errors.push(at + ": must be an object");
+            return;
+          }
+          if (!nonEmpty(group.group)) errors.push(at + ".group: required");
+          if (!Array.isArray(group.items) || group.items.length === 0) {
+            errors.push(at + ".items: need a non-empty array");
+            return;
+          }
+          group.items.forEach(function (skill, j) {
+            var itemAt = at + ".items[" + j + "]";
+            if (!skill || typeof skill !== "object") {
+              errors.push(itemAt + ": must be an object");
+              return;
+            }
+            if (!nonEmpty(skill.name)) errors.push(itemAt + ".name: required");
+            if (skill.note !== undefined && !nonEmpty(skill.note)) {
+              errors.push(itemAt + ".note: must be a non-empty string when present");
+            }
+          });
+        });
+      }
+    }
+
     var items = data && data.items;
     if (!Array.isArray(items)) {
       errors.push("items: must be an array");

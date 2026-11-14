@@ -232,6 +232,54 @@ h1 {
   margin: 0 0 0.8em;
 }
 
+.skill-groups {
+  display: grid;
+  gap: 18px;
+}
+
+.skill-group-title {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-chip {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+  max-width: 100%;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.skill-note {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.skill-group.is-wish .skill-chip {
+  background: transparent;
+  box-shadow: none;
+  border: 2px dashed var(--muted);
+  font-weight: 500;
+}
+
 .activity-list {
   display: grid;
   gap: 12px;

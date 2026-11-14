@@ -74,6 +74,27 @@
       intro.appendChild(el("p", "", text));
     });
 
+    var skillsSection = document.getElementById("skills");
+    if (Array.isArray(profile.skills) && profile.skills.length > 0) {
+      var skillGroups = document.getElementById("skill-groups");
+      profile.skills.forEach(function (group) {
+        var wrap = el("div", "skill-group");
+        if (group.group === "やってみたい") wrap.classList.add("is-wish");
+        wrap.appendChild(el("h3", "skill-group-title", group.group));
+        var list = el("ul", "skill-list");
+        group.items.forEach(function (skill) {
+          var li = el("li", "skill-chip");
+          li.appendChild(el("span", "skill-name", skill.name));
+          if (skill.note) li.appendChild(el("small", "skill-note", skill.note));
+          list.appendChild(li);
+        });
+        wrap.appendChild(list);
+        skillGroups.appendChild(wrap);
+      });
+    } else {
+      skillsSection.hidden = true;
+    }
+
     var activityList = document.getElementById("activity-list");
     profile.activities.forEach(function (activity) {
       activityList.appendChild(renderActivity(activity));

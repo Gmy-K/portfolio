@@ -226,3 +226,41 @@ test("visitCountLabel: しきい値未満・不正な値は null（表示しな�
 test("visitCountLabel: 7桁以上はそのまま桁を増やす", () => {
   assert.equal(lib.visitCountLabel({ count: "1234567" }, 50), "1234567");
 });
+
+const withSkills = (skills) => {
+  const d = data();
+  d.profile.skills = skills;
+  return d;
+};
+
+test("validateData: profile.skills は省略できる", () => {
+  assert.deepEqual(lib.validateData(data()), []);
+});
+
+test("validateData: 正しい profile.skills はエラーなし", () => {
+  const skills = [{ group: "G", items: [{ name: "A" }, { name: "B", note: "メモ" }] }];
+  assert.deepEqual(lib.validateData(withSkills(skills)), []);
+});
+
+test("validateData: skills が空配列・配列でないと弾く", () => {
+  assert.ok(lib.validateData(withSkills([])).some((e) => e.startsWith("profile.skills")));
+  assert.ok(lib.validateData(withSkills("x")).some((e) => e.startsWith("profile.skills")));
+});
+
+test("validateData: グループの group / items の不備を、パス付きで弾く", () => {
+  const e1 = lib.validateData(withSkills([{ group: "", items: [{ name: "A" }] }]));
+  assert.ok(e1.some((e) => e.includes("profile.skills[0].group")));
+  const e2 = lib.validateData(withSkills([{ group: "G", items: [] }]));
+  assert.ok(e2.some((e) => e.includes("profile.skills[0].items")));
+  const e3 = lib.validateData(withSkills([{ group: "G", items: "x" }]));
+  assert.ok(e3.some((e) => e.includes("profile.skills[0].items")));
+});
+
+test("validateData: 項目の name / note の不備を、パス付きで弾く", () => {
+  const e1 = lib.validateData(withSkills([{ group: "G", items: [{ name: "A" }, { name: " " }] }]));
+  assert.ok(e1.some((e) => e.includes("profile.skills[0].items[1].name")));
+  const e2 = lib.validateData(withSkills([{ group: "G", items: [{ name: "A", note: "" }] }]));
+  assert.ok(e2.some((e) => e.includes("profile.skills[0].items[0].note")));
+  const e3 = lib.validateData(withSkills([{ group: "G", items: [null] }]));
+  assert.ok(e3.some((e) => e.includes("profile.skills[0].items[0]")));
+});

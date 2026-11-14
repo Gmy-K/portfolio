@@ -129,3 +129,20 @@ test("Vault の名前として根拠のない呼び名（Intelligence Fortress�
   assert.ok(!html.includes("Intelligence Fortress"), "Vault の名前（Intelligence Fortress）が載っている");
   assert.ok(!html.includes("Fortress"));
 });
+
+test("index.html に #skills があり、ナビとフッターが 自己紹介 と 活動 の間に置く", () => {
+  const html = read("index.html");
+  assert.ok(html.includes('<section id="skills" aria-labelledby="skills-title">'));
+  assert.ok(html.includes('id="skill-groups"'));
+  const links = [...html.matchAll(/<a href="#(about|skills|activities)">/g)].map((m) => m[1]);
+  assert.deepEqual(links, ["about", "skills", "activities", "about", "skills", "activities"]);
+  assert.ok(html.indexOf('id="about"') < html.indexOf('id="skills"'));
+  assert.ok(html.indexOf('id="skills"') < html.indexOf('id="activities"'));
+});
+
+test("script.js は skills を描画し、skills が無ければセクションを隠す", () => {
+  const src = read("script.js");
+  assert.ok(src.includes("skill-groups"));
+  assert.ok(src.includes("profile.skills"));
+  assert.ok(/getElementById\("skills"\)/.test(src));
+});
