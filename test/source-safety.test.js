@@ -115,3 +115,10 @@ test("フッターに、解析の使用を知らせる一文がある", () => {
   const html = read("index.html");
   assert.ok(html.includes("アクセス解析"), "アクセス解析の告知がない");
 });
+
+test("トップの一言は、日本語の語の途中で折り返さない指定（word-break: auto-phrase）をもつ", () => {
+  const css = read("style.css");
+  const rule = css.match(/\n\.tagline \{[^}]*\}/);
+  assert.ok(rule, ".tagline のルールがない");
+  assert.ok(rule[0].includes("word-break: auto-phrase"), ".tagline に word-break: auto-phrase がない");
+});

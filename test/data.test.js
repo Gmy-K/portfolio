@@ -107,3 +107,12 @@ test("実画面サムネイル（secretary・kakeibo）は PNG・400KB未満・E
     assert.ok(!bin.includes("Exif") && !bin.includes("GPS"), `${item.thumb}: メタデータあり`);
   }
 });
+
+test("トップの一言は「何ができる人か」を伝え、プログラミングは勉強中と書き、データ分析とは言わない", () => {
+  const { profile } = loadData();
+  assert.ok(profile.tagline.includes("小さな自動化"), "tagline に「小さな自動化」がない");
+  assert.ok(profile.tagline.includes("プログラミングは勉強中"), "tagline に「プログラミングは勉強中」がない");
+  assert.ok(!profile.tagline.includes("データ分析"), "tagline に「データ分析」が含まれている");
+  assert.ok(profile.intro[0].includes("自認英国人系大学生"), "自己紹介の最初に人柄の一言が移っていない");
+  assert.ok(profile.intro[0].includes("カーディフ大学"), "自己紹介の最初に留学の説明がない");
+});

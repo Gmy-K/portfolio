@@ -190,6 +190,7 @@ h1 {
   font-size: clamp(16px, 2.2vw, 22px);
   color: rgba(255, 255, 255, 0.94);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  word-break: auto-phrase; /* 日本語を語のまとまりで折り返す（未対応のブラウザでは無視される） */
 }
 
 .button {
