@@ -84,6 +84,24 @@ window.PORTFOLIO = {
       date: "2026-09-01",
       url: null,
       thumb: "assets/thumbs/guide.svg"
+    },
+    {
+      category: "dev",
+      kind: "System",
+      title: "学習秘書システム",
+      summary: "期限から逆算して「今日やるとよいこと」を、毎朝スマホに届ける仕組み。",
+      date: "2026-11-14",
+      url: "https://gmy-k.github.io/portfolio/how-it-works.html#secretary",
+      thumb: "assets/thumbs/secretary.svg"
+    },
+    {
+      category: "dev",
+      kind: "Vault",
+      title: "Obsidian Vault 全体の仕組み",
+      summary: "講義・タスク・予定・復習をひとつのノートにまとめ、自動化でつなぐ仕組みの全体像。",
+      date: "2026-11-14",
+      url: "https://gmy-k.github.io/portfolio/how-it-works.html#vault",
+      thumb: "assets/thumbs/vault.svg"
     }
   ]
 };

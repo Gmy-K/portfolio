@@ -670,3 +670,346 @@ a.card-inner:hover h3 {
     padding: 0;
   }
 }
+
+/* ===== 仕組みの説明ページ (how-it-works.html) ===== */
+.doc-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.doc-header {
+  padding: 40px 20px 28px;
+  border-bottom: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+}
+
+.doc-header-inner,
+.doc-main {
+  width: min(900px, 100%);
+  margin: 0 auto;
+}
+
+.doc-back {
+  display: inline-block;
+  padding: 4px 0;
+  font-weight: 700;
+  color: var(--eyebrow);
+}
+
+.doc-site {
+  margin: 16px 0 0;
+  color: var(--eyebrow);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.doc-title {
+  margin: 0;
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.doc-lead {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.doc-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-nav a {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.doc-nav a:hover {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.doc-main {
+  padding: 32px 20px 0;
+}
+
+.doc-section {
+  margin-bottom: 64px;
+  scroll-margin-top: 16px;
+}
+
+.doc-section .section-title {
+  overflow-wrap: anywhere;
+}
+
+.doc-summary {
+  margin: 0 0 8px;
+  padding: 14px 16px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.doc-h3 {
+  margin: 32px 0 10px;
+  padding-left: 10px;
+  border-left: 6px solid var(--accent);
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.doc-list {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.doc-list li {
+  margin-bottom: 6px;
+}
+
+.doc-flow {
+  display: grid;
+  grid-template-columns: 1fr 36px 1.2fr 36px 1fr;
+  align-items: stretch;
+}
+
+.doc-box {
+  min-width: 0;
+  padding: 12px 14px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  font-size: 15px;
+}
+
+.doc-box-core {
+  background: var(--tile);
+}
+
+.doc-box-label {
+  margin: 0 0 6px;
+  color: var(--eyebrow);
+  font-weight: 900;
+}
+
+.doc-box ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.doc-box li {
+  margin-bottom: 6px;
+}
+
+.doc-arrow {
+  align-self: center;
+  justify-self: center;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 16px solid var(--accent);
+}
+
+@media (max-width: 700px) {
+  .doc-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .doc-arrow {
+    height: 28px;
+    border-top: 16px solid var(--accent);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 0;
+    width: 0;
+  }
+}
+
+.doc-after {
+  margin: 14px 0 0;
+}
+
+.doc-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: doc-step;
+}
+
+.doc-steps li {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 10px 14px 10px 52px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  counter-increment: doc-step;
+}
+
+.doc-steps li::before {
+  content: counter(doc-step);
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 900;
+  line-height: 28px;
+  text-align: center;
+}
+
+.doc-steps strong {
+  display: block;
+}
+
+.doc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-tags li {
+  padding: 4px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--tile);
+  font-size: 14px;
+}
+
+.doc-table-wrap {
+  overflow-x: auto;
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+}
+
+.doc-table th,
+.doc-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.doc-table thead th {
+  background: var(--tile);
+}
+
+.doc-table tbody th {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.doc-layers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-layer {
+  position: relative;
+  margin-bottom: 22px;
+  padding: 10px 14px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.doc-layer:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  margin-left: -9px;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 12px solid var(--accent);
+}
+
+.doc-layer p {
+  margin: 0;
+}
+
+.doc-layer-title {
+  margin-bottom: 4px !important;
+  color: var(--eyebrow);
+  font-weight: 900;
+}
+
+.doc-layer-no {
+  margin-right: 6px;
+}
+
+.doc-chain {
+  padding: 14px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.doc-chain-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 0;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.doc-chain-row li {
+  padding: 4px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--tile);
+}
+
+.doc-chain-row li + li::before {
+  content: "→";
+  display: inline-block;
+  margin-right: 12px;
+  margin-left: -4px;
+  color: var(--eyebrow);
+  font-weight: 900;
+}
+
+.doc-chain-row li + li {
+  margin-left: 4px;
+}
+
+.doc-chain-row .doc-chain-hit {
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.doc-chain-end {
+  margin: 0;
+  color: var(--muted);
+}

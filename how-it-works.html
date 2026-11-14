@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>仕組みの説明｜ぐみゅけ</title>
+  <meta name="description" content="ぐみゅけが作った、学習秘書システムと Obsidian Vault 全体の仕組みを、図つきでやさしく説明するページです。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="仕組みの説明｜ぐみゅけ">
+  <meta property="og:description" content="学習秘書システムと Obsidian Vault 全体の仕組みを、図つきでやさしく説明します。">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="doc-body">
+  <a class="skip" href="#main">本文へ移動</a>
+
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a class="doc-back" href="index.html#works">← ポートフォリオに戻る</a>
+      <p class="doc-site">ぐみゅけ</p>
+      <h1 class="doc-title">仕組みの説明</h1>
+      <p class="doc-lead">自分用に作った2つの仕組みを、図つきで説明します。</p>
+      <nav class="doc-nav" aria-label="ページ内ナビゲーション">
+        <ul>
+          <li><a href="#secretary">学習秘書システム</a></li>
+          <li><a href="#vault">Vault 全体</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc-main">
+    <section id="secretary" class="doc-section" aria-labelledby="secretary-title">
+      <p class="eyebrow" aria-hidden="true">SYSTEM 1</p>
+      <h2 id="secretary-title" class="section-title">学習秘書システム（朝の通知・逆算プランナー）</h2>
+
+      <p class="doc-summary"><strong>ひとことで：</strong>ノート（Obsidian）に溜まった課題と予定を、毎朝、自動で整理してスマホに届ける仕組みです。期限から逆算して、「今日はこれをやるとよい」を、理由つきで教えてくれます。</p>
+
+      <h3 class="doc-h3">解決したかった悩み</h3>
+      <ul class="doc-list">
+        <li>一週間を過ごすと、次の週の授業の予定がぼんやりして、予習がギリギリになる。</li>
+        <li>タスクが溢れて、何から手をつけるか分からない。</li>
+        <li>朝にノートを開き忘れる。</li>
+        <li>ノートに情報が溜まるだけで、自分のものになっている感じがしない。</li>
+      </ul>
+
+      <h3 class="doc-h3">仕組み</h3>
+      <div class="doc-flow" role="group" aria-label="入力から逆算の計算、出力までの流れ">
+        <div class="doc-box">
+          <p class="doc-box-label">入力</p>
+          <ul>
+            <li>毎週の決まり事（予習・小テストなどを、曜日と所要時間つきで書いたファイル）</li>
+            <li>授業・予定（Google カレンダー）</li>
+            <li>登録したタスク（ノート）</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">逆算の計算</p>
+          <ul>
+            <li>期限が近い順に、空き時間（予定・食事・買い出しを除く）へ割り振る。</li>
+            <li>収まらないものは「収まらない」と出す。</li>
+            <li>AI は使わず、決まったルールで計算する（毎回同じ結果になり、テストできる）。</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">出力</p>
+          <ul>
+            <li>朝の通知（クラウドが毎朝、自動で送る）</li>
+            <li>Web ダッシュボード（スマホ用、毎朝自動で更新）</li>
+          </ul>
+        </div>
+      </div>
+      <p class="doc-after"><strong>終わったら：</strong>ノートでチェックを付ける、または「〇〇終わった」と AI に言います。</p>
+
+      <h3 class="doc-h3">5つの部品</h3>
+      <ol class="doc-steps">
+        <li><strong>ノート（Obsidian、Git で管理）</strong>タスクは、期限・もらった日・所要時間などの項目つきの1行です。親子のタスクで細分化もできます。</li>
+        <li><strong>決まり事のファイル</strong>毎週の予習や小テストなどを書いておくと、今後2週間ぶんのタスクを自動で作ります。</li>
+        <li><strong>逆算の計算</strong>上の図のとおりです。</li>
+        <li><strong>朝の通知</strong>クラウドの定期実行が、毎朝、1通にまとめて送ります。パソコンを閉じていても動きます。</li>
+        <li><strong>Web ダッシュボード</strong>今日の予定、次にやること（緊急×重要の4つの箱）、12週のカレンダー、週ごとの負荷を、1枚で見られます。非公開です。</li>
+      </ol>
+
+      <h3 class="doc-h3">工夫した点</h3>
+      <ul class="doc-list">
+        <li><strong>完了の追跡を、既存の操作に乗せた。</strong>決まり事は実タスクとして作るので、チェックを付ければ終わりです。専用の画面や記録は要りません。</li>
+        <li><strong>壊れにくさ。</strong>計画の部分が失敗しても、朝の通知は止まりません。取れなかった予定は、予定なしで上書きしません。同じタスクは2回作りません。</li>
+        <li><strong>使い続けるための小さな機能。</strong>作り忘れたら、朝の通知が教えてくれます。重要度は、ボタン1つで付け外しできます。</li>
+        <li><strong>時刻のずれへの備え。</strong>クラウドの定時実行は、混む時刻だと遅れたり抜けたりすることが分かりました。そこで時刻をずらし、保険の2本目と、二重送信を防ぐ判定を足しました。</li>
+      </ul>
+
+      <h3 class="doc-h3">作り方（開発の進め方）</h3>
+      <p>AI（Claude Code）と一緒に、設計書・決定の記録（ADR）・実装計画を書いてから、テスト先行で実装しました。作業ごとに、実装役とレビュー役を分け、最後に全体のレビューを通します。依存ライブラリなしの Node.js で、24本のテストファイルがあります。</p>
+
+      <h3 class="doc-h3">技術メモ</h3>
+      <ul class="doc-tags" aria-label="使っている技術">
+        <li>Node.js（依存なし）</li>
+        <li>Obsidian＋Dataview</li>
+        <li>Git</li>
+        <li>GitHub Actions（定時実行）</li>
+        <li>Discord への通知</li>
+        <li>Google カレンダー</li>
+        <li>AI のクラウド定期実行</li>
+        <li>HTML＋素の JavaScript</li>
+        <li>テスト先行開発</li>
+        <li>設計の記録（ADR 7本）</li>
+      </ul>
+    </section>
+
+    <section id="vault" class="doc-section" aria-labelledby="vault-title">
+      <p class="eyebrow" aria-hidden="true">SYSTEM 2</p>
+      <h2 id="vault-title" class="section-title">Obsidian Vault 全体の仕組み</h2>
+
+      <p class="doc-summary">Vault（ノートの保管庫）の名前は「Intelligence Fortress」です。番号つきのフォルダで、「情報の流れ」を表しています。</p>
+
+      <h3 class="doc-h3">フォルダの地図</h3>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <caption class="doc-sr">フォルダ名と役割の対応表</caption>
+          <thead>
+            <tr><th scope="col">フォルダ</th><th scope="col">役割</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">00_Inbox</th><td>未整理の受け皿</td></tr>
+            <tr><th scope="row">10_Fleeting</th><td>一時的なもの（日・週のノート、新しいタスクの書き込み先）</td></tr>
+            <tr><th scope="row">20_Literature</th><td>講義ノート・読書メモ・英単語</td></tr>
+            <tr><th scope="row">30_Zettel</th><td>概念カード（自分の言葉で書く知識）</td></tr>
+            <tr><th scope="row">40_MOC</th><td>目次・ダッシュボード</td></tr>
+            <tr><th scope="row">50_Projects</th><td>実行するプロジェクト</td></tr>
+            <tr><th scope="row">60_Review</th><td>復習問題（選択＋理由）。解答は概念カードの種になる</td></tr>
+            <tr><th scope="row">80_System</th><td>仕組みそのもの（テンプレート・スクリプト・決まり事）</td></tr>
+            <tr><th scope="row">90_Archive</th><td>完了・保管</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="doc-h3">5つの層</h3>
+      <ol class="doc-layers" aria-label="5つの層（上から下へ）">
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">①</span>取り込む層</p>
+          <p>講義・読書。講義ノートはテンプレートに沿って書きます（要約、講義メモ、分からない語彙、次のアクション、重要な概念）。科目ごとに「評価・日程の要約」と「今の課題」のノートを置きます。</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">②</span>タスクの層</p>
+          <p>1行の統一書式（期限・もらった日・所要時間・状態）。新しいタスクは1つの受け皿に入ります。毎週の決まり事は自動でタスク化します。重要度はボタン1つです。</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">③</span>時間軸の層（見る）</p>
+          <p>カレンダー系のプラグイン、Dataview の一覧、ガント、スマホ用の Web ダッシュボード。</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">④</span>自動化の層</p>
+          <p>Node.js のスクリプト（依存なし、24本のテスト）、GitHub Actions の毎朝の通知、AI のクラウド定期実行（ダッシュボード更新）、QuickAdd のマクロ。</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">⑤</span>知識として残す層</p>
+          <p>復習問題に「自分の言葉の理由」つきで答えると、概念カードの種になります。AI にノート同士の関連を探してもらいます。</p>
+        </li>
+      </ol>
+
+      <h3 class="doc-h3">情報の流れ</h3>
+      <div class="doc-chain" role="group" aria-label="情報の流れ">
+        <ol class="doc-chain-row">
+          <li>講義・読書</li>
+          <li>講義ノート</li>
+          <li>次のアクション</li>
+          <li class="doc-chain-hit">タスク</li>
+        </ol>
+        <ol class="doc-chain-row">
+          <li>決まり事</li>
+          <li class="doc-chain-hit">タスク</li>
+        </ol>
+        <ol class="doc-chain-row">
+          <li>カレンダー</li>
+          <li>逆算の計算</li>
+          <li>朝の通知・Web ダッシュボード・Obsidian の一覧</li>
+        </ol>
+        <p class="doc-chain-end">終わったら、ノートでチェックを付けます。</p>
+      </div>
+
+      <h3 class="doc-h3">AI との分担</h3>
+      <p>ルールはノートの中の指示書に書き、AI はそれを毎回読みます。AI の「スキル」が、講義の転記、リアクションペーパー、試験対策、タスク登録、復習、ダッシュボード更新などを手伝います。計算は AI に任せず、決まったルールのスクリプトで行います。AI は、書く・まとめる・手順を実行する役です。</p>
+
+      <h3 class="doc-h3">データの置き場所と同期</h3>
+      <p>Vault 全体が Git の非公開リポジトリです。自動でコミット・push されます。朝の通知とダッシュボードは、その GitHub 上のコピーを読みます。秘密（通知の宛先、カレンダーの URL）は、リポジトリに入れず、クラウドの秘密の保管庫に置きます。</p>
+
+      <h3 class="doc-h3">いまの状態（正直なところ）</h3>
+      <ul class="doc-list">
+        <li><strong>よく使われている：</strong>講義ノート・タスク・朝の通知・ダッシュボード・カレンダー。</li>
+        <li><strong>まだ育っていない：</strong>概念カードと復習問題（これから増やします）。</li>
+        <li><strong>古いまま残っている：</strong>以前の学期のルーチン（新しい決まり事のファイルに移行済み）。</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-name">ぐみゅけ</p>
+      <nav class="footer-col" aria-label="フッターのリンク">
+        <ul>
+          <li><a href="index.html#works">← ポートフォリオに戻る</a></li>
+          <li><a href="#secretary">学習秘書システム</a></li>
+          <li><a href="#vault">Vault 全体</a></li>
+        </ul>
+      </nav>
+      <p class="analytics-note"><small>このページはアクセス解析（GoatCounter）を使っています。Cookieは使わず、個人は特定しません。</small></p>
+      <p class="copyright"><small>© 2026 Gmy_K</small></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://gmyk.goatcounter.com/count" async src="assets/count.js"></script>
+</body>
+</html>

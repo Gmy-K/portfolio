@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 670" role="img" aria-label="積み重なった層とフォルダ">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d4e3f8"/>
+      <stop offset="1" stop-color="#a6b4ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="670" fill="url(#bg)"/>
+  <circle cx="640" cy="335" r="210" fill="#ffffff" fill-opacity="0.85"/>
+  <g stroke="#2b5fd9" stroke-width="10" stroke-linejoin="round">
+    <path d="M640 380 L780 340 L640 300 L500 340 Z" fill="#bcd3f5"/>
+    <path d="M640 340 L780 300 L640 260 L500 300 Z" fill="#8fb0f0"/>
+    <path d="M640 300 L780 260 L640 220 L500 260 Z" fill="#ffffff"/>
+  </g>
+  <g fill="none" stroke="#2b5fd9" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M500 340 L500 380 L640 420 L780 380 L780 340"/>
+    <path d="M500 300 L500 340"/>
+    <path d="M780 300 L780 340"/>
+  </g>
+  <path d="M580 250 l16 -8 h22 l12 10 h30 v16 h-80 z" fill="#2b5fd9"/>
+</svg>
