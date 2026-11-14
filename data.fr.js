@@ -68,7 +68,7 @@ window.PORTFOLIO = {
         url: null
       },
       {
-        name: "Meicom, cercle d’anglais de l’université Meiji",
+        name: "Meicom (Meiji Academic English Community), cercle d’anglais de l’université Meiji",
         summary: "Je fais partie d’un cercle étudiant qui mène des activités en anglais, comme des visites guidées.",
         url: null
       }

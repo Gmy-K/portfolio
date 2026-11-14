@@ -9,7 +9,7 @@ window.PORTFOLIO = {
     tagline: "I solve little everyday annoyances with small automations. I'm still learning to program, and I learn by building tools for managing my studies and budget and for making videos.",
     avatar: "assets/avatar.jpg",
     intro: [
-      "I'm Gumyuke, a self-proclaimed British-at-heart university student. I'm a second-year student in the Faculty of Commerce at Meiji University, and since September 2026 I've been on an exchange programme at Cardiff University in the UK.",
+      "I'm ぐみゅけ (Gumyuke), a self-proclaimed British-at-heart university student. I'm a second-year student in the Faculty of Commerce at Meiji University, and since September 2026 I've been on an exchange programme at Cardiff University in the UK.",
       "I record the paperwork and the day-to-day of studying abroad, just as it is, in Note articles and laid-back videos. Light on the glitter, I'm afraid.",
       "I also build small tools to cut down on everyday hassles."
     ],
@@ -68,7 +68,7 @@ window.PORTFOLIO = {
         url: null
       },
       {
-        name: "Meiji University Liberal Arts English Society, Meicom",
+        name: "Meicom (Meiji Academic English Community)",
         summary: "I'm a member of a club that runs activities in English, such as guiding.",
         url: null
       }

@@ -250,6 +250,48 @@ test("script.js: 日本語を含むカードの題名に、日本語以外のペ
   assert.match(src, /setAttribute\("lang", "ja"\)/);
 });
 
+// ---- 名前の表記: 日本語の表記＋読み（en/fr はローマ字、ko はハングル） ----
+const NAME_FORM = { en: "ぐみゅけ (Gumyuke)", fr: "ぐみゅけ (Gumyuke)", ko: "ぐみゅけ (구뮤케)" };
+for (const lang of READY) {
+  test(`[${lang}] 名前は ${NAME_FORM[lang]} の形で書き、ローマ字だけの Gumyuke を残さない`, () => {
+    const d = loadData(lang);
+    assert.ok(d.profile.intro.join("\n").includes(NAME_FORM[lang]), `intro に ${NAME_FORM[lang]} がない`);
+    const sources = { [dataName(lang)]: read(dataName(lang)) };
+    for (const base of BASES) sources[pageName(base, lang)] = read(pageName(base, lang));
+    for (const [name, text] of Object.entries(sources)) {
+      if (lang === "ko") {
+        assert.ok(!text.includes("Gumyuke"), `${name} にローマ字の Gumyuke がある`);
+      } else {
+        const bare = text.split("ぐみゅけ (Gumyuke)").join("");
+        assert.ok(!bare.includes("Gumyuke"), `${name} に「ぐみゅけ (」の付かない Gumyuke がある`);
+      }
+    }
+    const meta = read(pageName("index", lang));
+    for (const re of [/<meta name="description" content="([^"]+)"/, /<meta property="og:description" content="([^"]+)"/]) {
+      assert.ok(meta.match(re)[1].includes(NAME_FORM[lang]), `index の ${re} に ${NAME_FORM[lang]} がない`);
+    }
+  });
+}
+
+// ---- サークル名: 英語名 Meiji Academic English Community（日本語版は変えない） ----
+const CLUB = {
+  en: "Meicom (Meiji Academic English Community)",
+  fr: "Meicom (Meiji Academic English Community), cercle d’anglais de l’université Meiji",
+  ko: "Meicom (Meiji Academic English Community), 메이지대학교 영어 동아리",
+};
+const clubOf = (d) => d.profile.activities.find((a) => a.name.includes("Meicom"));
+test("日本語版: サークル名は「明治大学教養英語会 Meicom」のまま", () => {
+  assert.equal(clubOf(loadData("ja")).name, "明治大学教養英語会 Meicom");
+});
+for (const lang of READY) {
+  test(`[${lang}] サークル名は Meiji Academic English Community を含む決まった表記`, () => {
+    const club = clubOf(loadData(lang));
+    assert.ok(club, "Meicom の活動がない");
+    assert.equal(club.name, CLUB[lang]);
+    assert.ok(club.name.includes("Meiji Academic English Community"));
+  });
+}
+
 // ---- 日本語版: スイッチャーの導入で壊していないこと ----
 test("日本語版: index のスイッチャーは #site-nav の中で、nav 開始タグより後ろにある", () => {
   const html = read("index.html");
