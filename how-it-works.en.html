@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How My PKM (Personal Knowledge Management) Works | ぐみゅけ</title>
-  <meta name="description" content="How the PKM (personal knowledge management) systems built by ぐみゅけ work: an automated secretary for study tasks and the overall design of an Obsidian Vault, explained gently with diagrams.">
+  <meta name="description" content="How the PKM (personal knowledge management) systems built by ぐみゅけ work: an automated secretary for study tasks and the overall design of an Obsidian Vault, explained simply, with diagrams.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="How My PKM (Personal Knowledge Management) Works | ぐみゅけ">
-  <meta property="og:description" content="How my PKM (personal knowledge management) works: an automated secretary for study tasks and the overall design of an Obsidian Vault, explained gently with diagrams.">
+  <meta property="og:description" content="How my PKM (personal knowledge management) works: an automated secretary for study tasks and the overall design of an Obsidian Vault, explained simply, with diagrams.">
   <meta name="twitter:card" content="summary">
   <link rel="alternate" hreflang="ja" href="https://gmy-k.github.io/portfolio/how-it-works.html">
   <link rel="alternate" hreflang="en" href="https://gmy-k.github.io/portfolio/how-it-works.en.html">
@@ -36,8 +36,8 @@
       <p class="doc-lead">Here are two systems I built for myself as PKM (Personal Knowledge Management), explained with diagrams.</p>
       <nav class="doc-nav" aria-label="On this page">
         <ul>
-          <li><a href="#secretary">PKM 1: Study-Task Secretary</a></li>
-          <li><a href="#vault">PKM 2: Overall Design of the Vault</a></li>
+          <li><a href="#secretary">PKM ① Study-Task Secretary</a></li>
+          <li><a href="#vault">PKM ② Overall Design of the Vault</a></li>
         </ul>
       </nav>
     </div>
@@ -46,13 +46,13 @@
   <main id="main" class="doc-main">
     <section id="secretary" class="doc-section" aria-labelledby="secretary-title">
       <p class="eyebrow" aria-hidden="true">SYSTEM 1</p>
-      <h2 id="secretary-title" class="section-title">PKM 1: Automated Secretary for Study Tasks (morning notification and backward planner)</h2>
+      <h2 id="secretary-title" class="section-title">PKM ① Automated Secretary for Study Tasks (morning notification and backward planner)</h2>
 
-      <p class="doc-summary"><strong>In a nutshell:</strong> It sorts out the assignments and plans piling up in my notes (Obsidian) every morning, automatically, and sends them to my phone. Working backward from deadlines, it tells me "it would be good to do this today", with the reason.</p>
+      <p class="doc-summary"><strong>In a nutshell:</strong> It sorts out the assignments and schedule piling up in my notes (Obsidian) every morning, automatically, and sends them to my phone. Working backward from deadlines, it tells me "it would be good to do this today", with the reason.</p>
 
       <h3 class="doc-h3">Problems I wanted to solve</h3>
       <ul class="doc-list">
-        <li>Once a week gets going, next week's classes become hazy and my prep ends up last-minute.</li>
+        <li>By the end of a week, next week's classes are a blur, and my prep ends up last-minute.</li>
         <li>Tasks overflow and I can't tell where to start.</li>
         <li>I forget to open my notes in the morning.</li>
         <li>Information just piles up in my notes, and it doesn't feel like it becomes mine.</li>
@@ -100,13 +100,13 @@
       <h3 class="doc-h3">Things I put thought into</h3>
       <ul class="doc-list">
         <li><strong>Tracking completion rides on an existing action.</strong> Routines are created as real tasks, so ticking one is all it takes. No special screen or record is needed.</li>
-        <li><strong>Resilience.</strong> Even if the planning part fails, the morning notification doesn't stop. Plans that couldn't be fetched are not overwritten as "no plans". The same task is never created twice.</li>
+        <li><strong>Resilience.</strong> Even if the planning part fails, the morning notification doesn't stop. If the calendar can't be fetched, it isn't overwritten with an empty schedule. The same task is never created twice.</li>
         <li><strong>Small features to keep me using it.</strong> If I forget to create something, the morning notification tells me. Importance can be switched on and off with one button.</li>
         <li><strong>Preparing for timing drift.</strong> I found that scheduled cloud runs can be late or skipped at busy times. So I shifted the time, and added a second run as insurance plus a check to prevent double sending.</li>
       </ul>
 
       <h3 class="doc-h3">How I built it (development process)</h3>
-      <p>Together with AI (Claude Code), I wrote a design document, decision records (ADR) and an implementation plan, and then implemented it test-first. For each piece of work, the implementer and the reviewer are separate roles, and everything goes through a final overall review. It is written in Node.js with no dependency libraries, and has 24 test files.</p>
+      <p>Together with AI (Claude Code), I wrote a design document, decision records (ADR) and an implementation plan, and then implemented it test-first. For each piece of work, the implementer and the reviewer are separate roles, and everything goes through a final overall review. It is written in Node.js with no external libraries, and has 24 test files.</p>
 
       <h3 class="doc-h3">Tech notes</h3>
       <ul class="doc-tags" aria-label="Technologies used">
@@ -125,7 +125,7 @@
 
     <section id="vault" class="doc-section" aria-labelledby="vault-title">
       <p class="eyebrow" aria-hidden="true">SYSTEM 2</p>
-      <h2 id="vault-title" class="section-title">PKM 2: Overall Design of the Obsidian Vault</h2>
+      <h2 id="vault-title" class="section-title">PKM ② Overall Design of the Obsidian Vault</h2>
 
       <p class="doc-summary">The Vault (a storage space for notes) uses numbered folders to represent the "flow of information".</p>
 
@@ -203,8 +203,8 @@
       <h3 class="doc-h3">Where things stand (honestly)</h3>
       <ul class="doc-list">
         <li><strong>Used a lot:</strong> lecture notes, tasks, the morning notification, the dashboard and the calendar.</li>
-        <li><strong>Not grown yet:</strong> concept cards and review questions (I'll add more from now on).</li>
-        <li><strong>Still left over as old:</strong> routines from a previous term (already moved to the new routine file).</li>
+        <li><strong>Still growing:</strong> concept cards and review questions (I'll add more from now on).</li>
+        <li><strong>Left over, outdated:</strong> routines from a previous term (already moved to the new routine file).</li>
       </ul>
     </section>
   </main>
@@ -215,8 +215,8 @@
       <nav class="footer-col" aria-label="Footer links">
         <ul>
           <li><a href="index.en.html#works">← Back to the portfolio</a></li>
-          <li><a href="#secretary">PKM 1: Study-Task Secretary</a></li>
-          <li><a href="#vault">PKM 2: Overall Design of the Vault</a></li>
+          <li><a href="#secretary">PKM ① Study-Task Secretary</a></li>
+          <li><a href="#vault">PKM ② Overall Design of the Vault</a></li>
         </ul>
       </nav>
       <nav class="lang-switch" aria-label="Language">

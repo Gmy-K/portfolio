@@ -9,7 +9,7 @@ window.PORTFOLIO = {
     tagline: "Je règle les petits tracas du quotidien à coups d’automatisations modestes. J’apprends encore la programmation : je progresse en fabriquant des outils pour organiser mes études, tenir mon budget et réaliser mes vidéos.",
     avatar: "assets/avatar.jpg",
     intro: [
-      "Je m’appelle ぐみゅけ (Gumyuke) : je fais mes études à l’université et, de mon propre aveu, je suis Britannique dans l’âme. En deuxième année à la faculté de commerce de l’université Meiji, je suis en échange à l’université de Cardiff, au Royaume-Uni, depuis septembre 2026.",
+      "Je m’appelle ぐみゅけ (Gumyuke) : à la fac, mais Britannique dans l’âme — de mon propre aveu. En deuxième année à la faculté de commerce de l’université Meiji, je suis en échange à l’université de Cardiff, au Royaume-Uni, depuis septembre 2026.",
       "Je raconte les démarches de mon séjour et ma vie sur place, sans enjoliver, dans des articles sur Note et des vidéos sans prétention. Peu de paillettes au programme, je vous préviens.",
       "Par ailleurs, je fabrique aussi de petits outils pour avoir moins de tracas au quotidien."
     ],
@@ -22,7 +22,7 @@ window.PORTFOLIO = {
       {
         group: "Programmation (en cours d’apprentissage)",
         items: [
-          { name: "Python", note: "Surtout pour les statistiques, dans la limite de ce que j’ai appris à GCI" },
+          { name: "Python", note: "Surtout pour les statistiques, dans la limite de ce que j’ai appris dans le cadre de GCI" },
           { name: "R" }
         ]
       },
@@ -30,8 +30,8 @@ window.PORTFOLIO = {
         group: "Envie d’essayer",
         wish: true,
         items: [
-          { name: "JavaScript", note: "J’aimerais savoir l’écrire moi-même" },
-          { name: "C#", note: "J’aimerais savoir l’écrire moi-même" },
+          { name: "JavaScript", note: "J’aimerais apprendre à l’écrire moi-même" },
+          { name: "C#", note: "J’aimerais apprendre à l’écrire moi-même" },
           { name: "Et bien d’autres (un peu de tout)" }
         ]
       },
@@ -118,7 +118,7 @@ window.PORTFOLIO = {
       category: "dev",
       kind: "Guide",
       title: "Site de supports pour les visites guidées",
-      summary: "Un site qui réunit au même endroit les supports utilisés lors des visites guidées de notre association.",
+      summary: "Un site qui réunit au même endroit les supports utilisés lors des visites guidées d’une association.",
       date: "2026-09-01",
       url: null,
       thumb: "assets/thumbs/guide.svg"

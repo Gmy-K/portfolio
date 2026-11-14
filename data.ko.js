@@ -30,8 +30,8 @@ window.PORTFOLIO = {
         group: "해 보고 싶은 것",
         wish: true,
         items: [
-          { name: "JavaScript", note: "내 손으로 직접 코드를 쓸 수 있게 되고 싶어요" },
-          { name: "C#", note: "내 손으로 직접 코드를 쓸 수 있게 되고 싶어요" },
+          { name: "JavaScript", note: "제 손으로 직접 코드를 짤 수 있게 되고 싶어요" },
+          { name: "C#", note: "제 손으로 직접 코드를 짤 수 있게 되고 싶어요" },
           { name: "그 밖에 (이것저것)" }
         ]
       },

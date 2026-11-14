@@ -6,7 +6,7 @@ window.PORTFOLIO = {
   },
   profile: {
     name: "ぐみゅけ",
-    tagline: "I solve everyday little annoyances with small automations. I'm still learning to program, and I learn by building tools for managing my studies and budget and for making videos.",
+    tagline: "I solve little everyday annoyances with small automations. I'm still learning to program, and I learn by building tools for managing my studies and budget and for making videos.",
     avatar: "assets/avatar.jpg",
     intro: [
       "I'm Gumyuke, a self-proclaimed British-at-heart university student. I'm a second-year student in the Faculty of Commerce at Meiji University, and since September 2026 I've been on an exchange programme at Cardiff University in the UK.",
@@ -20,7 +20,7 @@ window.PORTFOLIO = {
     ],
     skills: [
       {
-        group: "Programming (studying)",
+        group: "Programming (still learning)",
         items: [
           { name: "Python", note: "Mainly statistics, within what I learned at GCI" },
           { name: "R" }
@@ -79,7 +79,7 @@ window.PORTFOLIO = {
       category: "post",
       kind: "Note",
       title: "#1 おい！留学を悩んでる(明治)大学生！見ろ！🫵",
-      summary: "A self-introduction for juniors undecided about studying abroad, plus a plain-language explanation of Meiji University's study abroad programmes. (Article in Japanese)",
+      summary: "A self-introduction for younger students undecided about studying abroad, plus a plain-language explanation of Meiji University's study abroad programmes. (Article in Japanese)",
       date: "2026-08-04",
       url: "https://note.com/gmk_in_uk/n/n78f4d130b313",
       thumb: "assets/thumbs/note-01.png"
@@ -97,11 +97,11 @@ window.PORTFOLIO = {
       category: "post",
       kind: "Reel",
       title: "Reel① 限界大学生、イギリスに流れ着く。",
-      summary: "A self-introduction video about studying abroad, built around the gas leak and suspended service on my first day. The narration is VOICEVOX. (Video in Japanese)",
+      summary: "A self-introduction video about studying abroad, built around the gas leak and cancelled services on my first day. Narrated with VOICEVOX. (Video in Japanese)",
       date: "2026-11-12",
       url: "https://www.instagram.com/reel/DfoDLhKPAEC/",
       extraLinks: [
-        { label: "Watch on Niconico too", url: "https://www.nicovideo.jp/shorts/ss47036068" }
+        { label: "Also on Niconico", url: "https://www.nicovideo.jp/shorts/ss47036068" }
       ],
       thumb: "assets/thumbs/reel-01.jpg"
     },
@@ -118,7 +118,7 @@ window.PORTFOLIO = {
       category: "dev",
       kind: "Guide",
       title: "Materials site for guiding activities",
-      summary: "A site that gathers the materials used in my club's guiding activities, so they can all be viewed in one place.",
+      summary: "A site that gathers the materials used in a group's guiding activities, so they can all be viewed in one place.",
       date: "2026-09-01",
       url: null,
       thumb: "assets/thumbs/guide.svg"
