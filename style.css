@@ -193,6 +193,14 @@ h1 {
   word-break: auto-phrase; /* 日本語を語のまとまりで折り返す（未対応のブラウザでは無視される） */
 }
 
+/* 韓国語は分かち書き（띄어쓰기）の空白で折り返す。既定だと音節の途中で単語が切れる。
+   行に収まらない長い語（韓国語ページ内の日本語の題名など）だけは、overflow-wrap で途中でも折り返す。 */
+:lang(ko),
+:lang(ko) .tagline {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
 .button {
   display: inline-block;
   padding: 10px 24px;

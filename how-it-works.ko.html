@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PKM(개인 지식 관리)의 구조 | ぐみゅけ</title>
+  <meta name="description" content="ぐみゅけ가 만든 PKM(개인 지식 관리)의 구조. 학습 할 일 자동 비서 시스템과 Obsidian Vault의 전체 설계를 그림과 함께 쉽게 설명하는 페이지예요.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PKM(개인 지식 관리)의 구조 | ぐみゅけ">
+  <meta property="og:description" content="PKM(개인 지식 관리)의 구조. 학습 할 일 자동 비서 시스템과 Obsidian Vault의 전체 설계를 그림과 함께 쉽게 설명해요.">
+  <meta name="twitter:card" content="summary">
+  <link rel="alternate" hreflang="ja" href="https://gmy-k.github.io/portfolio/how-it-works.html">
+  <link rel="alternate" hreflang="en" href="https://gmy-k.github.io/portfolio/how-it-works.en.html">
+  <link rel="alternate" hreflang="fr" href="https://gmy-k.github.io/portfolio/how-it-works.fr.html">
+  <link rel="alternate" hreflang="ko" href="https://gmy-k.github.io/portfolio/how-it-works.ko.html">
+  <link rel="alternate" hreflang="x-default" href="https://gmy-k.github.io/portfolio/how-it-works.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="doc-body">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+
+  <header class="doc-header">
+    <div class="doc-header-inner">
+      <a class="doc-back" href="index.ko.html#works">← 포트폴리오로 돌아가기</a>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="how-it-works.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="how-it-works.en.html" hreflang="en" lang="en">English</a>
+        <a href="how-it-works.fr.html" hreflang="fr" lang="fr">Français</a>
+        <a href="how-it-works.ko.html" hreflang="ko" lang="ko" aria-current="page">한국어</a>
+      </nav>
+      <p class="doc-site">ぐみゅけ</p>
+      <h1 class="doc-title">PKM(개인 지식 관리)의 구조</h1>
+      <p class="doc-lead">PKM(Personal Knowledge Management, 개인 지식 관리)으로서 저를 위해 만든 두 가지 시스템을 그림과 함께 설명할게요.</p>
+      <nav class="doc-nav" aria-label="페이지 내 내비게이션">
+        <ul>
+          <li><a href="#secretary">PKM① 학습 할 일 비서</a></li>
+          <li><a href="#vault">PKM② Vault 전체 설계</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc-main">
+    <section id="secretary" class="doc-section" aria-labelledby="secretary-title">
+      <p class="eyebrow" aria-hidden="true">SYSTEM 1</p>
+      <h2 id="secretary-title" class="section-title">PKM① 학습 할 일 자동 비서 시스템 (아침 알림·역산 플래너)</h2>
+
+      <p class="doc-summary"><strong>한마디로:</strong> 노트(Obsidian)에 쌓인 과제와 일정을 매일 아침 자동으로 정리해서 스마트폰으로 보내 주는 시스템이에요. 마감일부터 거꾸로 계산해서 ‘오늘은 이걸 하면 좋아요’를 이유와 함께 알려 줘요.</p>
+
+      <h3 class="doc-h3">해결하고 싶었던 고민</h3>
+      <ul class="doc-list">
+        <li>한 주를 보내고 나면 다음 주 수업 일정이 흐릿해져서, 예습이 늘 아슬아슬해진다.</li>
+        <li>할 일이 넘쳐서 무엇부터 손대야 할지 모르겠다.</li>
+        <li>아침에 노트 여는 걸 깜빡한다.</li>
+        <li>노트에 정보가 쌓이기만 할 뿐, 내 것이 됐다는 느낌이 들지 않는다.</li>
+      </ul>
+
+      <h3 class="doc-h3">구조</h3>
+      <div class="doc-flow" role="group" aria-label="입력부터 역산 계산, 출력까지의 흐름">
+        <div class="doc-box">
+          <p class="doc-box-label">입력</p>
+          <ul>
+            <li>매주 정해진 일 (예습·쪽지 시험 등을 요일과 소요 시간과 함께 적어 둔 파일)</li>
+            <li>수업·일정 (Google 캘린더)</li>
+            <li>등록한 할 일 (노트)</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box doc-box-core">
+          <p class="doc-box-label">역산 계산</p>
+          <ul>
+            <li>마감이 가까운 순서대로 빈 시간(일정·식사·장보기 제외)에 배분한다.</li>
+            <li>다 들어가지 않는 것은 ‘들어갈 자리가 없음’이라고 표시한다.</li>
+            <li>AI는 쓰지 않고, 정해진 규칙으로 계산한다 (매번 같은 결과가 나오고, 테스트할 수 있다).</li>
+          </ul>
+        </div>
+        <div class="doc-arrow" aria-hidden="true"></div>
+        <div class="doc-box">
+          <p class="doc-box-label">출력</p>
+          <ul>
+            <li>아침 알림 (클라우드가 매일 아침 자동으로 보냄)</li>
+            <li>웹 대시보드 (스마트폰용, 매일 아침 자동 업데이트)</li>
+          </ul>
+        </div>
+      </div>
+      <p class="doc-after"><strong>끝나면:</strong> 노트에서 체크 표시를 하거나, AI에게 ‘○○ 끝났어’라고 말해요.</p>
+
+      <h3 class="doc-h3">다섯 가지 부품</h3>
+      <ol class="doc-steps">
+        <li><strong>노트 (Obsidian, Git으로 관리)</strong> 할 일은 마감일·받은 날·소요 시간 같은 항목이 붙은 한 줄이에요. 부모·자식 할 일로 잘게 나눌 수도 있어요.</li>
+        <li><strong>정해진 일 파일</strong> 매주 하는 예습이나 쪽지 시험 등을 적어 두면, 앞으로 2주 치 할 일을 자동으로 만들어요.</li>
+        <li><strong>역산 계산</strong> 위의 그림과 같아요.</li>
+        <li><strong>아침 알림</strong> 클라우드의 정기 실행이 매일 아침 한 통으로 묶어서 보내요. 컴퓨터를 덮어 둬도 작동해요.</li>
+        <li><strong>웹 대시보드</strong> 오늘 일정, 다음에 할 일(긴급×중요의 네 칸), 12주 캘린더, 주별 부담을 한 화면에서 볼 수 있어요. 비공개예요.</li>
+      </ol>
+
+      <h3 class="doc-h3">신경 쓴 점</h3>
+      <ul class="doc-list">
+        <li><strong>완료 추적을 기존 조작에 얹었다.</strong> 정해진 일도 실제 할 일로 만들어지기 때문에, 체크만 하면 끝이에요. 전용 화면이나 기록은 필요 없어요.</li>
+        <li><strong>쉽게 망가지지 않게.</strong> 계획 부분이 실패해도 아침 알림은 멈추지 않아요. 불러오지 못한 일정은 ‘일정 없음’으로 덮어쓰지 않아요. 같은 할 일은 두 번 만들지 않아요.</li>
+        <li><strong>계속 쓰기 위한 작은 기능.</strong> 만드는 걸 깜빡하면 아침 알림이 알려 줘요. 중요 표시는 버튼 하나로 붙였다 뗄 수 있어요.</li>
+        <li><strong>시간 어긋남에 대한 대비.</strong> 클라우드의 정시 실행은 붐비는 시간대에는 늦어지거나 빠지기도 한다는 걸 알게 됐어요. 그래서 시간을 옮기고, 보험용 두 번째 실행과 중복 발송을 막는 판정을 더했어요.</li>
+      </ul>
+
+      <h3 class="doc-h3">만든 방법 (개발 진행 방식)</h3>
+      <p>AI(Claude Code)와 함께 설계서·결정 기록(ADR)·구현 계획을 먼저 쓰고, 테스트를 먼저 작성하는 방식으로 구현했어요. 작업마다 구현 담당과 리뷰 담당을 나누고, 마지막에 전체 리뷰를 거쳐요. 의존 라이브러리 없는 Node.js로 만들었고, 테스트 파일은 24개예요.</p>
+
+      <h3 class="doc-h3">기술 메모</h3>
+      <ul class="doc-tags" aria-label="사용한 기술">
+        <li>Node.js (의존성 없음)</li>
+        <li>Obsidian + Dataview</li>
+        <li>Git</li>
+        <li>GitHub Actions (정시 실행)</li>
+        <li>Discord 알림</li>
+        <li>Google 캘린더</li>
+        <li>AI 클라우드 정기 실행</li>
+        <li>HTML + 순수 JavaScript</li>
+        <li>테스트 주도 개발</li>
+        <li>설계 기록 (ADR 7개)</li>
+      </ul>
+    </section>
+
+    <section id="vault" class="doc-section" aria-labelledby="vault-title">
+      <p class="eyebrow" aria-hidden="true">SYSTEM 2</p>
+      <h2 id="vault-title" class="section-title">PKM② Obsidian Vault 전체 설계</h2>
+
+      <p class="doc-summary">Vault(노트 보관소)는 번호가 붙은 폴더로 ‘정보의 흐름’을 나타내요.</p>
+
+      <h3 class="doc-h3">폴더 지도</h3>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <caption class="doc-sr">폴더 이름과 역할 대응표</caption>
+          <thead>
+            <tr><th scope="col">폴더</th><th scope="col">역할</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">00_Inbox</th><td>정리 전의 임시 보관함</td></tr>
+            <tr><th scope="row">10_Fleeting</th><td>일시적인 것 (일간·주간 노트, 새 할 일을 적는 곳)</td></tr>
+            <tr><th scope="row">20_Literature</th><td>강의 노트·독서 메모·영어 단어</td></tr>
+            <tr><th scope="row">30_Zettel</th><td>개념 카드 (내 말로 쓰는 지식)</td></tr>
+            <tr><th scope="row">40_MOC</th><td>목차·대시보드</td></tr>
+            <tr><th scope="row">50_Projects</th><td>실행하는 프로젝트</td></tr>
+            <tr><th scope="row">60_Review</th><td>복습 문제 (선택 + 이유). 답이 개념 카드의 씨앗이 된다</td></tr>
+            <tr><th scope="row">80_System</th><td>시스템 그 자체 (템플릿·스크립트·정해진 일)</td></tr>
+            <tr><th scope="row">90_Archive</th><td>완료·보관</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="doc-h3">다섯 개의 층</h3>
+      <ol class="doc-layers" aria-label="다섯 개의 층 (위에서 아래로)">
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">①</span>받아들이는 층</p>
+          <p>강의·독서. 강의 노트는 템플릿에 따라 써요(요약, 강의 메모, 모르는 어휘, 다음 행동, 중요한 개념). 과목마다 ‘평가·일정 요약’과 ‘지금 걸린 과제’ 노트를 둬요.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">②</span>할 일의 층</p>
+          <p>한 줄로 통일된 서식(마감일·받은 날·소요 시간·상태). 새 할 일은 하나의 보관함에 들어가요. 매주 정해진 일은 자동으로 할 일이 돼요. 중요 표시는 버튼 하나예요.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">③</span>시간축의 층 (보기)</p>
+          <p>캘린더 계열 플러그인, Dataview 목록, 간트 차트, 스마트폰용 웹 대시보드.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">④</span>자동화의 층</p>
+          <p>Node.js 스크립트(의존성 없음, 테스트 24개), GitHub Actions의 매일 아침 알림, AI 클라우드 정기 실행(대시보드 업데이트), QuickAdd 매크로.</p>
+        </li>
+        <li class="doc-layer">
+          <p class="doc-layer-title"><span class="doc-layer-no" aria-hidden="true">⑤</span>지식으로 남기는 층</p>
+          <p>복습 문제에 ‘내 말로 쓴 이유’와 함께 답하면 개념 카드의 씨앗이 돼요. 노트끼리의 연관은 AI에게 찾아 달라고 해요.</p>
+        </li>
+      </ol>
+
+      <h3 class="doc-h3">정보의 흐름</h3>
+      <div class="doc-chain" role="group" aria-label="정보의 흐름">
+        <ol class="doc-chain-row">
+          <li>강의·독서</li>
+          <li>강의 노트</li>
+          <li>다음 행동</li>
+          <li class="doc-chain-hit">할 일</li>
+        </ol>
+        <ol class="doc-chain-row">
+          <li>정해진 일</li>
+          <li class="doc-chain-hit">할 일</li>
+        </ol>
+        <ol class="doc-chain-row">
+          <li>캘린더</li>
+          <li>역산 계산</li>
+          <li>아침 알림·웹 대시보드·Obsidian 목록</li>
+        </ol>
+        <p class="doc-chain-end">끝나면 노트에서 체크 표시를 해요.</p>
+      </div>
+
+      <h3 class="doc-h3">AI와의 역할 분담</h3>
+      <p>규칙은 노트 안의 지시서에 적어 두고, AI는 그걸 매번 읽어요. AI의 ‘스킬’이 강의 내용 옮겨 적기, 리액션 페이퍼(수업 소감문), 시험 대비, 할 일 등록, 복습, 대시보드 업데이트 등을 도와줘요. 계산은 AI에게 맡기지 않고, 정해진 규칙의 스크립트로 해요. AI는 쓰고, 정리하고, 절차를 실행하는 역할이에요.</p>
+
+      <h3 class="doc-h3">데이터 저장 위치와 동기화</h3>
+      <p>Vault 전체가 Git 비공개 저장소예요. 자동으로 커밋·push돼요. 아침 알림과 대시보드는 GitHub에 있는 그 사본을 읽어요. 비밀 정보(알림을 보낼 곳, 캘린더 URL)는 저장소에 넣지 않고, 클라우드의 비밀 보관소에 둬요.</p>
+
+      <h3 class="doc-h3">지금 상태 (솔직하게 말하면)</h3>
+      <ul class="doc-list">
+        <li><strong>잘 쓰고 있는 것:</strong> 강의 노트·할 일·아침 알림·대시보드·캘린더.</li>
+        <li><strong>아직 자라지 않은 것:</strong> 개념 카드와 복습 문제 (앞으로 늘려 갈 거예요).</li>
+        <li><strong>예전 그대로 남아 있는 것:</strong> 이전 학기의 루틴 (새로운 정해진 일 파일로 이미 옮겼어요).</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-name">ぐみゅけ</p>
+      <nav class="footer-col" aria-label="푸터 링크">
+        <ul>
+          <li><a href="index.ko.html#works">← 포트폴리오로 돌아가기</a></li>
+          <li><a href="#secretary">PKM① 학습 할 일 비서</a></li>
+          <li><a href="#vault">PKM② Vault 전체 설계</a></li>
+        </ul>
+      </nav>
+      <nav class="lang-switch" aria-label="Language">
+        <a href="how-it-works.html" hreflang="ja" lang="ja">日本語</a>
+        <a href="how-it-works.en.html" hreflang="en" lang="en">English</a>
+        <a href="how-it-works.fr.html" hreflang="fr" lang="fr">Français</a>
+        <a href="how-it-works.ko.html" hreflang="ko" lang="ko" aria-current="page">한국어</a>
+      </nav>
+      <p class="analytics-note"><small>이 페이지는 접속 분석 도구(GoatCounter)를 사용해요. 쿠키는 사용하지 않으며, 개인을 특정하지 않아요.</small></p>
+      <p class="copyright"><small>© 2026 Gmy_K</small></p>
+      <p class="translation-note"><small>이 페이지는 AI의 도움을 받아 한국어로 번역했어요.</small></p>
+    </div>
+  </footer>
+
+  <script data-goatcounter="https://gmyk.goatcounter.com/count" async src="assets/count.js"></script>
+</body>
+</html>

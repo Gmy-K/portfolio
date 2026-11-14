@@ -15,7 +15,7 @@ const read = (name) => fs.readFileSync(path.join(root, name), "utf8");
 
 const ALL = ["ja", "en", "fr", "ko"];
 const LANGS = ["en", "fr", "ko"];
-const PENDING = ["ko"];
+const PENDING = [];
 const READY = LANGS.filter((l) => !PENDING.includes(l));
 const BASES = ["index", "how-it-works", "tech"];
 const LABELS = { ja: "日本語", en: "English", fr: "Français", ko: "한국어" };
