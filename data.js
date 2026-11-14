@@ -90,16 +90,16 @@ window.PORTFOLIO = {
       kind: "System",
       title: "PKM｜学習タスクの自動秘書システム",
       summary: "個人の知識管理（PKM）の一部。期限から逆算して「今日やるとよいこと」を、毎朝スマホに届ける仕組み。",
-      date: "2026-11-14",
+      date: "2026-11-11",
       url: "https://gmy-k.github.io/portfolio/how-it-works.html#secretary",
-      thumb: "assets/thumbs/secretary.svg"
+      thumb: "assets/thumbs/secretary.png"
     },
     {
       category: "dev",
       kind: "Vault",
       title: "PKM｜Obsidian Vault の全体設計",
       summary: "個人の知識管理（PKM）の全体像。講義・タスク・予定・復習をひとつのノートにまとめ、自動化でつなぐ設計。",
-      date: "2026-11-14",
+      date: "2026-04-06",
       url: "https://gmy-k.github.io/portfolio/how-it-works.html#vault",
       thumb: "assets/thumbs/vault.svg"
     },
@@ -108,7 +108,7 @@ window.PORTFOLIO = {
       kind: "Skill",
       title: "Claude Code スキル集（学習・発信の自動化）",
       summary: "AI に作業の手順を教える「スキル」を、用途ごとに作りためている仕組み。頼むと、毎回同じ手順で動く。",
-      date: "2026-11-14",
+      date: "2026-06-10",
       url: "https://gmy-k.github.io/portfolio/tech.html#skills",
       thumb: "assets/thumbs/skills.svg"
     },
@@ -117,9 +117,9 @@ window.PORTFOLIO = {
       kind: "App",
       title: "留学の家計簿（支出の記録と予算のペース表示）",
       summary: "留学中の支出を、スマホから数秒で記録し、今月の予算に対するペースを見られるWebアプリ。",
-      date: "2026-11-14",
+      date: "2026-09-22",
       url: "https://gmy-k.github.io/portfolio/tech.html#kakeibo",
-      thumb: "assets/thumbs/kakeibo.svg"
+      thumb: "assets/thumbs/kakeibo.png"
     }
   ]
 };

@@ -7,7 +7,7 @@ const vm = require("node:vm");
 const root = path.resolve(__dirname, "..");
 const read = (name) => fs.readFileSync(path.join(root, name), "utf8");
 const PAGE = "how-it-works.html";
-const THUMBS = ["assets/thumbs/secretary.svg", "assets/thumbs/vault.svg"];
+const THUMBS = ["assets/thumbs/secretary.png", "assets/thumbs/vault.svg"];
 
 function loadData() {
   const sandbox = { window: {} };
@@ -74,7 +74,7 @@ test("data.js の新しい2項目は、このページの #secretary / #vault �
   ]);
   for (const i of items) {
     assert.equal(i.category, "dev");
-    assert.equal(i.date, "2026-11-14");
+    assert.equal(i.date, i.url.endsWith("#vault") ? "2026-04-06" : "2026-11-11");
   }
   assert.deepEqual([...items.map((i) => i.thumb)].sort(), [...THUMBS].sort());
 });
@@ -83,7 +83,7 @@ test("新しいページ・項目・サムネイルに、出してはいけな�
   const banned = ["BS1551", "BS2518", "BS1515", "CE5579", "Webhook", "webhook", "My-Obsidian-Vault", "/Users/",
     "claude.ai/artifact", "@gmail", "Meiji", "明治", "カーディフ", "Cardiff"];
   const texts = { [PAGE]: read(PAGE), "new data items": JSON.stringify(newItems()) };
-  for (const t of THUMBS) texts[t] = read(t);
+  for (const t of THUMBS.filter((x) => x.endsWith(".svg"))) texts[t] = read(t);
   for (const [name, text] of Object.entries(texts)) {
     for (const word of banned) assert.ok(!text.includes(word), `${name} に ${word} が含まれている`);
   }
@@ -94,7 +94,7 @@ test("img には alt がある", () => {
 });
 
 test("SVG サムネイルは妥当で、script と外部参照を含まない", () => {
-  for (const t of THUMBS) {
+  for (const t of THUMBS.filter((x) => x.endsWith(".svg"))) {
     const svg = read(t);
     assert.ok(svg.trimStart().startsWith("<svg"), `${t}: <svg で始まらない`);
     assert.ok(/viewBox="0 0 1280 670"/.test(svg), `${t}: viewBox`);

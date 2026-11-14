@@ -7,7 +7,7 @@ const vm = require("node:vm");
 const root = path.resolve(__dirname, "..");
 const read = (name) => fs.readFileSync(path.join(root, name), "utf8");
 const PAGE = "tech.html";
-const THUMBS = ["assets/thumbs/skills.svg", "assets/thumbs/kakeibo.svg"];
+const THUMBS = ["assets/thumbs/skills.svg", "assets/thumbs/kakeibo.png"];
 const BASE = "https://gmy-k.github.io/portfolio/tech.html";
 
 function loadData() {
@@ -70,7 +70,7 @@ test("data.js: 3項目が tech.html の各アンカーを指す", () => {
     if (i.url.endsWith("#voicevox")) {
       assert.equal(i.title, "VOICEVOX調声スキル");
     } else {
-      assert.equal(i.date, "2026-11-14");
+      assert.equal(i.date, i.url.endsWith("#skills") ? "2026-06-10" : "2026-09-22");
     }
   }
   const thumbs = items.filter((i) => !i.url.endsWith("#voicevox")).map((i) => i.thumb).sort();
@@ -82,7 +82,7 @@ test("出してはいけない語が、ページ・3項目・SVG に含まれな
     "claude.ai/artifact", "@gmail", "Meiji", "明治", "カーディフ", "Cardiff", "Wise", "Starling", "Part-Catered",
     "£", "Intelligence Fortress", "study-abroad-budget", "dotfiles"];
   const texts = { [PAGE]: read(PAGE), "tech items": JSON.stringify(techItems()) };
-  for (const t of THUMBS) texts[t] = read(t);
+  for (const t of THUMBS.filter((x) => x.endsWith(".svg"))) texts[t] = read(t);
   for (const [name, text] of Object.entries(texts)) {
     for (const word of banned) assert.ok(!text.includes(word), `${name} に ${word} が含まれている`);
   }
@@ -93,7 +93,7 @@ test("img には alt がある", () => {
 });
 
 test("SVG サムネイルは妥当で、script と外部参照を含まない", () => {
-  for (const t of THUMBS) {
+  for (const t of THUMBS.filter((x) => x.endsWith(".svg"))) {
     const svg = read(t);
     assert.ok(svg.trimStart().startsWith("<svg"));
     assert.ok(/viewBox="0 0 1280 670"/.test(svg));

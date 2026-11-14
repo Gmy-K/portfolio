@@ -85,3 +85,25 @@ test("Meicom の説明は、何をしているサークルかをおおまかに�
   assert.ok(meicom.summary.includes("英語"), "英語を使った活動であることが書かれていない");
   assert.ok(meicom.summary.length >= 15, "説明が短すぎる");
 });
+
+test("4つのカードの日付が、実際の公開時期になっている（未来の日付はない）", () => {
+  const items = loadData().items;
+  const byUrl = (suffix) => items.find((i) => typeof i.url === "string" && i.url.endsWith(suffix));
+  assert.equal(byUrl("how-it-works.html#vault").date, "2026-04-06");
+  assert.equal(byUrl("tech.html#skills").date, "2026-06-10");
+  assert.equal(byUrl("tech.html#kakeibo").date, "2026-09-22");
+  assert.equal(byUrl("how-it-works.html#secretary").date, "2026-11-11");
+  for (const i of items) assert.ok(i.date <= "2026-11-14", `${i.title}: 未来の日付 ${i.date}`);
+});
+
+test("実画面サムネイル（secretary・kakeibo）は PNG・400KB未満・EXIF/GPSなし", () => {
+  const items = loadData().items;
+  for (const suffix of ["how-it-works.html#secretary", "tech.html#kakeibo"]) {
+    const item = items.find((i) => typeof i.url === "string" && i.url.endsWith(suffix));
+    assert.match(item.thumb, /\.png$/, `${suffix}: png ではない`);
+    const buf = fs.readFileSync(path.resolve(__dirname, "..", item.thumb));
+    assert.ok(buf.length < 400 * 1024, `${item.thumb}: ${buf.length} bytes`);
+    const bin = buf.toString("latin1");
+    assert.ok(!bin.includes("Exif") && !bin.includes("GPS"), `${item.thumb}: メタデータあり`);
+  }
+});
