@@ -103,3 +103,23 @@ test("SVG サムネイルは妥当で、script と外部参照を含まない", 
     assert.ok(!/(?:href|src)=["']https?:/i.test(svg.replace(/xmlns="[^"]*"/g, "")), `${t}: 外部参照`);
   }
 });
+
+test("タイトルは PKM（個人の知識管理）の関連だと分かる言葉にする", () => {
+  const html = fs.readFileSync(path.resolve(__dirname, "../how-it-works.html"), "utf8");
+  const source = fs.readFileSync(path.resolve(__dirname, "../data.js"), "utf8");
+  const sandbox = { window: {} };
+  require("node:vm").runInNewContext(source, sandbox);
+  const cards = sandbox.window.PORTFOLIO.items.filter((i) => /how-it-works\.html#/.test(i.url || ""));
+  assert.equal(cards.length, 2);
+  for (const c of cards) {
+    assert.ok(c.title.includes("PKM"), `カードの題に PKM がない: ${c.title}`);
+    assert.ok(c.summary.includes("個人の知識管理"), `カードの要約に「個人の知識管理」がない: ${c.title}`);
+  }
+  assert.ok(/<title>[^<]*PKM[^<]*<\/title>/.test(html), "<title> に PKM がない");
+  assert.ok(/<h1[^>]*>[^<]*PKM[^<]*<\/h1>/.test(html), "h1 に PKM がない");
+  assert.ok(html.includes("パーソナル・ナレッジ・マネジメント"), "PKM の言葉の説明がない");
+  for (const id of ["secretary-title", "vault-title"]) {
+    const h2 = html.match(new RegExp(`<h2 id="${id}"[^>]*>([^<]*)</h2>`));
+    assert.ok(h2 && h2[1].includes("PKM"), `#${id} の見出しに PKM がない`);
+  }
+});

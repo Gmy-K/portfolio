@@ -88,8 +88,8 @@ window.PORTFOLIO = {
     {
       category: "dev",
       kind: "System",
-      title: "学習秘書システム",
-      summary: "期限から逆算して「今日やるとよいこと」を、毎朝スマホに届ける仕組み。",
+      title: "PKM｜学習タスクの自動秘書システム",
+      summary: "個人の知識管理（PKM）の一部。期限から逆算して「今日やるとよいこと」を、毎朝スマホに届ける仕組み。",
       date: "2026-11-14",
       url: "https://gmy-k.github.io/portfolio/how-it-works.html#secretary",
       thumb: "assets/thumbs/secretary.svg"
@@ -97,8 +97,8 @@ window.PORTFOLIO = {
     {
       category: "dev",
       kind: "Vault",
-      title: "Obsidian Vault 全体の仕組み",
-      summary: "講義・タスク・予定・復習をひとつのノートにまとめ、自動化でつなぐ仕組みの全体像。",
+      title: "PKM｜Obsidian Vault の全体設計",
+      summary: "個人の知識管理（PKM）の全体像。講義・タスク・予定・復習をひとつのノートにまとめ、自動化でつなぐ設計。",
       date: "2026-11-14",
       url: "https://gmy-k.github.io/portfolio/how-it-works.html#vault",
       thumb: "assets/thumbs/vault.svg"
