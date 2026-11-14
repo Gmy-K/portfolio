@@ -27,6 +27,16 @@ window.PORTFOLIO = {
         ]
       },
       {
+        group: "Tools I use",
+        items: [
+          { name: "HTML / CSS / JS", note: "This site itself, built together with Claude Code" },
+          { name: "GitHub Pages", note: "Hosts this site" },
+          { name: "Obsidian", note: "Notes and task management (PKM)" },
+          { name: "Claude Code", note: "My partner for building and automation" },
+          { name: "VOICEVOX", note: "Synthetic voice for my vlogs" }
+        ]
+      },
+      {
         group: "Want to try",
         wish: true,
         items: [

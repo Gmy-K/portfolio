@@ -27,6 +27,16 @@ window.PORTFOLIO = {
         ]
       },
       {
+        group: "Outils que j’utilise",
+        items: [
+          { name: "HTML / CSS / JS", note: "Ce site lui-même, construit avec Claude Code" },
+          { name: "GitHub Pages", note: "Héberge ce site" },
+          { name: "Obsidian", note: "Notes et gestion des tâches (PKM)" },
+          { name: "Claude Code", note: "Mon partenaire pour développer et automatiser" },
+          { name: "VOICEVOX", note: "Voix de synthèse pour mes vlogs" }
+        ]
+      },
+      {
         group: "Envie d’essayer",
         wish: true,
         items: [

@@ -22,6 +22,16 @@ window.PORTFOLIO = {
         ]
       },
       {
+        group: "使っている道具",
+        items: [
+          { name: "HTML / CSS / JS", note: "このサイト自体。Claude Code と一緒に作っています" },
+          { name: "GitHub Pages", note: "このサイトの公開に使っています" },
+          { name: "Obsidian", note: "ノートとタスクの管理（PKM）" },
+          { name: "Claude Code", note: "開発・自動化の相棒" },
+          { name: "VOICEVOX", note: "Vlogの合成音声" }
+        ]
+      },
+      {
         group: "やってみたい",
         wish: true,
         items: [

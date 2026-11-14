@@ -117,10 +117,17 @@ test("トップの一言は「何ができる人か」を伝え、プログラ�
   assert.ok(profile.intro[0].includes("カーディフ大学"), "自己紹介の最初に留学の説明がない");
 });
 
-test("profile.skills は指定の4グループを、指定の順・内容で持つ", () => {
+test("profile.skills は指定の5グループを、指定の順・内容で持つ", () => {
   const skills = JSON.parse(JSON.stringify(loadData().profile.skills));
   assert.deepEqual(skills, [
     { group: "プログラミング（勉強中）", items: [{ name: "Python", note: "主に統計。GCIで学んだ範囲" }, { name: "R" }] },
+    { group: "使っている道具", items: [
+      { name: "HTML / CSS / JS", note: "このサイト自体。Claude Code と一緒に作っています" },
+      { name: "GitHub Pages", note: "このサイトの公開に使っています" },
+      { name: "Obsidian", note: "ノートとタスクの管理（PKM）" },
+      { name: "Claude Code", note: "開発・自動化の相棒" },
+      { name: "VOICEVOX", note: "Vlogの合成音声" }
+    ] },
     { group: "やってみたい", wish: true, items: [{ name: "JavaScript", note: "自分の手で書けるようになりたい" }, { name: "C#", note: "自分の手で書けるようになりたい" }, { name: "ほか（いろいろ）" }] },
     { group: "話せる・使える言語", items: [{ name: "日本語" }, { name: "英語" }, { name: "フランス語（少し）" }] },
     { group: "勉強中の言語", items: [{ name: "フランス語" }, { name: "韓国語" }] }

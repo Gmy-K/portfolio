@@ -27,6 +27,16 @@ window.PORTFOLIO = {
         ]
       },
       {
+        group: "사용하는 도구",
+        items: [
+          { name: "HTML / CSS / JS", note: "이 사이트 자체. Claude Code와 함께 만들었어요" },
+          { name: "GitHub Pages", note: "이 사이트를 공개하는 데 사용해요" },
+          { name: "Obsidian", note: "노트와 할 일 관리(PKM)" },
+          { name: "Claude Code", note: "개발과 자동화의 파트너" },
+          { name: "VOICEVOX", note: "브이로그의 합성 음성" }
+        ]
+      },
+      {
         group: "해 보고 싶은 것",
         wish: true,
         items: [
