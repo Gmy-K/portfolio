@@ -12,6 +12,7 @@
   var ui = (data && data.ui) || {};
   var siteTitle = ui.siteTitle || "ポートフォリオ";
   var categories = ui.categories || lib.CATEGORIES;
+  var pageLang = document.documentElement.lang || "ja";
 
   var errors = lib.validateData(data);
   if (errors.length > 0) {
@@ -144,7 +145,10 @@
 
     inner.appendChild(thumb);
     inner.appendChild(el("span", "badge", categories[item.category] + " / " + item.kind));
-    inner.appendChild(el("h3", "", item.title));
+    var title = el("h3", "", item.title);
+    // 日本語以外のページで日本語の題名（Note・Reel の原題など）を正しく読ませる
+    if (pageLang !== "ja" && lib.hasJapanese(item.title)) title.setAttribute("lang", "ja");
+    inner.appendChild(title);
     inner.appendChild(el("p", "", item.summary));
     inner.appendChild(el("p", "meta", item.date));
     card.appendChild(inner);

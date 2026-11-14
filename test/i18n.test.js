@@ -53,7 +53,9 @@ function japaneseLeftovers(text) {
 
 const BANNED = ["BS1551", "BS2518", "BS1515", "CE5579", "Webhook", "webhook", "My-Obsidian-Vault", "/Users/",
   "claude.ai/artifact", "@gmail", "Meiji", "明治", "カーディフ", "Cardiff", "Wise", "Starling", "Part-Catered",
-  "£", "Intelligence Fortress", "Fortress", "study-abroad-budget", "dotfiles"];
+  "£", "Intelligence Fortress", "Fortress", "study-abroad-budget", "dotfiles",
+  // 韓国語表記・通貨記号の取りこぼし防止
+  "메이지", "카디프", "€", "₩", "Discord 서버"];
 
 test("lib の言語設定: LANGS と PENDING の整合", () => {
   for (const l of PENDING) assert.ok(LANGS.includes(l));
@@ -231,8 +233,25 @@ for (const lang of READY) {
   });
 }
 
+// ---- 日本語以外のページ: 日本語の名前に lang="ja" を付ける ----
+for (const lang of READY) {
+  test(`[${lang}] 説明ページの .doc-site と .footer-name（ぐみゅけ）に lang="ja" がある`, () => {
+    for (const base of ["how-it-works", "tech"]) {
+      const html = read(pageName(base, lang));
+      assert.ok(html.includes('<p class="doc-site" lang="ja">ぐみゅけ</p>'), `${base}: .doc-site に lang="ja" がない`);
+      assert.ok(html.includes('<p class="footer-name" lang="ja">ぐみゅけ</p>'), `${base}: .footer-name に lang="ja" がない`);
+    }
+  });
+}
+
+test("script.js: 日本語を含むカードの題名に、日本語以外のページでは lang=\"ja\" を付ける", () => {
+  const src = read("script.js");
+  assert.match(src, /lib\.hasJapanese\(item\.title\)/);
+  assert.match(src, /setAttribute\("lang", "ja"\)/);
+});
+
 // ---- 日本語版: スイッチャーの導入で壊していないこと ----
-test("日本語版: index のナビ内のスイッチャーは先頭の nav の外側（既存の nav テストを壊さない）", () => {
+test("日本語版: index のスイッチャーは #site-nav の中で、nav 開始タグより後ろにある", () => {
   const html = read("index.html");
   assert.ok(html.indexOf('id="site-nav"') < html.indexOf('class="lang-switch"'));
 });

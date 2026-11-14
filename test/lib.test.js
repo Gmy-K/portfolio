@@ -284,3 +284,13 @@ test("validateData: ui は省略可で、siteTitle / categories / dataError の�
   assert.ok(lib.validateData(data({ ui: { categories: { post: "P" } } })).some((e) => e.includes("ui.categories.dev")));
   assert.ok(lib.validateData(data({ ui: { categories: "x" } })).some((e) => e.includes("ui.categories")));
 });
+
+test("hasJapanese: かな・漢字を含むときだけ true（ハングル・ラテン文字は false）", () => {
+  assert.equal(lib.hasJapanese("ぐみゅけ"), true);
+  assert.equal(lib.hasJapanese("留学 Note"), true);
+  assert.equal(lib.hasJapanese("カタカナ"), true);
+  assert.equal(lib.hasJapanese("Portfolio"), false);
+  assert.equal(lib.hasJapanese("포트폴리오"), false);
+  assert.equal(lib.hasJapanese(""), false);
+  assert.equal(lib.hasJapanese(undefined), false);
+});

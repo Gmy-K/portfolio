@@ -221,8 +221,14 @@
     return text;
   }
 
+  // かな・漢字（CJK 統合漢字）を含むか。ハングルは含めない。
+  function hasJapanese(text) {
+    return typeof text === "string" && /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff]/.test(text);
+  }
+
   return {
     CATEGORIES: CATEGORIES,
+    hasJapanese: hasJapanese,
     sortItems: sortItems,
     filterItems: filterItems,
     isLinkable: isLinkable,
